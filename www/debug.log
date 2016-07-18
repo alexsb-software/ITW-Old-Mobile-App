@@ -1,0 +1,13 @@
+[0512/200723:ERROR:process_info.cc(608)] range at 0xff20c000, size 0x230 fully unreadable
+[0512/200723:ERROR:process_reader_win.cc(232)] ReadMemory at 0x6bb90000 of 64 bytes failed: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[0512/200723:WARNING:pe_image_reader.cc(280)] could not read dos header from C:\Windows\SYSTEM32\WINSPOOL.DRV
+[0512/200723:ERROR:process_reader_win.cc(232)] ReadMemory at 0x63f00000 of 64 bytes failed: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[0512/200723:WARNING:pe_image_reader.cc(280)] could not read dos header from C:\Program Files (x86)\Google\Chrome\Application\50.0.2661.94\chrome_child.dll
+[0512/200723:ERROR:process_reader_win.cc(232)] ReadMemory at 0x6bb90000 of 64 bytes failed: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[0512/200723:WARNING:pe_image_reader.cc(280)] could not read dos header from C:\Windows\SYSTEM32\WINSPOOL.DRV
+[0512/200723:ERROR:process_reader_win.cc(232)] ReadMemory at 0x63f00000 of 64 bytes failed: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[0512/200723:WARNING:pe_image_reader.cc(280)] could not read dos header from C:\Program Files (x86)\Google\Chrome\Application\50.0.2661.94\chrome_child.dll
+[0512/200723:ERROR:process_reader_win.cc(141)] SuspendThread: Access is denied. (0x5)
+[0512/200723:ERROR:exception_snapshot_win.cc(57)] thread ID 6896 not found in process
+[0512/200723:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::InitializeException failed
+[0512/200723:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess, ntstatus=-1073741558

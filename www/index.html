@@ -1,0 +1,1085 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jquery Mobile Course</title>
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css" />
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+        <script id="microloader" type="text/javascript" src=".sencha/app/microloader/development.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <style>
+            #map, #map-canvas { width: 100%; height: 100%; padding: 0; }
+            .form-layout {
+				background:white;
+				width:100%;
+				border-radius:15px;
+				margin-left:0px;
+				margin-right:0px;
+				margin-top:0px;
+				font-family:"Times New Roman", Times;
+            }
+            /* Class for positioning the text area */
+            .form-text-layout {
+				padding:10px 10px;
+				width:70%;
+            }
+            /* Class for the text and background color*/
+            .form-text {
+				border: 0px solid #FFF;
+				background: white;
+				vertical-align: middle;
+				color:black;
+				min-width:50%;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Start of first page -->
+        <div data-role="page" id="index">
+            <div data-role="header" data-theme="a">
+                <h1>
+                    ITW | IEEE AlexSB
+                </h1>
+            </div>
+            <!-- /header -->
+            <div role="main" class="ui-content">
+                <p id="error" style="font-size:90%; color:red;"></p>
+                <form action="" id="form1" method="post"">
+                    <table class="form-layout">
+                        <tr>
+                            <td class="form-text-layout"><input type="text" class="form-text"
+                                name="email1" id="email1" placeholder="Email address" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-text-layout"><input type="password" class="form-text" name="password1"
+                                id="password1" placeholder="Password" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <div class="signin-button"><input type="submit" id="send" value="Sign In"
+                                    data-theme="b"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <a href = "#signup" rel="external" style="font-size:80%">Don't have an account yet? Click here to sign up</a>
+            </div>
+            <!-- /content -->
+            <!-- <div data-role="footer">
+                <h4>Page Footer</h4>
+                </div> /footer -->
+        </div>
+        <!-- /page -->
+        <!-- Start of second page -->
+        <div data-role="page" id="signup">
+            <div data-role="header" data-add-back-btn="true">
+                <h1>Sign up Form</h1>
+            </div>
+            <!-- /header -->
+            <div data-role="main" class="ui-content">
+                <div id="error1" style="font-size:90%; color:red;"></div>
+                <div class="container">
+                    <div class="main">
+                        <form class="form" method="post" id="form2">
+                            <label>Name :</label>
+                            <input type="text" name="dname" id="name">
+                            <label>Email :</label>
+                            <input type="text" name="demail" id="emaill">
+                            <label>Password :</label>
+                            <input type="password" name="password" id="passwordl">
+                            <label>Confirm Password :</label>
+                            <input type="password" name="cpassword" id="cpassword">
+                            <label for="ieeemember">Are you an IEEE member</label>
+                            <select name="ieeemember" id="ieeemember" data-role="slider" data-mini="true">
+                                <option value="No">No</option>
+                                <option value="Yes" selected="">Yes</option>
+                            </select>
+                            <label>Membership no :</label>
+                            <input type="number" name="membershipno" id="membershipno" placeholder="leave it blank if not a member ">
+                            <label>Mobile :</label>
+                            <input type="number" name="mobile" id="mobile">
+                            <label for="department" class="select" data-inline="true">Department</label>
+                            <select name="department" id="department" data-inline="true">
+                                <option value="electrical">Electrical</option>
+                                <option value="mechanical">Mechanical</option>
+                                <option value="civil">Civil</option>
+                                <option value="computer">Computer</option>
+                                <option value="architecture">Architecture</option>
+                                <option value="production">Production</option>
+                                <option value="nuclear">Nuclear</option>
+                                <option value="Chemical">Chemical</option>
+                                <option value="Marine">Marine</option>
+                                <option value="Petrochemical">Petrochemical</option>
+                                <option value="Electromechanical">Electromechanical</option>
+                                <option value="ComputerandCommunication">Computer and Communication</option>
+                                <option value="ArchitectureandConstruction">Architecture and Construction</option>
+                                <option value="Textile">Textile </option>
+                                <option value="Preparatory ">Preparatory </option>
+                                <option value="other">other</option>
+                            </select>
+                            <label for="year" class="year" data-inline="true">Class</label>
+                            <select name="year" id="year" data-inline="true">
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="other">other</option>
+                            </select>
+                            <input type="button" type="submit" name="enter" id="enter" value="sign up">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- /content -->
+            <!-- <div data-role="footer">
+                <h4>Page Footer</h4>
+                </div> /footer -->
+        </div>
+        <!-- /page -->
+        <!-- Start of second page -->
+        <div data-role="page" id="homepage">
+            <div data-role="header">
+                <h1>IEEE events</h1>
+            </div>
+            <!-- /header -->
+            <div role="main" class="ui-content">
+                <a href="#about">
+                    <!-- event -->
+                <a href="#menu" style="text-decoration: none;">
+                    <div id="container" style="height:100px; background-color:white;">
+                        <img class="event-pic" src="img/just.jpg" style="padding:10px; width:70px; height:70px; float:left; "></img>
+                        <h4 class="event-name" style="float:center; font-size:150%;">Just Graduated 2016</h4>
+                        <!-- event data-->	
+                        <div id="event-data-div">
+                            <!-- date -->
+                            <div id="date-div">
+                                <img class="small-pic" src="img/date.png" style="float:left; width:25px; height:20px;"></img>
+                                <p id="date" class="event-data" style="float:left; font-size:75%;"> May 7-8, 2016</p>
+                            </div>
+                            <!-- location -->
+                            <div id="location-div">
+                                <img class="small-pic" src="img/location.png" style="float:left; width:25px; height:20px;"></img>
+                                <p id="location" class="event-data" style="float:left; font-size:75%;">bibliotheca alexandrina</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- search button -->
+                <!--	<div>
+                    <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l ui-btn-icon-search search">search all IEEE AlexSB events</a>
+                    	</div>-->
+            </div>
+            </a><!-- /content -->
+            <!--  <div data-role="footer">
+                <h4>Page Footer</h4>
+                </div>  /footer -->
+        </div>
+        <!-- /page -->
+        <!-- Start of second page -->
+        <div data-role="page" id="menu">
+            <div data-role="header" data-position="fixed" >
+                <h1>Just Graduated</h1>
+            </div>
+            <!-- /header -->
+            <div data-role="main" class="ui-content">
+                <div class="ui-grid-b" ui-responsive>
+                    <div class="ui-block-a"><a href="#schedule" class="ui-btn ui-btn-inline ui-icon-schedule ui-btn-icon-top button ui-nodisc-icon" style="border:none; background-repeat:no-repeat; background-color:transparent !important;
+                        background-image: url('img/schedule.png');
+                        background-size: 35px !important;
+                        }">schedule</a></div>
+                    <div class="ui-block-b"><a href="http://www.alexsb.org" id="ieee" target="_blank" class="ui-btn ui-btn-inline ui-nodisc-icon ui-icon-website ui-btn-icon-top button"style= "border:none; background-color:transparent !important;background-repeat:no-repeat; background-image: url('img/website.png');
+                        /* Make your icon fit */
+                        background-size: 35px !important;
+                        ">website</a></div>
+                    <div class="ui-block-c"><a href="#sponsors" class="ui-btn ui-btn-inline ui-icon-sponsors ui-btn-icon-top button ui-nodisc-icon"style=" border:none; background-color:transparent !important;background-repeat:no-repeat; background-image: url('img/sponser.png');
+                        /* Make your icon fit */
+                        background-size: 35px !important;
+                        ">sponsors</a></div>
+                </div>
+                <!-- /grid-b -->
+                <br>
+                <div class="ui-grid-b"ui-responsive>
+                    <div class="ui-block-a"><a href="#ieeeemail" class="ui-btn ui-btn-inline ui-icon-email ui-btn-icon-top button ui-nodisc-icon"style=" border:none; background-color:transparent !important; background-repeat:no-repeat;    background-image: url('img/email.png');
+                        /* Make your icon fit */
+                        background-size: 35px !important;
+                        ">email</a></div>
+                    <div class="ui-block-b"><a href="#feedbacks" class="ui-btn ui-btn-inline ui-icon-feedbacks ui-btn-icon-top button ui-nodisc-icon" style="border:none; background-color:transparent !important;  background-repeat:no-repeat;   background-image: url('img/Feedbacks.jpg');
+                        /* Make your icon fit */
+                        background-size: 35px !important;
+                        ">feedbacks</a></div>
+                    <div class="ui-block-c"><a href="#exhibitors" class="ui-btn ui-btn-inline ui-icon-exhibitors ui-btn-icon-top button ui-nodisc-icon"style=" border:none; background-color:transparent !important;  background-repeat:no-repeat;   background-image: url('img/exhibitors.png');
+                        /* Make your icon fit */
+                        background-size: 35px !important;
+                        ">exhibitors</a></div>
+                </div>
+                <!-- /grid-b -->
+                <br>
+                <div class="ui-grid-b"ui-responsive>
+                    <div class="ui-block-a"><a href="#files" class="ui-btn ui-btn-inline ui-icon-files ui-btn-icon-top button ui-nodisc-icon" style="border:none; background-color:transparent !important; background-repeat:no-repeat;	 background-image: url('img/files.jpeg');
+                        /* Make your icon fit */
+                        background-size: 35px !important;
+                        ">files</a></div>
+                    <div class="ui-block-b"><a href="#map" class="ui-btn ui-btn-inline ui-icon-register ui-btn-icon-top button ui-nodisc-icon"style="border:none; background-color:transparent !important; background-repeat:no-repeat;    background-image: url('img/map.png');
+                        /* Make your icon fit */
+                        background-size: 35px !important;
+                        ">maps</a></div>
+                    <div class="ui-block-c"><a href="#announcement" class="ui-btn ui-btn-inline ui-icon-announcemnts ui-btn-icon-top button ui-nodisc-icon" style="border:none; background-color:transparent !important; background-repeat:no-repeat; background-image: url('img/announcements.png');
+                        /* Make your icon fit */
+                        background-size: 35px !important;
+                        ">announcemnts</a></div>
+                </div>
+            </div>
+            <!-- /content -->
+            <!-- <div data-role="footer">
+                <h4>Page Footer</h4>
+                </div> /footer -->
+        </div>
+        <!-- /page -->
+        <!-- Start of second page -->
+        <div data-role="page" id="schedule">
+            <div data-role="header" data-add-back-btn="true" style="overflow:hidden;">
+                <h1>Just graduated schedule</h1>
+                <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#" class="ui-disabled"  data-theme="b !important" style="background-color:#808080 !important;" data-ajax="false">Mon<br>02</a></li>
+                        <li><a href="#one" data-theme="a" data-ajax="false">Tue<br>03</a></li>
+                        <li><a href="#one" data-theme="a" data-ajax="false">Wed<br>04</a></li>
+                        <li><a href="#" data-theme="a" data-ajax="false">Thu<br>05</a></li>
+                        <li><a href="#" class="ui-disabled"  data-theme="b" data-ajax="false">Fri<br>06</a></li>
+                    </ul>
+                </div>
+                <!-- /navbar -->
+            </div>
+            <!-- /header -->
+            <div role="main" class="ui-content">
+                <div role="main" class="ui-content" id="one">
+                    <h1>
+                        <ul data-role="listview" data-inset="true">
+                            <li data-role="list-divider">9:00</li>
+                            <li>
+                                <a href="#">
+                                    <h2>Registration</h2>
+                                    <p><strong>Bibliotheca alexandrina lobby</strong></p>
+                                    <p class="ui-li-aside"><strong>9:00 &#8658; 10:00</strong>AM</p>
+                                </a>
+                            </li>
+                            <li data-role="list-divider">10:00 </li>
+                            <li>
+                                <a href="#sessionone">
+                                    <h2>Keynote speech</h2>
+                                    <p><strong>Great hall</strong></p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed,<br>
+                                        placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna.!
+                                    </p>
+                                    <p class="ui-li-aside"><strong>10:00 &#8658; 11:00</strong>AM</p>
+                                </a>
+                            </li>
+                            <li data-role="list-divider">11:00 </li>
+                            <li>
+                                <a href="">
+                                    <h2>Nano-photonics and plasmonics</h2>
+                                    <p><strong>Great hall</strong></p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed,<br>
+                                        placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna.!
+                                    </p>
+                                    <p class="ui-li-aside"><strong>10:00 &#8658; 11:00</strong>AM</p>
+                                </a>
+                            </li>
+                            <li data-role="list-divider">12:00 </li>
+                            <li>
+                                <a href="#">
+                                    <h2>Prayer break</h2>
+                                    <p class="ui-li-aside"><strong>12:00&#8658; 1:00</strong>PM</p>
+                                </a>
+                            </li>
+                            <li data-role="list-divider">1:00 </li>
+                            <li>
+                                <a href="">
+                                    <h2>Women in engineering</h2>
+                                    <p><strong>Room "C"</strong></p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed,<br>
+                                        placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna.!
+                                    </p>
+                                    <p class="ui-li-aside"><strong>1:00&#8658; 1:45</strong>PM</p>
+                                </a>
+                            </li>
+                            <li data-role="list-divider">1:45</li>
+                            <li>
+                                <a href="">
+                                    <h2>Develop what's next</h2>
+                                    <p><strong>multi-purpose room</strong></p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed,<br>
+                                        placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna.!
+                                    </p>
+                                    <p class="ui-li-aside"><strong>1:45 &#8658; 2:30</strong>PM</p>
+                                </a>
+                            </li>
+                            <li data-role="list-divider">2:30</li>
+                            <li>
+                                <a href="">
+                                    <h2>Optimization Algorithms</h2>
+                                    <p><strong>Great hall</strong></p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed,<br>
+                                        placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna.!
+                                    </p>
+                                    <p class="ui-li-aside"><strong>2:30 &#8658; 3:15</strong>PM</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </h1>
+                </div>
+            </div>
+            <!-- /content -->
+            <!--  <div data-role="footer">
+                <h4>Page Footer</h4>
+                </div> /footer -->
+        </div>
+        <!-- /page -->
+        <!-- Start of second page -->
+        <div data-role="page" id="sessionone" data-dialog="true">
+            <div data-role="header" data-theme="a">
+                <h1>keynote speech</h1>
+            </div>
+            <!-- /header -->
+            <div role="main" class="ui-content">
+                <h1>keynote speech</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed, placerat urna. Pellentesque purus dui, gravida eget purus vitae,
+                    <br> consectetur pulvinar magna. Donec molestie vel eros quis vestibulum. Ut leo nulla, ultricies sed ligula tristique, pharetra mollis sapien. Vestibulum consequat porta nibh non maximus. Maecenas commodo,
+                    <br> dui id pulvinar congue, risus metus ultrices mi, vitae aliquet metus nulla sed libero
+                </p>
+                <a href="#speakerinformation"  class="ui-btn ui-shadow ui-corner-all ui-btn-a">speaker information</a>
+                <a href="#sessionfeedback"  class="ui-btn ui-shadow ui-corner-all ui-btn-a">session feedback</a>
+            </div>
+            <!-- /content -->
+            <!--  <div data-role="footer">
+                <h4>Page Footer</h4>
+                </div> /footer -->
+        </div>
+        <!-- /page -->
+        <!-- Start of second page -->
+        <div data-role="page" id="speakerinformation">
+            <div data-role="header" data-add-back-btn="true">
+                <h1>Keynote speech</h1>
+            </div>
+            <!-- /header -->
+            <div role="main" class="ui-content">
+                <div class="ui-content">
+                    <div style="height:200px;">
+                        <img style="width:125px; height:125px; padding:25px; float:left;"src="img/user.jpg">
+                        </img>
+                        <div style="padding:50px;">
+                            <p><strong>Name: </strong></p>
+                            <p><strong>position: </strong></p>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div>
+                        <p><strong>Bio</strong></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed, placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna. Donec molestie vel eros quis vestibulum. Ut leo nulla, ultricies sed ligula tristique, pharetra mollis sapien. Vestibulum consequat porta nibh non maximus. Maecenas commodo, dui id pulvinar congue, 
+                            risus metus ultrices mi, vitae aliquet metus nulla sed libero
+                        </p>
+                    </div>
+                    <br><br><br>
+                    <div>
+                        <p><strong>Contacts</strong></p>
+                        <p>Email: 
+                            <br>mobile:
+                            <br>linkedin:
+                            <br>Facebook:
+                            <br>Twitter:
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- /content -->
+            <!--  <div data-role="footer">
+                <h4>Page Footer</h4>
+                </div> /footer -->
+        </div>
+        <!-- /page -->
+        <!-- Start of second page -->
+        <div data-role="page" id="sessionfeedback">
+            <div data-role="header"data-add-back-btn="true">
+                <h1>session one feedback</h1>
+            </div>
+            <!-- /header -->
+            <div role="main" class="ui-content">
+                <form class="ui-mini">
+                    <div class="ui-field-contain" id="expectations">
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Timing was suitable.</legend>
+                            <label for="ab">Disagree</label>
+                            <input type="radio" name="timing" id="ab" checked>
+                            <label for="cd">Neutral</label>
+                            <input type="radio" name="timing" id="cd">
+                            <label for="ef">Agree</label>
+                            <input type="radio" name="timing" id="ef">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Topic was interesting.</legend>
+                            <label for="ty">Disagree</label>
+                            <input type="radio" name="Topic" id="ty" checked>
+                            <label for="ui">Neutral</label>
+                            <input type="radio" name="Topic" id="ui">
+                            <label for="as">Agree</label>
+                            <input type="radio" name="Topic" id="as">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	This seminar provided enough information about the topic.</legend>
+                            <label for="df">Disagree</label>
+                            <input type="radio" name="information" id="df" checked>
+                            <label for="hk">Neutral</label>
+                            <input type="radio" name="information" id="hk">
+                            <label for="gj">Agree</label>
+                            <input type="radio" name="information" id="gj">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Content was valuable.</legend>
+                            <label for="zx">Disagree</label>
+                            <input type="radio" name="Content" id="zx" checked>
+                            <label for="cv">Neutral</label>
+                            <input type="radio" name="Content" id="cv">
+                            <label for="bn">Agree</label>
+                            <input type="radio" name="Content" id="bn">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Speaker was knowledgeable about the topic.</legend>
+                            <label for="qa">Disagree</label>
+                            <input type="radio" name="Speaker" id="qa" checked>
+                            <label for="ws">Neutral</label>
+                            <input type="radio" name="Speaker" id="ws">
+                            <label for="ed">Agree</label>
+                            <input type="radio" name="Speaker" id="ed">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Speaker had good presentation skills.</legend>
+                            <label for="rf">Disagree</label>
+                            <input type="radio" name="presentation" id="rf" checked>
+                            <label for="tg">Neutral</label>
+                            <input type="radio" name="presentation" id="tg">
+                            <label for="yh">Agree</label>
+                            <input type="radio" name="presentation" id="yh">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Duration was enough.</legend>
+                            <label for="uj">Disagree</label>
+                            <input type="radio" name="Duration" id="uj" checked>
+                            <label for="ik">Neutral</label>
+                            <input type="radio" name="Duration" id="ik">
+                            <label for="az">Agree</label>
+                            <input type="radio" name="Duration" id="az">
+                        </fieldset>
+                    </div>
+                    </br></br>
+                    <div class="ui-field-contain" id="rating">
+                        <label for="slider-fill">Please give an overall rating for this seminar:</label>
+                        <input type="range" name="slider-fill" id="slider-fill" value="60" min="0" max="100" step="10" data-highlight="true">
+                    </div>
+                    </br></br>
+                    <div class="ui-field-contain" id="rating">
+                        <label for="flip-1">Did you expect any additional information? </label>
+                        <select name="flip-1" id="flip-1" data-role="slider">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    </br></br>
+                    <div data-role="fieldcontain">
+                        <label for="textarea">What are your suggestions for other seminars topics?</label>
+                        <textarea name="textarea" id="textarea"></textarea>
+                    </div>
+                    </br></br>
+                    <div data-role="fieldcontain">
+                        <label for="textarea">Please write your suggestions and comments about this seminar or any activity of IEEE AlexSB.</label>
+                        <textarea name="textarea" id="textarea"></textarea>
+                    </div>
+                    </br></br>
+                    <input type="submit" data-inline="true" value="Submit">
+                    <input type="reset" data-inline="true" value="reset">
+                </form>
+            </div>
+            <!-- /content -->
+            <!-- 	<div data-role="footer">
+                <h4>Page Footer</h4>
+                </div> /footer -->
+        </div>
+        <!-- /page -->
+        <!-- Start of second page -->
+        <div data-role="page" id="sponsors">
+            <div data-role="header" data-add-back-btn="true">
+                <h1>Sponsors</h1>
+            </div>
+            <!-- /header -->
+            <div role="main" class="ui-content">
+                <div data-role="collapsible" data-collapsed="false" id="platinum sponsors" >
+                    <h2>platinum sponsors</h2>
+                    <a href="http://www.google.com" target="_blank">	<img src="img/google.png"></img>
+                    </a>
+                </div>
+                <div data-role="collapsible" data-collapsed="false" id="golden sponsors" >
+                    <h2>golden sponsors</h2>
+                    <a href="http://www.google.com" target="_blank">	<img src="img/google.png"></img>
+                    </a>
+                </div>
+                <div data-role="collapsible" data-collapsed="false" id="silver sponsors" >
+                    <h2>silver sponsors</h2>
+                    <a href="http://www.google.com" target="_blank">	<img src="img/google.png"></img>
+                    </a>
+                </div>
+                <div data-role="collapsible" data-collapsed="false" id="partners" >
+                    <h2>partners</h2>
+                    <a href="http://www.google.com" target="_blank">	<img src="img/google.png"></img>
+                    </a>
+                </div>
+            </div>
+            <!-- /content -->
+            <!-- 	<div data-role="footer">
+                <h4>Page Footer</h4>
+                </div> /footer -->
+        </div>
+        <!-- /page -->
+        <!-- Start of second page -->
+        <div data-role="page" id="files">
+            <div data-role="header"data-add-back-btn="true">
+                <h1>Files</h1>
+            </div>
+            <!-- /header -->
+            <div role="main" class="ui-content">
+                <ul data-role="listview" data-inset="true">
+                    <li><a href="https://drive.google.com/uc?export=download&id=0B8-5tbz7gsrXSXhmVzBvOXRQLTg">Keynotes presentation</a></li>
+                    <li><a href="#">file 2</a></li>
+                    <li><a href="#">file 3</a></li>
+                    <li><a href="#">file 4</a></li>
+                    <li><a href="#">file 5</a></li>
+                </ul>
+            </div>
+            <!-- /content -->
+            <!-- <div data-role="footer">
+                <h4>Page Footer</h4>
+                </div> /footer -->
+        </div>
+        <!-- /page -->
+        <!-- Start of second page -->
+        <div data-role="page" id="feedbacks">
+            <div data-role="header" data-add-back-btn="true" >
+                <h1>Feedbacks</h1>
+            </div>
+            <!-- /header -->
+            <div role="main" class="ui-content">
+                <form class="ui-mini">
+                    <div class="ui-field-contain" id="theme-selector">
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>How did you know about this event ?</legend>
+                            <label for="a">Poster</label>
+                            <input type="radio" name="theme" id="a" checked>
+                            <label for="b">Email</label>
+                            <input type="radio" name="theme" id="b">
+                            <label for="c">Facebook event</label>
+                            <input type="radio" name="theme" id="c">
+                            <label for="d">Friends</label>
+                            <input type="radio" name="theme" id="d">
+                            <label for="e">AlexSB volunteer</label>
+                            <input type="radio" name="theme" id="e">
+                            <label for="f">other</label> 
+                            <input type="radio" name="theme" id="f">
+                        </fieldset>
+                        <input type = "text" id="others" style= "display:none;"></input>
+                    </div>
+                    <div class="ui-field-contain" id="expectations">
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	The event met my expectations.</legend>
+                            <label for="g">Disagree</label>
+                            <input type="radio" name="meet" id="g" checked>
+                            <label for="h">Neutral</label>
+                            <input type="radio" name="meet" id="h">
+                            <label for="i">Agree</label>
+                            <input type="radio" name="meet" id="i">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Event location was suitable.</legend>
+                            <label for="j">Disagree</label>
+                            <input type="radio" name="location" id="j" checked>
+                            <label for="k">Neutral</label>
+                            <input type="radio" name="location" id="k">
+                            <label for="l">Agree</label>
+                            <input type="radio" name="location" id="l">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Timing was suitable.</legend>
+                            <label for="ab">Disagree</label>
+                            <input type="radio" name="timing" id="ab" checked>
+                            <label for="cd">Neutral</label>
+                            <input type="radio" name="timing" id="cd">
+                            <label for="ef">Agree</label>
+                            <input type="radio" name="timing" id="ef">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Event was well organized. </legend>
+                            <label for="gh">Disagree</label>
+                            <input type="radio" name="organized" id="gh" checked>
+                            <label for="jk">Neutral</label>
+                            <input type="radio" name="organized" id="jk">
+                            <label for="il">Agree</label>
+                            <input type="radio" name="organized" id="il">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Organizers were helpful.</legend>
+                            <label for="op">Disagree</label>
+                            <input type="radio" name="Organizers" id="op" checked>
+                            <label for="qw">Neutral</label>
+                            <input type="radio" name="Organizers" id="qw">
+                            <label for="er">Agree</label>
+                            <input type="radio" name="Organizers" id="er">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Topic was interesting.</legend>
+                            <label for="ty">Disagree</label>
+                            <input type="radio" name="Topic" id="ty" checked>
+                            <label for="ui">Neutral</label>
+                            <input type="radio" name="Topic" id="ui">
+                            <label for="as">Agree</label>
+                            <input type="radio" name="Topic" id="as">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	This seminar provided enough information about the topic.</legend>
+                            <label for="df">Disagree</label>
+                            <input type="radio" name="information" id="df" checked>
+                            <label for="hk">Neutral</label>
+                            <input type="radio" name="information" id="hk">
+                            <label for="gj">Agree</label>
+                            <input type="radio" name="information" id="gj">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Content was valuable.</legend>
+                            <label for="zx">Disagree</label>
+                            <input type="radio" name="Content" id="zx" checked>
+                            <label for="cv">Neutral</label>
+                            <input type="radio" name="Content" id="cv">
+                            <label for="bn">Agree</label>
+                            <input type="radio" name="Content" id="bn">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Speaker was knowledgeable about the topic.</legend>
+                            <label for="qa">Disagree</label>
+                            <input type="radio" name="Speaker" id="qa" checked>
+                            <label for="ws">Neutral</label>
+                            <input type="radio" name="Speaker" id="ws">
+                            <label for="ed">Agree</label>
+                            <input type="radio" name="Speaker" id="ed">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Speaker had good presentation skills.</legend>
+                            <label for="rf">Disagree</label>
+                            <input type="radio" name="presentation" id="rf" checked>
+                            <label for="tg">Neutral</label>
+                            <input type="radio" name="presentation" id="tg">
+                            <label for="yh">Agree</label>
+                            <input type="radio" name="presentation" id="yh">
+                        </fieldset>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>•	Duration was enough.</legend>
+                            <label for="uj">Disagree</label>
+                            <input type="radio" name="Duration" id="uj" checked>
+                            <label for="ik">Neutral</label>
+                            <input type="radio" name="Duration" id="ik">
+                            <label for="az">Agree</label>
+                            <input type="radio" name="Duration" id="az">
+                        </fieldset>
+                    </div>
+                    </br></br>
+                    <div class="ui-field-contain" id="rating">
+                        <label for="slider-fill">Please give an overall rating for this seminar:</label>
+                        <input type="range" name="slider-fill" id="slider-fill" value="60" min="0" max="100" step="10" data-highlight="true">
+                    </div>
+                    </br></br>
+                    <div class="ui-field-contain" id="rating">
+                        <label for="flip-1">Did you expect any additional information? </label>
+                        <select name="flip-1" id="flip-1" data-role="slider">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    </br></br>
+                    <div data-role="fieldcontain">
+                        <label for="textarea">What are your suggestions for other seminars topics?</label>
+                        <textarea name="textarea" id="textarea"></textarea>
+                    </div>
+                    </br></br>
+                    <div data-role="fieldcontain">
+                        <label for="textarea">Please write your suggestions and comments about this seminar or any activity of IEEE AlexSB.</label>
+                        <textarea name="textarea" id="textarea"></textarea>
+                    </div>
+                    </br></br>
+                    <input type="submit" data-inline="true" value="Submit">
+                    <input type="reset" data-inline="true" value="reset">
+                </form>
+            </div>
+            <!-- /content -->
+            <!-- <div data-role="footer">
+                <h4>Page Footer</h4>
+                </div> /footer -->
+        </div>
+        <!-- /page -->
+        <!-- Start of second page -->
+        <div data-role="page" id="exhibitors">
+            <div data-role="header" data-add-back-btn="true">
+                <h1>exhibitor</h1>
+            </div>
+            <!-- /header -->
+            <div role="main" class="ui-content">
+                <ul data-role="listview" data-inset="true" data-divider-theme="a">
+                    <li data-role="list-divider">Mechanical</li>
+                    <li>
+                        <a href="#design">
+                            <img src="img/user.jpg">
+                            <h2>Design</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/user.jpg">
+                            <h2>Fluid</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/user.jpg">
+                            <h2>internal</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </a>
+                    </li>
+                    <li data-role="list-divider">Electrical</li>
+                    <li>
+                        <a href="#">
+                            <img src="img/user.jpg">
+                            <h2>Power</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/user.jpg">
+                            <h2>communication</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- <div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+        </div><!-- /page -->
+        <!-- Start of second page -->
+        <div data-role="page" id="design">
+            <div data-role="header"data-add-back-btn="true">
+                <h1>Design</h1>
+            </div>
+            <!-- /header -->
+            <div role="main" class="ui-content">
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <a href="#robot">
+                            <img src="img/user.jpg">
+                            <h2>Robot</h2>
+                            <p>description</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/user.jpg">
+                            <h2>CNC machine</h2>
+                            <p>description</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/user.jpg">
+                            <h2>3D printer</h2>
+                            <p>description</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- <div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+        </div><!-- /page -->
+        <!-- Start of second page -->
+        <div data-role="page" id="robot">
+            <div data-role="header"data-add-back-btn="true">
+                <h1>Robot project</h1>
+            </div>
+            <!-- /header -->
+            <div role="main" class="ui-content">
+                <div class="ui-content">
+                    <div style="height:200px;">
+                        <img style="width:125px; height:125px; padding:25px; float:left;"src="img/user.jpg">
+                        </img>
+                        <div style="padding:50px;">
+                            <p><strong>Team Name: </strong></p>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div>
+                        <p><strong>Project description</strong></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed, placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna. Donec molestie vel eros quis vestibulum. Ut leo nulla, ultricies sed ligula tristique, pharetra mollis sapien. Vestibulum consequat porta nibh non maximus. Maecenas commodo, dui id pulvinar congue, 
+                            risus metus ultrices mi, vitae aliquet metus nulla sed libero
+                        </p>
+                    </div>
+                    <br><br><br>
+                    <div>
+                        <p><strong>Contacts</strong></p>
+                        <p>Email: 
+                            <br>mobile:
+                            <br>linkedin:
+                            <br>Facebook:
+                            <br>Twitter:
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- /content -->
+            <!-- <div data-role="footer">
+                <h4>Page Footer</h4>
+                </div> /footer -->
+        </div>
+        <!-- /page -->
+    </body>
+    <!-- Start of second page -->
+    <div data-role="page" id="announcement">
+        <div data-role="header">
+            <h1>Announcemnt</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <div data-role="main" class="ui-content">
+                <ul data-role="listview" data-inset="true" style="margin-top:20px;">
+                    <li data-role="list-divider">Refund desk </li>
+                    <li>
+                        <h2>Refund desk</h2>
+                        <p>We will be having a refund desk this week on Wednesday 20/4 and Thursday 21/4.  <br>
+                            If you have any refunds to make,please visit the desk  
+                            <br>from 11:50 am till 1:40 pm in the Hall of Electrical Building.
+                        </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="main" class="ui-content">
+                <ul data-role="listview" data-inset="true" style="margin-top:20px;">
+                    <li data-role="list-divider">Courses registeration </li>
+                    <li>
+                        <a href="https://www.facebook.com/events/1577622149204003/"  target="_blank">
+                            <h2>courses registeration</h2>
+                            <p>Don't miss IEEE AlexSB Summer Courses Registration.
+                                -Dates: From Saturday, May 7th till Monday, May 9th
+                                Time: From 11:50 AM till 1:40 PM
+                                Place: Electrical Engineering Building Hall 
+                            </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- <div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+    </div>
+    <!-- /page -->
+    <!-- Start of second page -->
+    <div data-role="page" id="ieeeemail">
+        <div data-role="header" data-add-back-btn="true">
+            <h1>EMail</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <div class="container"></div>
+            <h1>get in touch</h1>
+            <div id="error2" style="font-size:80%; width:250px; height:100px; color:red;  "   > </div>
+            <form method="post"id="form3">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="email3" class="form-control" id="email3" placeholder="Enter email">
+                <label for="subject">subject</label>
+                <input type="text" name="subject" class="form-control" id="subject">
+                <label for="content">content</label>
+                <textarea class="form-control" name="content" id="content" rows="3"></textarea>
+                <button type="submit" class="btn btn-primary" id="emailsend">send</button>
+            </form>
+        </div>
+        <!-- /content -->
+        <!-- 	<div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+    </div>
+    <!-- /page -->
+    <div data-role="page" id="map" data-url="map-page">
+        <div data-role="header" data-theme="a">
+            <h1>Maps</h1>
+        </div>
+        <div role="main" class="ui-content" id="map-canvas">
+            <!-- map loads here... -->
+        </div>
+    </div>
+    </body>
+    <script>
+        $("#form1").on('submit', function() {
+			return false;
+		});
+
+		$("#send").click(function() {
+			var email = $("#email1").val();
+			var password = $("#password1").val();
+			var dataString = "email=" + email + "&password=" + password + "&send=";
+			var a = new XMLHttpRequest();
+			
+			a.onreadystatechange = function() {
+				if (a.readyState == 4 && a.status == 200) {
+					console.log(a);
+					var b = a.responseText
+
+					console.log(b);
+					if (b == "1") {
+						window.location.assign("#homepage");
+					} else {
+						$("#error").html(b);
+					}
+				}
+			};
+			
+			a.open("POST", "http://176.32.230.48/ahmedhafez92.com/signin.php", true);
+			a.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			a.send("&email=" + email + "&password=" + password);
+			
+		})
+
+		$("#enter").click(function() {
+
+			var email = $("#emaill").val();
+			var password = $("#passwordl").val();
+			var name = $("#name").val();
+			var ieeemember = $("#ieeemember").val();
+			var mobile = $("#mobile").val();
+			var membershipno = $("#membershipno").val();
+			var department = $("#department").val();
+			var year = $("#year").val();
+			var cpassword = $("#cpassword").val();
+
+			var dataString = "email=" + email + "&password=" + password + "name=" + name + "&ieeemember=" + ieeemember + "mobile=" + mobile + "&membershipno=" + membershipno + "department=" + department + "&year=" + year + "&enter=";
+
+			if (password !== cpassword) {
+				$('#form2')[0].reset();
+
+				//$("#form2").on('submit',function(){return false;});
+				$("#error1").html("your passwords don't match")
+			} else {				
+				var a = new XMLHttpRequest();
+				
+				a.onreadystatechange = function() {
+					if (a.readyState == 4 && a.status == 200) {
+						console.log(a);
+						var b = a.responseText
+
+						if (b !== "your passwords don't match" && b !== "That email address is taken.") {
+							$("#error").html("you signed up successfully ")
+							window.location.assign("#index")
+							$('#form2')[0].reset();
+						} else {
+							$('#form2')[0].reset();
+							//$("#form2").on('submit',function(){return false;});
+							$("#error1").html(b)
+						}
+					}
+				};
+				
+				a.open("POST", "http://176.32.230.48/ahmedhafez92.com/signup.php", true);
+				a.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				a.send("&email=" + email + "&password=" + password + "&name=" + name + "&ieeemember=" + ieeemember + "&mobile=" + mobile + "&membershipno=" + membershipno + "&department=" + department + "&year=" + year);
+			}
+		})
+
+		$("#f").click(function() {
+			$("#others").toggle();
+		})
+
+		$("#form3").on('submit', function() {
+			return false;
+		});
+
+		$("#emailsend").click(function() {
+			var subject = $("#subject").val();
+			var email = $("#email3").val();
+			var content = $("#content").val();
+			var dataString = "subject=" + subject + "&email=" + email + "&content=" + content + "&emailsend=";
+			var a = new XMLHttpRequest();
+			
+			a.onreadystatechange = function() {
+				if (a.readyState == 4 && a.status == 200) {
+					console.log(a);
+					var d = a.responseText
+					$("#error2").html(d)
+				}
+
+			};
+			
+			a.open("POST", "http://176.32.230.48/ahmedhafez92.com/message.php", true);
+			a.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			a.send("subject=" + subject + "&email=" + email + "&content=" + content);
+		});
+
+		/*
+		 * Google Maps documentation: http://code.google.com/apis/maps/documentation/javascript/basics.html
+		 * Geolocation documentation: http://dev.w3.org/geo/api/spec-source.html
+		 */
+		$(document).on("pageinit", "#map", function() {
+			var defaultLatLng = new google.maps.LatLng(31.20909, 29.90836); // Default to bibliotheca, AL when no geolocation support
+			if (navigator.geolocation) {
+				function success(pos) {
+					// Location found, show map with these coordinates
+					drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+				}
+
+				function fail(error) {
+					drawMap(defaultLatLng); // Failed to find location, show default map
+				}
+				// Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
+				navigator.geolocation.getCurrentPosition(success, fail, {
+					maximumAge: 500000,
+					enableHighAccuracy: true,
+					timeout: 6000
+				});
+			} else {
+				drawMap(defaultLatLng); // No geolocation support, show default map
+			}
+
+			function drawMap(latlng) {
+				var myOptions = {
+					zoom: 10,
+					center: latlng,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+				// Add an overlay to the map of current lat/lng
+				var marker = new google.maps.Marker({
+					position: latlng,
+					map: map,
+					title: "bibliotheca alexandrina!"
+				});
+			}
+		}); 
+    </script>
+</html>
