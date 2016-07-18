@@ -974,6 +974,49 @@
 				<!-- map loads here... -->
 			</div>
 		</div>
+		
+		
+		<div data-role="page" id="new-session-entry">
+			<div data-role="header" data-add-back-btn="true">
+                <h1>Add new session</h1>
+            </div>
+            <!-- /header -->
+            <div data-role="main" class="ui-content">
+                <div id="error-new-session" style="font-size:90%; color:red;"></div>
+                <div class="container">
+                    <div class="main">
+                        <form class="form" method="post" id="session-form">
+						
+                            <label>Session Name :</label>
+                            <input type="text" id="session-name">
+                            <label>Session Hall :</label>
+                            <input type="text" id="session-hall">
+                            <label>Start Time :</label>
+                            <input type="text" id="session-start-time">
+                            <label>End Time :</label>
+                            <input type="text" id="session-end-time">
+                            <label>Description :</label>
+                            <input type="text" id="session-description">
+							<label>Speaker Name :</label>
+                            <input type="text" id="session-speaker-name">
+							<label>Speaker Position :</label>
+                            <input type="text" id="session-speaker-position">
+							<label>Speaker Bio :</label>
+                            <input type="text" id="session-speaker-bio">
+							<label>Speaker Email :</label>
+                            <input type="text" id="session-speaker-email">
+							<label>Speaker Mobile :</label>
+                            <input type="text" id="session-speaker-mobile">
+							<label>Speaker LinkedIn :</label>
+                            <input type="text" id="session-speaker-linkedin">
+							
+                            <input type="button" type="submit" id="add-session" value="Add Session">
+							
+                        </form>
+                    </div>
+                </div>
+            </div>
+		</div>
     
 	</body>
     <script>
@@ -984,13 +1027,13 @@
 		$("#send").click(function() {
 			var email = $("#email1").val();
 			var password = $("#password1").val();
-			var dataString = "email=" + email + "&password=" + password + "&send=";
-			var a = new XMLHttpRequest();
+			var dataString = "&email=" + email + "&password=" + password;
+			var request = new XMLHttpRequest();
 			
-			a.onreadystatechange = function() {
-				if (a.readyState == 4 && a.status == 200) {
-					console.log(a);
-					var b = a.responseText
+			request.onreadystatechange = function() {
+				if (request.readyState == 4 && request.status == 200) {
+					console.log(request);
+					var b = request.responseText;
 
 					console.log(b);
 					if (b == "1") {
@@ -1001,13 +1044,12 @@
 				}
 			};
 			
-			a.open("POST", "http://176.32.230.48/ahmedhafez92.com/signin.php", true);
-			a.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			a.send("&email=" + email + "&password=" + password);
+			request.open("POST", "http://176.32.230.48/ahmedhafez92.com/signin.php", true);
+			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			request.send(dataString);
 		});
 
 		$("#enter").click(function() {
-
 			var email = $("#emaill").val();
 			var password = $("#passwordl").val();
 			var name = $("#name").val();
@@ -1018,7 +1060,7 @@
 			var year = $("#year").val();
 			var cpassword = $("#cpassword").val();
 
-			var dataString = "email=" + email + "&password=" + password + "name=" + name + "&ieeemember=" + ieeemember + "mobile=" + mobile + "&membershipno=" + membershipno + "department=" + department + "&year=" + year + "&enter=";
+			var dataString = "&email=" + email + "&password=" + password + "&name=" + name + "&ieeemember=" + ieeemember + "&mobile=" + mobile + "&membershipno=" + membershipno + "&department=" + department + "&year=" + year;
 
 			if (password !== cpassword) {
 				$('#form2')[0].reset();
@@ -1026,12 +1068,12 @@
 				//$("#form2").on('submit',function(){return false;});
 				$("#error1").html("your passwords don't match")
 			} else {				
-				var a = new XMLHttpRequest();
+				var request = new XMLHttpRequest();
 				
-				a.onreadystatechange = function() {
-					if (a.readyState == 4 && a.status == 200) {
-						console.log(a);
-						var b = a.responseText
+				request.onreadystatechange = function() {
+					if (request.readyState == 4 && request.status == 200) {
+						console.log(request);
+						var b = request.responseText;
 
 						if (b !== "your passwords don't match" && b !== "That email address is taken.") {
 							$("#error").html("you signed up successfully ")
@@ -1045,12 +1087,44 @@
 					}
 				};
 				
-				a.open("POST", "http://176.32.230.48/ahmedhafez92.com/signup.php", true);
-				a.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				a.send("&email=" + email + "&password=" + password + "&name=" + name + "&ieeemember=" + ieeemember + "&mobile=" + mobile + "&membershipno=" + membershipno + "&department=" + department + "&year=" + year);
+				request.open("POST", "http://176.32.230.48/ahmedhafez92.com/signup.php", true);
+				request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				request.send(dataString);
 			}
 		});
 
+		$("#add-session").click(function() {
+			var sessionName = $("#session-name").val();
+			var sessionHall = $("#session-hall").val();
+			var sessionStartTime = $("#session-start-time").val();
+			var sessionEndTime = $("#session-end-time").val();
+			var sessionDescription = $("#session-description").val();
+			var sessionSpeakerName = $("#session-speaker-name").val();
+			var sessionSpeakerPosition = $("#session-speaker-position").val();
+			var sessionSpeakerBio = $("#session-speaker-bio").val();
+			var sessionSpeakerEmail = $("#session-speaker-email").val();
+			var sessionSpeakerMobile = $("#session-speaker-mobile").val();
+			var sessionSpeakerLinkedin = $("#session-speaker-linkedin").val();
+			
+			var dataString = "&sessionName" + sessionName + "&sessionHall" + sessionHall + "&sessionStartTime" + sessionStartTime + "&sessionEndTime" + sessionEndTime +
+				"&sessionDescription" + sessionDescription + "&sessionSpeakerName" + sessionSpeakerName + "&sessionSpeakerPosition" + sessionSpeakerPosition + 
+				"&sessionSpeakerBio" + sessionSpeakerBio + "&sessionSpeakerEmail" + sessionSpeakerEmail + "&sessionSpeakerMobile" + sessionSpeakerMobile + 
+				"&sessionSpeakerLinkedin" + sessionSpeakerLinkedin;
+				
+			var request = new XMLHttpRequest();
+			
+			request.onreadystatechange = function() {
+				if (request.readyState == 4 && request.status == 200) {
+					var res = request.responseText;
+					console.log(res);
+				}
+			};
+			
+			request.open("POST", "addSession.php", true);
+			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			request.send(dataString);
+		});
+		
 		$("#f").click(function() {
 			$("#others").toggle();
 		});
@@ -1063,20 +1137,20 @@
 			var subject = $("#subject").val();
 			var email = $("#email3").val();
 			var content = $("#content").val();
-			var dataString = "subject=" + subject + "&email=" + email + "&content=" + content + "&emailsend=";
-			var a = new XMLHttpRequest();
+			var dataString = "subject=" + subject + "&email=" + email + "&content=" + content;
+			var request = new XMLHttpRequest();
 			
-			a.onreadystatechange = function() {
-				if (a.readyState == 4 && a.status == 200) {
-					console.log(a);
-					var d = a.responseText
+			request.onreadystatechange = function() {
+				if (request.readyState == 4 && request.status == 200) {
+					console.log(request);
+					var d = request.responseText
 					$("#error2").html(d)
 				}
 			};
 			
-			a.open("POST", "http://176.32.230.48/ahmedhafez92.com/message.php", true);
-			a.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			a.send("subject=" + subject + "&email=" + email + "&content=" + content);
+			request.open("POST", "http://176.32.230.48/ahmedhafez92.com/message.php", true);
+			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			request.send(dataString);
 		});
 
 		/*
