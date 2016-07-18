@@ -56,7 +56,6 @@ if ($_POST) {
 			$error = "Could not add row to database.";
 		}	
 	}
-	
 }
 
 echo $error . $success;

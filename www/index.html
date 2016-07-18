@@ -145,8 +145,49 @@
                 <h4>Page Footer</h4>
                 </div> /footer -->
         </div>
-        
 		
+		<div data-role="page" id="new-session-entry">
+			<div data-role="header" data-position="fixed">
+                <h1>Add new session</h1>
+            </div>
+            <!-- /header -->
+            <div data-role="main" class="ui-content">
+                <div id="error-new-session" style="font-size:90%; color:red;"></div>
+                <div class="container">
+                    <div class="main">
+                        <form class="form" method="post" id="session-form">
+						
+                            <label>Session Name :</label>
+                            <input type="text" id="session-name">
+                            <label>Session Hall :</label>
+                            <input type="text" id="session-hall">
+                            <label>Start Time :</label>
+                            <input type="text" id="session-start-time">
+                            <label>End Time :</label>
+                            <input type="text" id="session-end-time">
+                            <label>Description :</label>
+                            <input type="text" id="session-description">
+							<label>Speaker Name :</label>
+                            <input type="text" id="session-speaker-name">
+							<label>Speaker Position :</label>
+                            <input type="text" id="session-speaker-position">
+							<label>Speaker Bio :</label>
+                            <input type="text" id="session-speaker-bio">
+							<label>Speaker Email :</label>
+                            <input type="text" id="session-speaker-email">
+							<label>Speaker Mobile :</label>
+                            <input type="text" id="session-speaker-mobile">
+							<label>Speaker LinkedIn :</label>
+                            <input type="text" id="session-speaker-linkedin">
+							
+                            <input type="button" type="submit" id="add-session" value="Add Session">
+							
+                        </form>
+                    </div>
+                </div>
+            </div>
+		</div>
+        
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="homepage">
@@ -189,7 +230,6 @@
                 </div>  /footer -->
         </div>
         
-		
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="menu">
@@ -217,7 +257,7 @@
                 </div>
                 <!-- /grid-b -->
                 <br>
-                <div class="ui-grid-b"ui-responsive>
+                <div class="ui-grid-b" ui-responsive>
                     <div class="ui-block-a"><a href="#ieeeemail" class="ui-btn ui-btn-inline ui-icon-email ui-btn-icon-top button ui-nodisc-icon"style=" border:none; background-color:transparent !important; background-repeat:no-repeat;    background-image: url('img/email.png');
                         /* Make your icon fit */
                         background-size: 35px !important;
@@ -236,7 +276,7 @@
                 </div>
                 <!-- /grid-b -->
                 <br>
-                <div class="ui-grid-b"ui-responsive>
+                <div class="ui-grid-b" ui-responsive>
                     <div class="ui-block-a"><a href="#files" class="ui-btn ui-btn-inline ui-icon-files ui-btn-icon-top button ui-nodisc-icon" style="border:none; background-color:transparent !important; background-repeat:no-repeat;	 background-image: url('img/files.jpeg');
                         /* Make your icon fit */
                         background-size: 35px !important;
@@ -257,7 +297,6 @@
                 </div> /footer -->
         </div>
         
-		
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="schedule">
@@ -360,7 +399,6 @@
                 </div> /footer -->
         </div>
         
-		
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="sessionone" data-dialog="true">
@@ -383,7 +421,6 @@
                 </div> /footer -->
         </div>
         
-		
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="speakerinformation">
@@ -426,7 +463,6 @@
                 </div> /footer -->
         </div>
         
-		
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="sessionfeedback">
@@ -535,7 +571,6 @@
                 </div> /footer -->
         </div>
         
-		
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="sponsors">
@@ -571,7 +606,6 @@
                 </div> /footer -->
         </div>
         
-		
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="files">
@@ -593,7 +627,6 @@
                 <h4>Page Footer</h4>
                 </div> /footer -->
         </div>
-        
 		
 		<!-- /page -->
         <!-- Start of second page -->
@@ -757,7 +790,6 @@
                 </div> /footer -->
         </div>
         
-		
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="exhibitors">
@@ -892,8 +924,8 @@
                 <h4>Page Footer</h4>
                 </div> /footer -->
         </div>
-        <!-- /page -->
-    
+        
+		<!-- /page -->
 		<!-- Start of second page -->
 		<div data-role="page" id="announcement">
 			<div data-role="header">
@@ -936,7 +968,6 @@
 				</div> /footer -->
 		</div>
 		
-		
 		<!-- /page -->
 		<!-- Start of second page -->
 		<div data-role="page" id="ieeeemail">
@@ -964,7 +995,6 @@
 				</div> /footer -->
 		</div>
 		
-		
 		<!-- /page -->
 		<div data-role="page" id="map" data-url="map-page">
 			<div data-role="header" data-theme="a">
@@ -976,48 +1006,6 @@
 		</div>
 		
 		
-		<div data-role="page" id="new-session-entry">
-			<div data-role="header" data-add-back-btn="true">
-                <h1>Add new session</h1>
-            </div>
-            <!-- /header -->
-            <div data-role="main" class="ui-content">
-                <div id="error-new-session" style="font-size:90%; color:red;"></div>
-                <div class="container">
-                    <div class="main">
-                        <form class="form" method="post" id="session-form">
-						
-                            <label>Session Name :</label>
-                            <input type="text" id="session-name">
-                            <label>Session Hall :</label>
-                            <input type="text" id="session-hall">
-                            <label>Start Time :</label>
-                            <input type="text" id="session-start-time">
-                            <label>End Time :</label>
-                            <input type="text" id="session-end-time">
-                            <label>Description :</label>
-                            <input type="text" id="session-description">
-							<label>Speaker Name :</label>
-                            <input type="text" id="session-speaker-name">
-							<label>Speaker Position :</label>
-                            <input type="text" id="session-speaker-position">
-							<label>Speaker Bio :</label>
-                            <input type="text" id="session-speaker-bio">
-							<label>Speaker Email :</label>
-                            <input type="text" id="session-speaker-email">
-							<label>Speaker Mobile :</label>
-                            <input type="text" id="session-speaker-mobile">
-							<label>Speaker LinkedIn :</label>
-                            <input type="text" id="session-speaker-linkedin">
-							
-                            <input type="button" type="submit" id="add-session" value="Add Session">
-							
-                        </form>
-                    </div>
-                </div>
-            </div>
-		</div>
-    
 	</body>
     <script>
         $("#form1").on('submit', function() {
