@@ -165,6 +165,8 @@
                             <input type="text" id="session-start-time">
                             <label>End Time :</label>
                             <input type="text" id="session-end-time">
+							<label>Date (dd-mm-yyyy):</label>
+                            <input type="text" id="session-date">
                             <label>Description :</label>
                             <input type="text" id="session-description">
 							<label>Speaker Name :</label>
@@ -188,6 +190,63 @@
             </div>
 		</div>
         
+		<div data-role="page" id="new-file">
+			<div data-role="header" data-position="fixed">
+                <h1>Add new file</h1>
+            </div>
+            <!-- /header -->
+            <div data-role="main" class="ui-content">
+                <div id="error-new-file" style="font-size:90%; color:red;"></div>
+                <div class="container">
+                    <div class="main">
+                        <form class="form" method="post" id="files-form">
+						
+                            <label>File Name :</label>
+                            <input type="text" id="file-name">
+                            <label>File Link (URL) :</label>
+                            <input type="text" id="file-url">
+                            
+                            <input type="button" type="submit" id="add-file" value="Add File">
+							
+                        </form>
+                    </div>
+                </div>
+            </div>
+		</div>
+			
+		<div data-role="page" id="new-sponsor">
+			<div data-role="header" data-position="fixed">
+                <h1>Add new sponsor</h1>
+            </div>
+            <!-- /header -->
+            <div data-role="main" class="ui-content">
+                <div id="error-new-sponsor" style="font-size:90%; color:red;"></div>
+                <div class="container">
+                    <div class="main">
+                        <form class="form" method="post" id="sponsors-form">
+						
+                            <label>Sponsor Name :</label>
+                            <input type="text" id="sponsor-name">
+                            <label>Sponsor Type :</label>
+							<select id="sponsor-type" data-inline="true">
+                                <option value="platinum">Platinum</option>
+                                <option value="gold">Gold</option>
+                                <option value="silver">Silver</option>
+                                <option value="partner">Partner</option>
+                            </select>
+                            <label>Sponsor Image URL :</label>
+                            <input type="text" id="sponsor-image-url">
+							<label>Sponsor Website :</label>
+                            <input type="text" id="sponsor-website">
+                            
+                            <input type="button" type="submit" id="add-sponsor" value="Add Sponsor">
+							
+                        </form>
+                    </div>
+                </div>
+            </div>
+		</div>
+		
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="homepage">
@@ -466,7 +525,7 @@
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="sessionfeedback">
-            <div data-role="header"data-add-back-btn="true">
+            <div data-role="header" data-add-back-btn="true">
                 <h1>session one feedback</h1>
             </div>
             <!-- /header -->
@@ -561,7 +620,7 @@
                         <textarea name="textarea" id="textarea"></textarea>
                     </div>
                     </br></br>
-                    <input type="submit" data-inline="true" value="Submit">
+                    <input type="submit" data-inline="true" value="Submit" id="submit-session-feedback">
                     <input type="reset" data-inline="true" value="reset">
                 </form>
             </div>
@@ -1086,6 +1145,7 @@
 			var sessionHall = $("#session-hall").val();
 			var sessionStartTime = $("#session-start-time").val();
 			var sessionEndTime = $("#session-end-time").val();
+			var sessionDate = $("#session-date").val();
 			var sessionDescription = $("#session-description").val();
 			var sessionSpeakerName = $("#session-speaker-name").val();
 			var sessionSpeakerPosition = $("#session-speaker-position").val();
@@ -1094,10 +1154,10 @@
 			var sessionSpeakerMobile = $("#session-speaker-mobile").val();
 			var sessionSpeakerLinkedin = $("#session-speaker-linkedin").val();
 			
-			var dataString = "&sessionName" + sessionName + "&sessionHall" + sessionHall + "&sessionStartTime" + sessionStartTime + "&sessionEndTime" + sessionEndTime +
-				"&sessionDescription" + sessionDescription + "&sessionSpeakerName" + sessionSpeakerName + "&sessionSpeakerPosition" + sessionSpeakerPosition + 
-				"&sessionSpeakerBio" + sessionSpeakerBio + "&sessionSpeakerEmail" + sessionSpeakerEmail + "&sessionSpeakerMobile" + sessionSpeakerMobile + 
-				"&sessionSpeakerLinkedin" + sessionSpeakerLinkedin;
+			var dataString = "&sessionName=" + sessionName + "&sessionHall=" + sessionHall + "&sessionStartTime=" + sessionStartTime + "&sessionEndTime=" + sessionEndTime +
+				"&sessionDate=" + sessionDate + "&sessionDescription=" + sessionDescription + "&sessionSpeakerName=" + sessionSpeakerName + "&sessionSpeakerPosition=" + 
+				sessionSpeakerPosition + "&sessionSpeakerBio=" + sessionSpeakerBio + "&sessionSpeakerEmail=" + sessionSpeakerEmail + "&sessionSpeakerMobile=" + 
+				sessionSpeakerMobile + "&sessionSpeakerLinkedin=" + sessionSpeakerLinkedin;
 				
 			var request = new XMLHttpRequest();
 			
@@ -1109,6 +1169,35 @@
 			};
 			
 			request.open("POST", "addSession.php", true);
+			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			request.send(dataString);
+		});
+		
+		$("#add-file").click(function() {
+			var fileName = $("#file-name").val();
+			var fileUrl = $("#file-url").val();
+			
+			var dataString = "&fileName=" + fileName + "&fileUrl=" + fileUrl;
+			
+			var request = new XMLHttpRequest();
+			
+			request.open("POST", "addFile.php", true);
+			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			request.send(dataString);
+		});
+		
+		$("#add-sponsor").click(function() {
+			var sponsorName = $("#sponsor-name").val();
+			var sponsorType = $("#sponsor-type").val();
+			var sponsorImageUrl = $("#sponsor-image-url").val();
+			var sponsorWebsite = $("#sponsor-website").val();
+			
+			var dataString = "&sponsorName=" + sponsorName + "&sponsorType=" + sponsorType + "&sponsorImageUrl=" + sponsorImageUrl
+					"&sponsorWebsite=" + sponsorWebsite;
+			
+			var request = new XMLHttpRequest();
+			
+			request.open("POST", "addSponsor.php", true);
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.send(dataString);
 		});

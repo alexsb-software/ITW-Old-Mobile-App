@@ -1,7 +1,6 @@
 <?php
 
 $error = "";
-$success = "";
 
 if ($_POST) {
 	if (!$_POST["sessionName"]) {
@@ -15,6 +14,9 @@ if ($_POST) {
 	}
 	if (!$_POST["sessionEndTime"]) {
 		$error .= "Session End Time Required. <br>";
+	}
+	if (!$_POST["sessionDate"]) {
+		$error .= "Session Date Required. <br>";
 	}
 	if (!$_POST["sessionDescription"]) {
 		$error .= "Session Description Required. <br>";
@@ -43,9 +45,9 @@ if ($_POST) {
 		$speakerMobileValue = isset($_POST["sessionSpeakerMobile"]) ? ", $_POST['sessionSpeakerMobile']" : "";
 		$speakerLinkedinValue = isset($_POST["sessionSpeakerLinkedin"]) ? ", $_POST['sessionSpeakerLinkedin']" : "";
 		
-		$query = "INSERT INTO schedule (SessionName, SessionHall, SessionStartTime, SessionEndTime,
+		$query = "INSERT INTO schedule (SessionName, SessionHall, SessionStartTime, SessionEndTime, SessionDate
 			SessionDescription, SpeakerName, SpeakerPosition, SpeakerBio, SpeakerEmail $speakerMobile $speakerLinkedin) VALUES (
-			$_POST['sessionName'], $_POST['sessionHall'], $_POST['sessionStartTime'], $_POST['sessionEndTime'], $_POST['sessionDescription'], 
+			$_POST['sessionName'], $_POST['sessionHall'], $_POST['sessionStartTime'], $_POST['sessionEndTime'], $_POST['sessionDate'], $_POST['sessionDescription'], 
 			$_POST['sessionSpeakerName'], $_POST['sessionSpeakerPosition'], $_POST['sessionSpeakerBio'], $_POST['sessionSpeakerEmail']
 			$speakerMobileValue $speakerLinkedinValue);";
 			
@@ -58,6 +60,6 @@ if ($_POST) {
 	}
 }
 
-echo $error . $success;
+echo $error;
 
 ?>
