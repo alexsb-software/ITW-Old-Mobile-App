@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -6,6 +7,7 @@
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
         <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
         <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css" />
+        <link rel="stylesheet" href="css/main.css" />
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
         <script id="microloader" type="text/javascript" src=".sencha/app/microloader/development.js"></script>
         <script src="js/jquery.min.js"></script>
@@ -48,35 +50,31 @@
             <!-- /header -->
             <div role="main" class="ui-content">
                 <p id="error" style="font-size:90%; color:red;"></p>
-                <form action="" id="form1" method="post"">
+                <form action="" id="form1" method="post">
                     <table class="form-layout">
                         <tr>
-                            <td class="form-text-layout"><input type="text" class="form-text"
-                                name="email1" id="email1" placeholder="Email address" required/>
+                            <td class="form-text-layout">
+                                <input type="text" class="form-text" name="email1" id="email1" placeholder="Email address" required/>
                             </td>
                         </tr>
                         <tr>
-                            <td class="form-text-layout"><input type="password" class="form-text" name="password1"
-                                id="password1" placeholder="Password" required/>
+                            <td class="form-text-layout">
+                                <input type="password" class="form-text" name="password1" id="password1" placeholder="Password" required/>
                             </td>
                         </tr>
                         <tr>
                             <td align="center">
-                                <div class="signin-button"><input type="submit" id="send" value="Sign In"
-                                    data-theme="b"></div>
+                                <div class="signin-button"><input type="submit" id="send" value="Sign In"></div>
+
                             </td>
                         </tr>
                     </table>
                 </form>
-                <a href = "#signup" rel="external" style="font-size:80%">Don't have an account yet? Click here to sign up</a>
+                <a href="#signup" rel="external" style="font-size:80%">Don't have an account yet? Click here to sign up</a>
             </div>
-            <!-- /content -->
-            <!-- <div data-role="footer">
-                <h4>Page Footer</h4>
-                </div> /footer -->
         </div>
-		
-		
+
+
         <!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="signup">
@@ -145,7 +143,7 @@
                 <h4>Page Footer</h4>
                 </div> /footer -->
         </div>
-		
+
 		<div data-role="page" id="new-session-entry">
 			<div data-role="header" data-position="fixed">
                 <h1>Add new session</h1>
@@ -156,7 +154,7 @@
                 <div class="container">
                     <div class="main">
                         <form class="form" method="post" id="session-form">
-						
+
                             <label>Session Name :</label>
                             <input type="text" id="session-name">
                             <label>Session Hall :</label>
@@ -181,15 +179,15 @@
                             <input type="text" id="session-speaker-mobile">
 							<label>Speaker LinkedIn :</label>
                             <input type="text" id="session-speaker-linkedin">
-							
+
                             <input type="button" type="submit" id="add-session" value="Add Session">
-							
+
                         </form>
                     </div>
                 </div>
             </div>
 		</div>
-        
+
 		<div data-role="page" id="new-file">
 			<div data-role="header" data-position="fixed">
                 <h1>Add new file</h1>
@@ -200,20 +198,20 @@
                 <div class="container">
                     <div class="main">
                         <form class="form" method="post" id="files-form">
-						
+
                             <label>File Name :</label>
                             <input type="text" id="file-name">
                             <label>File Link (URL) :</label>
                             <input type="text" id="file-url">
-                            
+
                             <input type="button" type="submit" id="add-file" value="Add File">
-							
+
                         </form>
                     </div>
                 </div>
             </div>
 		</div>
-			
+
 		<div data-role="page" id="new-sponsor">
 			<div data-role="header" data-position="fixed">
                 <h1>Add new sponsor</h1>
@@ -224,7 +222,7 @@
                 <div class="container">
                     <div class="main">
                         <form class="form" method="post" id="sponsors-form">
-						
+
                             <label>Sponsor Name :</label>
                             <input type="text" id="sponsor-name">
                             <label>Sponsor Type :</label>
@@ -238,15 +236,15 @@
                             <input type="text" id="sponsor-image-url">
 							<label>Sponsor Website :</label>
                             <input type="text" id="sponsor-website">
-                            
+
                             <input type="button" type="submit" id="add-sponsor" value="Add Sponsor">
-							
+
                         </form>
                     </div>
                 </div>
             </div>
 		</div>
-		
+
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="homepage">
@@ -258,20 +256,20 @@
                 <a href="#about">
                     <!-- event -->
                 <a href="#menu" style="text-decoration: none;">
-                    <div id="container" style="height:100px; background-color:white;">
-                        <img class="event-pic" src="img/just.jpg" style="padding:10px; width:70px; height:70px; float:left; "></img>
-                        <h4 class="event-name" style="float:center; font-size:150%;">Just Graduated 2016</h4>
-                        <!-- event data-->	
+                    <div id="container" class="home-list-item">
+                        <img class="event-pic" src="img/just.jpg"/>
+                        <h4 class="event-name">Just Graduated 2016</h4>
+                        <!-- event data-->
                         <div id="event-data-div">
                             <!-- date -->
                             <div id="date-div">
-                                <img class="small-pic" src="img/date.png" style="float:left; width:25px; height:20px;"></img>
-                                <p id="date" class="event-data" style="float:left; font-size:75%;"> May 7-8, 2016</p>
+                                <img class="small-pic" src="img/date.png" style="float:left; width:25px;"/>
+                                <p id="date" class="event-data"> May 7-8, 2016</p>
                             </div>
                             <!-- location -->
                             <div id="location-div">
-                                <img class="small-pic" src="img/location.png" style="float:left; width:25px; height:20px;"></img>
-                                <p id="location" class="event-data" style="float:left; font-size:75%;">bibliotheca alexandrina</p>
+                                <img class="small-pic" src="img/location.png" style="float:left; width:25px;"/>
+                                <p id="location" class="event-data">bibliotheca alexandrina</p>
                             </div>
                         </div>
                     </div>
@@ -280,7 +278,7 @@
                 <!--	<div>
                     <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l ui-btn-icon-search search">search all IEEE AlexSB events</a>
                     	</div>-->
-            
+
 				</a>
 			</div>
 			<!-- /content -->
@@ -288,7 +286,7 @@
                 <h4>Page Footer</h4>
                 </div>  /footer -->
         </div>
-        
+
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="menu">
@@ -297,65 +295,43 @@
             </div>
             <!-- /header -->
             <div data-role="main" class="ui-content">
-                <div class="ui-grid-b" ui-responsive>
-                    <div class="ui-block-a"><a href="#schedule" class="ui-btn ui-btn-inline ui-icon-schedule ui-btn-icon-top button ui-nodisc-icon" style="border:none; background-repeat:no-repeat; background-color:transparent !important;
-                        background-image: url('img/schedule.png');
-                        background-size: 35px !important;
-                        }">schedule</a>
+                <div class="ui-grid-a" ui-responsive>
+                    <div class="ui-block-a menu-page-item">
+                        <a href="#schedule" class="ui-btn ui-btn-inline ui-icon-calendar ui-btn-icon-top button ui-nodisc-icon">schedule</a>
 					</div>
-                    <div class="ui-block-b"><a href="http://www.alexsb.org" id="ieee" target="_blank" class="ui-btn ui-btn-inline ui-nodisc-icon ui-icon-website ui-btn-icon-top button"style= "border:none; background-color:transparent !important;background-repeat:no-repeat; background-image: url('img/website.png');
-                        /* Make your icon fit */
-                        background-size: 35px !important;
-                        ">website</a>
+                    <div class="ui-block-b menu-page-item">
+                        <a href="http://www.alexsb.org" id="ieee" target="_blank" class="ui-btn ui-btn-inline ui-nodisc-icon ui-icon-cloud ui-btn-icon-top button">website</a>
 					</div>
-                    <div class="ui-block-c"><a href="#sponsors" class="ui-btn ui-btn-inline ui-icon-sponsors ui-btn-icon-top button ui-nodisc-icon"style=" border:none; background-color:transparent !important;background-repeat:no-repeat; background-image: url('img/sponser.png');
-                        /* Make your icon fit */
-                        background-size: 35px !important;
-                        ">sponsors</a>
+                    <div class="ui-block-a menu-page-item">
+                        <a href="#sponsors" class="ui-btn ui-btn-inline ui-icon-heart ui-btn-icon-top button ui-nodisc-icon">sponsors</a>
 					</div>
+                    <div class="ui-block-b menu-page-item">
+                        <a href="#ieeeemail" class="ui-btn ui-btn-inline ui-icon-mail ui-btn-icon-top button ui-nodisc-icon">email</a>
+					</div>
+                    <div class="ui-block-a menu-page-item">
+                        <a href="#feedbacks" class="ui-btn ui-btn-inline ui-icon-comment ui-btn-icon-top button ui-nodisc-icon">feedbacks</a>
+					</div>
+                    <div class="ui-block-b menu-page-item">
+                        <a href="#exhibitors" class="ui-btn ui-btn-inline ui-icon-eye ui-btn-icon-top button ui-nodisc-icon">exhibitors</a>
+					</div>
+                    <div class="ui-block-a menu-page-item">
+                        <a href="#files" class="ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-top button ui-nodisc-icon">files</a>
+                    </div>
+                    <div class="ui-block-b menu-page-item">
+                        <a href="#map" class="ui-btn ui-btn-inline ui-icon-location ui-btn-icon-top button ui-nodisc-icon">maps</a>
+                    </div>
                 </div>
-                <!-- /grid-b -->
-                <br>
-                <div class="ui-grid-b" ui-responsive>
-                    <div class="ui-block-a"><a href="#ieeeemail" class="ui-btn ui-btn-inline ui-icon-email ui-btn-icon-top button ui-nodisc-icon"style=" border:none; background-color:transparent !important; background-repeat:no-repeat;    background-image: url('img/email.png');
-                        /* Make your icon fit */
-                        background-size: 35px !important;
-                        ">email</a>
-					</div>
-                    <div class="ui-block-b"><a href="#feedbacks" class="ui-btn ui-btn-inline ui-icon-feedbacks ui-btn-icon-top button ui-nodisc-icon" style="border:none; background-color:transparent !important;  background-repeat:no-repeat;   background-image: url('img/Feedbacks.jpg');
-                        /* Make your icon fit */
-                        background-size: 35px !important;
-                        ">feedbacks</a>
-					</div>
-                    <div class="ui-block-c"><a href="#exhibitors" class="ui-btn ui-btn-inline ui-icon-exhibitors ui-btn-icon-top button ui-nodisc-icon"style=" border:none; background-color:transparent !important;  background-repeat:no-repeat;   background-image: url('img/exhibitors.png');
-                        /* Make your icon fit */
-                        background-size: 35px !important;
-                        ">exhibitors</a>
-					</div>
-                </div>
-                <!-- /grid-b -->
-                <br>
-                <div class="ui-grid-b" ui-responsive>
-                    <div class="ui-block-a"><a href="#files" class="ui-btn ui-btn-inline ui-icon-files ui-btn-icon-top button ui-nodisc-icon" style="border:none; background-color:transparent !important; background-repeat:no-repeat;	 background-image: url('img/files.jpeg');
-                        /* Make your icon fit */
-                        background-size: 35px !important;
-                        ">files</a></div>
-                    <div class="ui-block-b"><a href="#map" class="ui-btn ui-btn-inline ui-icon-register ui-btn-icon-top button ui-nodisc-icon"style="border:none; background-color:transparent !important; background-repeat:no-repeat;    background-image: url('img/map.png');
-                        /* Make your icon fit */
-                        background-size: 35px !important;
-                        ">maps</a></div>
-                    <div class="ui-block-c"><a href="#announcement" class="ui-btn ui-btn-inline ui-icon-announcemnts ui-btn-icon-top button ui-nodisc-icon" style="border:none; background-color:transparent !important; background-repeat:no-repeat; background-image: url('img/announcements.png');
-                        /* Make your icon fit */
-                        background-size: 35px !important;
-                        ">announcemnts</a></div>
-                </div>
+
+                    <div class=" menu-page-item">
+                        <a href="#announcement" class="ui-btn ui-btn-inline ui-icon-tag ui-btn-icon-top button ui-nodisc-icon">announcemnts</a></div>
+
             </div>
             <!-- /content -->
             <!-- <div data-role="footer">
                 <h4>Page Footer</h4>
                 </div> /footer -->
         </div>
-        
+
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="schedule">
@@ -457,7 +433,7 @@
                 <h4>Page Footer</h4>
                 </div> /footer -->
         </div>
-        
+
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="sessionone" data-dialog="true">
@@ -479,7 +455,7 @@
                 <h4>Page Footer</h4>
                 </div> /footer -->
         </div>
-        
+
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="speakerinformation">
@@ -497,17 +473,15 @@
                             <p><strong>position: </strong></p>
                         </div>
                     </div>
-                    <br><br>
                     <div>
                         <p><strong>Bio</strong></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed, placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna. Donec molestie vel eros quis vestibulum. Ut leo nulla, ultricies sed ligula tristique, pharetra mollis sapien. Vestibulum consequat porta nibh non maximus. Maecenas commodo, dui id pulvinar congue, 
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed, placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna. Donec molestie vel eros quis vestibulum. Ut leo nulla, ultricies sed ligula tristique, pharetra mollis sapien. Vestibulum consequat porta nibh non maximus. Maecenas commodo, dui id pulvinar congue,
                             risus metus ultrices mi, vitae aliquet metus nulla sed libero
                         </p>
                     </div>
-                    <br><br><br>
                     <div>
                         <p><strong>Contacts</strong></p>
-                        <p>Email: 
+                        <p>Email:
                             <br>mobile:
                             <br>linkedin:
                             <br>Facebook:
@@ -521,7 +495,7 @@
                 <h4>Page Footer</h4>
                 </div> /footer -->
         </div>
-        
+
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="sessionfeedback">
@@ -629,7 +603,7 @@
                 <h4>Page Footer</h4>
                 </div> /footer -->
         </div>
-        
+
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="sponsors">
@@ -664,7 +638,7 @@
                 <h4>Page Footer</h4>
                 </div> /footer -->
         </div>
-        
+
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="files">
@@ -686,7 +660,7 @@
                 <h4>Page Footer</h4>
                 </div> /footer -->
         </div>
-		
+
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="feedbacks">
@@ -709,7 +683,7 @@
                             <input type="radio" name="theme" id="d">
                             <label for="e">AlexSB volunteer</label>
                             <input type="radio" name="theme" id="e">
-                            <label for="f">other</label> 
+                            <label for="f">other</label>
                             <input type="radio" name="theme" id="f">
                         </fieldset>
                         <input type = "text" id="others" style= "display:none;"></input>
@@ -848,7 +822,7 @@
                 <h4>Page Footer</h4>
                 </div> /footer -->
         </div>
-        
+
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="exhibitors">
@@ -896,14 +870,14 @@
                         </a>
                     </li>
                 </ul>
-            </div>      
-		
+            </div>
+
 		<!-- /content -->
         <!-- <div data-role="footer">
             <h4>Page Footer</h4>
             </div> /footer -->
         </div>
-		
+
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="design">
@@ -935,14 +909,14 @@
                         </a>
                     </li>
                 </ul>
-            </div>   
-	
+            </div>
+
 		<!-- /content -->
         <!-- <div data-role="footer">
             <h4>Page Footer</h4>
             </div> /footer -->
         </div>
-		
+
 		<!-- /page -->
         <!-- Start of second page -->
         <div data-role="page" id="robot">
@@ -962,14 +936,14 @@
                     <br><br>
                     <div>
                         <p><strong>Project description</strong></p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed, placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna. Donec molestie vel eros quis vestibulum. Ut leo nulla, ultricies sed ligula tristique, pharetra mollis sapien. Vestibulum consequat porta nibh non maximus. Maecenas commodo, dui id pulvinar congue, 
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed, placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna. Donec molestie vel eros quis vestibulum. Ut leo nulla, ultricies sed ligula tristique, pharetra mollis sapien. Vestibulum consequat porta nibh non maximus. Maecenas commodo, dui id pulvinar congue,
                             risus metus ultrices mi, vitae aliquet metus nulla sed libero
                         </p>
                     </div>
                     <br><br><br>
                     <div>
                         <p><strong>Contacts</strong></p>
-                        <p>Email: 
+                        <p>Email:
                             <br>mobile:
                             <br>linkedin:
                             <br>Facebook:
@@ -983,7 +957,7 @@
                 <h4>Page Footer</h4>
                 </div> /footer -->
         </div>
-        
+
 		<!-- /page -->
 		<!-- Start of second page -->
 		<div data-role="page" id="announcement">
@@ -998,7 +972,7 @@
 						<li>
 							<h2>Refund desk</h2>
 							<p>We will be having a refund desk this week on Wednesday 20/4 and Thursday 21/4.  <br>
-								If you have any refunds to make,please visit the desk  
+								If you have any refunds to make,please visit the desk
 								<br>from 11:50 am till 1:40 pm in the Hall of Electrical Building.
 							</p>
 							</a>
@@ -1014,19 +988,19 @@
 								<p>Don't miss IEEE AlexSB Summer Courses Registration.
 									-Dates: From Saturday, May 7th till Monday, May 9th
 									Time: From 11:50 AM till 1:40 PM
-									Place: Electrical Engineering Building Hall 
+									Place: Electrical Engineering Building Hall
 								</p>
 							</a>
 						</li>
 					</ul>
 				</div>
-	   
+
 			<!-- /content -->
 			<!-- <div data-role="footer">
 				<h4>Page Footer</h4>
 				</div> /footer -->
 		</div>
-		
+
 		<!-- /page -->
 		<!-- Start of second page -->
 		<div data-role="page" id="ieeeemail">
@@ -1053,7 +1027,7 @@
 				<h4>Page Footer</h4>
 				</div> /footer -->
 		</div>
-		
+
 		<!-- /page -->
 		<div data-role="page" id="map" data-url="map-page">
 			<div data-role="header" data-theme="a">
@@ -1063,8 +1037,8 @@
 				<!-- map loads here... -->
 			</div>
 		</div>
-		
-		
+
+
 	</body>
     <script>
         $("#form1").on('submit', function() {
@@ -1076,7 +1050,7 @@
 			var password = $("#password1").val();
 			var dataString = "&email=" + email + "&password=" + password;
 			var request = new XMLHttpRequest();
-			
+
 			request.onreadystatechange = function() {
 				if (request.readyState == 4 && request.status == 200) {
 					console.log(request);
@@ -1090,7 +1064,7 @@
 					}
 				}
 			};
-			
+
 			request.open("POST", "http://176.32.230.48/ahmedhafez92.com/signin.php", true);
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.send(dataString);
@@ -1114,9 +1088,9 @@
 
 				//$("#form2").on('submit',function(){return false;});
 				$("#error1").html("your passwords don't match")
-			} else {				
+			} else {
 				var request = new XMLHttpRequest();
-				
+
 				request.onreadystatechange = function() {
 					if (request.readyState == 4 && request.status == 200) {
 						console.log(request);
@@ -1133,7 +1107,7 @@
 						}
 					}
 				};
-				
+
 				request.open("POST", "http://176.32.230.48/ahmedhafez92.com/signup.php", true);
 				request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				request.send(dataString);
@@ -1153,55 +1127,55 @@
 			var sessionSpeakerEmail = $("#session-speaker-email").val();
 			var sessionSpeakerMobile = $("#session-speaker-mobile").val();
 			var sessionSpeakerLinkedin = $("#session-speaker-linkedin").val();
-			
+
 			var dataString = "&sessionName=" + sessionName + "&sessionHall=" + sessionHall + "&sessionStartTime=" + sessionStartTime + "&sessionEndTime=" + sessionEndTime +
-				"&sessionDate=" + sessionDate + "&sessionDescription=" + sessionDescription + "&sessionSpeakerName=" + sessionSpeakerName + "&sessionSpeakerPosition=" + 
-				sessionSpeakerPosition + "&sessionSpeakerBio=" + sessionSpeakerBio + "&sessionSpeakerEmail=" + sessionSpeakerEmail + "&sessionSpeakerMobile=" + 
+				"&sessionDate=" + sessionDate + "&sessionDescription=" + sessionDescription + "&sessionSpeakerName=" + sessionSpeakerName + "&sessionSpeakerPosition=" +
+				sessionSpeakerPosition + "&sessionSpeakerBio=" + sessionSpeakerBio + "&sessionSpeakerEmail=" + sessionSpeakerEmail + "&sessionSpeakerMobile=" +
 				sessionSpeakerMobile + "&sessionSpeakerLinkedin=" + sessionSpeakerLinkedin;
-				
+
 			var request = new XMLHttpRequest();
-			
+
 			request.onreadystatechange = function() {
 				if (request.readyState == 4 && request.status == 200) {
 					var res = request.responseText;
 					console.log(res);
 				}
 			};
-			
+
 			request.open("POST", "addSession.php", true);
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.send(dataString);
 		});
-		
+
 		$("#add-file").click(function() {
 			var fileName = $("#file-name").val();
 			var fileUrl = $("#file-url").val();
-			
+
 			var dataString = "&fileName=" + fileName + "&fileUrl=" + fileUrl;
-			
+
 			var request = new XMLHttpRequest();
-			
+
 			request.open("POST", "addFile.php", true);
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.send(dataString);
 		});
-		
+
 		$("#add-sponsor").click(function() {
 			var sponsorName = $("#sponsor-name").val();
 			var sponsorType = $("#sponsor-type").val();
 			var sponsorImageUrl = $("#sponsor-image-url").val();
 			var sponsorWebsite = $("#sponsor-website").val();
-			
+
 			var dataString = "&sponsorName=" + sponsorName + "&sponsorType=" + sponsorType + "&sponsorImageUrl=" + sponsorImageUrl
 					"&sponsorWebsite=" + sponsorWebsite;
-			
+
 			var request = new XMLHttpRequest();
-			
+
 			request.open("POST", "addSponsor.php", true);
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.send(dataString);
 		});
-		
+
 		$("#f").click(function() {
 			$("#others").toggle();
 		});
@@ -1216,7 +1190,7 @@
 			var content = $("#content").val();
 			var dataString = "subject=" + subject + "&email=" + email + "&content=" + content;
 			var request = new XMLHttpRequest();
-			
+
 			request.onreadystatechange = function() {
 				if (request.readyState == 4 && request.status == 200) {
 					console.log(request);
@@ -1224,7 +1198,7 @@
 					$("#error2").html(d)
 				}
 			};
-			
+
 			request.open("POST", "http://176.32.230.48/ahmedhafez92.com/message.php", true);
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.send(dataString);
@@ -1269,6 +1243,6 @@
 					title: "bibliotheca alexandrina!"
 				});
 			}
-		}); 
+		});
     </script>
 </html>
