@@ -3,11 +3,11 @@
 $error = "";
 
 if ($_POST) {
-	if (!$_POST["fileName"]) {
-		$error .= "File Name Required.<br>";
+	if (!$_POST["announcementTitle"]) {
+		$error .= "Announcement Title Required.<br>";
 	}
-	if (!$_POST["fileUrl"]) {
-		$error .= "File Link (URL) Required. <br>";
+	if (!$_POST["announcementBody"]) {
+		$error .= "Announcement Body Required. <br>";
 	}
 	
 	if ($error != "") {
@@ -19,7 +19,7 @@ if ($_POST) {
 			die("Database Connection Error");
 		}
 		
-		$query = "INSERT INTO files (FileName, FileURL) VALUES ('$_POST[fileName]', '$_POST[fileUrl]');";
+		$query = "INSERT INTO announcements (Title, Body) VALUES ('$_POST[announcementTitle]', '$_POST[announcementBody]');";
 		
 		echo $query . "<br>";
 			
