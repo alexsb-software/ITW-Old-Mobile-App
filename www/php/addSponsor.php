@@ -11,7 +11,7 @@ if ($_POST) {
 	}
 	
 	if ($error != "") {
-		$error = '<div class="alert alert-danger" role="alert"><p><strong>there are error(s)in your form!</strong></p>' . $error . '</div>';
+		$error = '<div class="alert alert-danger" role="alert"><p><strong>There are error(s)in your form!</strong></p>' . $error . '</div>';
 	} else {
 		$link = new mysqli("176.32.230.48", "cl59-alexsb", "g-Rtx!fG^", "cl59-alexsb");
 		
@@ -28,9 +28,8 @@ if ($_POST) {
 			('$_POST[sponsorName]', '$_POST[sponsorType]' $sponsorImageUrlValue $sponsorWebsiteValue);";
 			
 		$result = $link->query($query);
-		echo $query . "<br>";
 		
-		var_dump($result);
+		// var_dump($result);
 		
 		if ($result === false) {
 			$error = "Could not add row to database.";

@@ -48,3 +48,9 @@
 	width: 20px;
 	height: 23px;
 }
+
+.error-class {
+	font-size:200%;
+	color:red;
+	font-weight: bold;
+}

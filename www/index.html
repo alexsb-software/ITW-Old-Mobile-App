@@ -83,7 +83,7 @@
             </div>
             <!-- /header -->
             <div data-role="main" class="ui-content">
-                <div id="error1" style="font-size:90%; color:red;"></div>
+                <div id="error1" class="error-class"></div>
                 <div class="container">
                     <div class="main">
                         <form class="form" method="post" id="form2">
@@ -150,7 +150,7 @@
             </div>
             <!-- /header -->
             <div data-role="main" class="ui-content">
-                <div id="error-new-session" style="font-size:90%; color:red;"></div>
+                <div id="error-new-session" class="error-class"></div>
                 <div class="container">
                     <div class="main">
                         <form class="form" method="post" id="session-form">
@@ -194,7 +194,7 @@
             </div>
             <!-- /header -->
             <div data-role="main" class="ui-content">
-                <div id="error-new-file" style="font-size:90%; color:red;"></div>
+                <div id="error-new-file" class="error-class"></div>
                 <div class="container">
                     <div class="main">
                         <form class="form" method="post" id="files-form">
@@ -218,7 +218,7 @@
             </div>
             <!-- /header -->
             <div data-role="main" class="ui-content">
-                <div id="error-new-sponsor" style="font-size:90%; color:red;"></div>
+                <div id="error-new-sponsor" class="error-class"></div>
                 <div class="container">
                     <div class="main">
                         <form class="form" method="post" id="sponsors-form">
@@ -251,7 +251,7 @@
             </div>
             <!-- /header -->
             <div data-role="main" class="ui-content">
-                <div id="error-new-announcement" style="font-size:90%; color:red;"></div>
+                <div id="error-new-announcement" class="error-class"></div>
                 <div class="container">
                     <div class="main">
                         <form class="form" method="post" id="announcements-form">
@@ -1183,7 +1183,7 @@
 				}
 			};
 
-			request.open("POST", "addSession.php", true);
+			request.open("POST", "php/addSession.php", true);
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.send(dataString);
 		});
@@ -1204,7 +1204,7 @@
 				}
 			};
 
-			request.open("POST", "addFile.php", true);
+			request.open("POST", "php/addFile.php", true);
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.send(dataString);
 		});
@@ -1228,7 +1228,7 @@
 				}
 			};
 
-			request.open("POST", "addSponsor.php", true);
+			request.open("POST", "php/addSponsor.php", true);
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.send(dataString);
 		});
@@ -1249,7 +1249,7 @@
 				}
 			};
 
-			request.open("POST", "addAnnouncement.php", true);
+			request.open("POST", "php/addAnnouncement.php", true);
 			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.send(dataString);
 			
@@ -1265,7 +1265,7 @@
 				}
 			};
 			
-			request.open("GET", "getSessions.php", true);
+			request.open("GET", "php/getSessions.php", true);
 			request.setRequestHeader("Content-type", "application/json");
 			request.send();			
 		});
@@ -1280,7 +1280,7 @@
 				}
 			};
 			
-			request.open("GET", "getSponsors.php", true);
+			request.open("GET", "php/getSponsors.php", true);
 			request.setRequestHeader("Content-type", "application/json");
 			request.send();			
 		});
@@ -1295,7 +1295,7 @@
 				}
 			};
 			
-			request.open("GET", "getFiles.php", true);
+			request.open("GET", "php/getFiles.php", true);
 			request.setRequestHeader("Content-type", "application/json");
 			request.send();			
 		});
@@ -1310,7 +1310,7 @@
 				}
 			};
 			
-			request.open("GET", "getAnnouncements.php", true);
+			request.open("GET", "php/getAnnouncements.php", true);
 			request.setRequestHeader("Content-type", "application/json");
 			request.send();			
 		});
