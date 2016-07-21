@@ -1,6 +1,10 @@
 # ITW Mobile App
 
+
+<aside class="warning">
 *Announcement & Files requests are still not working*
+</aside>
+
 
 ## POST requests
 
