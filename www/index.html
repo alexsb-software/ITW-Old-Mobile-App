@@ -185,6 +185,7 @@
                         </form>
                     </div>
                 </div>
+				<div id="success-new-session" class="success-class"></div>
             </div>
 		</div>
 
@@ -209,6 +210,7 @@
                         </form>
                     </div>
                 </div>
+				<div id="success-new-file" class="success-class"></div>
             </div>
 		</div>
 
@@ -242,6 +244,7 @@
                         </form>
                     </div>
                 </div>
+				<div id="success-new-sponsor" class="success-class"></div>
             </div>
 		</div>
 		
@@ -266,6 +269,7 @@
                         </form>
                     </div>
                 </div>
+				<div id="success-new-announcement" class="success-class"></div>
             </div>
 		</div>
 
@@ -1178,8 +1182,12 @@
 			request.onreadystatechange = function() {
 				if (request.readyState == 4 && request.status == 200) {
 					var res = request.responseText;
-
-					$("#error-new-session").html(res);
+					
+					if (res.indexOf("successfully") != -1) {
+						$("#success-new-session").html(res);
+					} else {
+						$("#error-new-session").html(res);
+					}	
 				}
 			};
 
@@ -1199,8 +1207,12 @@
 			request.onreadystatechange = function() {
 				if (request.readyState == 4 && request.status == 200) {
 					var res = request.responseText;
-
-					$("#error-new-file").html(res);
+					
+					if (res.indexOf("successfully") != -1) {
+						$("#success-new-file").html(res);
+					} else {
+						$("#error-new-file").html(res);
+					}
 				}
 			};
 
@@ -1223,8 +1235,12 @@
 			request.onreadystatechange = function() {
 				if (request.readyState == 4 && request.status == 200) {
 					var res = request.responseText;
-
-					$("#error-new-sponsor").html(res);
+					
+					if (res.indexOf("successfully") != -1) {
+						$("#success-new-sponsor").html(res);
+					} else {
+						$("#error-new-sponsor").html(res);
+					}					
 				}
 			};
 
@@ -1244,8 +1260,12 @@
 			request.onreadystatechange = function() {
 				if (request.readyState == 4 && request.status == 200) {
 					var res = request.responseText;
-
-					$("#error-new-announcement").html(res);
+					
+					if (res.indexOf("successfully") != -1) {
+						$("#success-new-announcement").html(res);
+					} else {
+						$("#error-new-announcement").html(res);
+					}					
 				}
 			};
 
