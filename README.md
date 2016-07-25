@@ -1,9 +1,5 @@
 # ITW Mobile App
 
-
-*Announcement requests are still not working*
-
-
 ## POST requests
 
 To make any post request (submit to the database), type the path to 'index.html' in your browser followed by
