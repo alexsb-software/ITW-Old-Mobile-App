@@ -299,6 +299,7 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="homepage">
     <div data-role="header">
         <h1>IEEE events</h1>
@@ -310,7 +311,7 @@
             <a href="#menu" style="text-decoration: none;">
                 <div id="container" class="home-list-item">
                     <img class="event-pic" src="img/just.jpg"/>
-                    <h4 class="event-name">Just Graduated 2016</h4>
+                    <h4 class="event-name">ITW 2016</h4>
                     <!-- event data-->
                     <div id="event-data-div">
                         <!-- date -->
@@ -340,9 +341,10 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="menu">
     <div data-role="header" data-position="fixed">
-        <h1>Just Graduated</h1>
+        <h1>ITW</h1>
     </div>
     <!-- /header -->
     <div data-role="main" class="ui-content">
@@ -385,9 +387,10 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="schedule">
     <div data-role="header" data-add-back-btn="true" style="overflow:hidden;">
-        <h1>Just graduated schedule</h1>
+        <h1>ITW schedule</h1>
         <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
         <div data-role="navbar">
             <ul>
@@ -414,98 +417,8 @@
     <div role="main" class="ui-content">
         <div role="main" class="ui-content" id="one">
             <h1>
-                <ul data-role="listview" data-inset="true">
-                    <li data-role="list-divider">9:00</li>
-                    <li>
-                        <a href="#">
-                            <h2>Registration</h2>
-                            <p>
-                                <strong>Bibliotheca alexandrina lobby</strong>
-                            </p>
-                            <p class="ui-li-aside">
-                                <strong>9:00 &#8658; 10:00</strong>AM
-                            </p>
-                        </a>
-                    </li>
-                    <li data-role="list-divider">10:00</li>
-                    <li>
-                        <a href="#sessionone">
-                            <h2>Keynote speech</h2>
-                            <p>
-                                <strong>Great hall</strong>
-                            </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed,<br> placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna.!
-                            </p>
-                            <p class="ui-li-aside">
-                                <strong>10:00 &#8658; 11:00</strong>AM
-                            </p>
-                        </a>
-                    </li>
-                    <li data-role="list-divider">11:00</li>
-                    <li>
-                        <a href="">
-                            <h2>Nano-photonics and plasmonics</h2>
-                            <p>
-                                <strong>Great hall</strong>
-                            </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed,<br> placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna.!
-                            </p>
-                            <p class="ui-li-aside">
-                                <strong>10:00 &#8658; 11:00</strong>AM
-                            </p>
-                        </a>
-                    </li>
-                    <li data-role="list-divider">12:00</li>
-                    <li>
-                        <a href="#">
-                            <h2>Prayer break</h2>
-                            <p class="ui-li-aside">
-                                <strong>12:00&#8658; 1:00</strong>PM
-                            </p>
-                        </a>
-                    </li>
-                    <li data-role="list-divider">1:00</li>
-                    <li>
-                        <a href="">
-                            <h2>Women in engineering</h2>
-                            <p>
-                                <strong>Room "C"</strong>
-                            </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed,<br> placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna.!
-                            </p>
-                            <p class="ui-li-aside">
-                                <strong>1:00&#8658; 1:45</strong>PM
-                            </p>
-                        </a>
-                    </li>
-                    <li data-role="list-divider">1:45</li>
-                    <li>
-                        <a href="">
-                            <h2>Develop what's next</h2>
-                            <p>
-                                <strong>multi-purpose room</strong>
-                            </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed,<br> placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna.!
-                            </p>
-                            <p class="ui-li-aside">
-                                <strong>1:45 &#8658; 2:30</strong>PM
-                            </p>
-                        </a>
-                    </li>
-                    <li data-role="list-divider">2:30</li>
-                    <li>
-                        <a href="">
-                            <h2>Optimization Algorithms</h2>
-                            <p>
-                                <strong>Great hall</strong>
-                            </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed,<br> placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna.!
-                            </p>
-                            <p class="ui-li-aside">
-                                <strong>2:30 &#8658; 3:15</strong>PM
-                            </p>
-                        </a>
-                    </li>
+                <ul data-role="listview" data-inset="true" id="sessions-list">
+
                 </ul>
             </h1>
         </div>
@@ -517,19 +430,18 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="sessionone" data-dialog="true">
     <div data-role="header" data-theme="a">
-        <h1>keynote speech</h1>
+        <h1 id="s-name-title">...</h1>
     </div>
     <!-- /header -->
     <div role="main" class="ui-content">
-        <h1>keynote speech</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed, placerat urna. Pellentesque purus dui, gravida eget purus vitae,
-            <br> consectetur pulvinar magna. Donec molestie vel eros quis vestibulum. Ut leo nulla, ultricies sed ligula tristique, pharetra mollis sapien. Vestibulum consequat porta nibh non maximus. Maecenas commodo,
-            <br> dui id pulvinar congue, risus metus ultrices mi, vitae aliquet metus nulla sed libero
+        <h1 id="s-name">...</h1>
+        <p id="s-description">...
         </p>
-        <a href="#speakerinformation" class="ui-btn ui-shadow ui-corner-all ui-btn-a">speaker information</a>
-        <a href="#sessionfeedback" class="ui-btn ui-shadow ui-corner-all ui-btn-a">session feedback</a>
+        <a id="speaker" class="ui-btn ui-shadow ui-corner-all ui-btn-a">speaker information</a>
+        <a id="feedback" class="ui-btn ui-shadow ui-corner-all ui-btn-a">session feedback</a>
     </div>
     <!-- /content -->
     <!--  <div data-role="footer">
@@ -538,9 +450,10 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="speakerinformation">
     <div data-role="header" data-add-back-btn="true">
-        <h1>Keynote speech</h1>
+        <h1 id="sp-session-name">Keynote speech</h1>
     </div>
     <!-- /header -->
     <div role="main" class="ui-content">
@@ -549,10 +462,12 @@
                 <img style="width:125px; height:125px; padding:25px; float:left;" src="img/user.jpg">
                 <div style="padding:50px;">
                     <p>
-                        <strong>Name: </strong>
+                        <strong>Name:
+                            <span id="sp-name">...</span></strong>
                     </p>
                     <p>
-                        <strong>position: </strong>
+                        <strong>position:
+                            <span id="sp-position">...</span></strong>
                     </p>
                 </div>
             </div>
@@ -560,18 +475,18 @@
                 <p>
                     <strong>Bio</strong>
                 </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed, placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna. Donec molestie vel eros quis vestibulum. Ut leo nulla, ultricies sed ligula tristique, pharetra mollis sapien. Vestibulum consequat porta nibh non maximus. Maecenas commodo, dui id pulvinar congue, risus metus ultrices mi, vitae aliquet metus nulla sed libero
-                </p>
+                <p id="sp-bio">...</p>
             </div>
             <div>
                 <p>
                     <strong>Contacts</strong>
                 </p>
                 <p>Email:
+                    <span id="sp-email">...</span>
                     <br>mobile:
+                    <span id="sp-mobile">...</span>
                     <br>linkedin:
-                    <br>Facebook:
-                    <br>Twitter:
+                    <span id="sp-linkedin">...</span>
                 </p>
             </div>
         </div>
@@ -583,6 +498,7 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="sessionfeedback">
     <div data-role="header" data-add-back-btn="true">
         <h1>session one feedback</h1>
@@ -690,6 +606,7 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="sponsors">
     <div data-role="header" data-add-back-btn="true">
         <h1>Sponsors</h1>
@@ -728,6 +645,7 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="files">
     <div data-role="header" data-add-back-btn="true">
         <h1>Files</h1>
@@ -759,6 +677,7 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="feedbacks">
     <div data-role="header" data-add-back-btn="true">
         <h1>Feedbacks</h1>
@@ -888,7 +807,8 @@
             <br><br>
             <div class="ui-field-contain" id="rating">
                 <label for="slider-fill">Please give an overall rating for this seminar:</label>
-                <input type="range" name="slider-fill" id="slider-fill" value="60" min="0" max="100" step="10" data-highlight="true">
+                <input type="range" name="slider-fill" id="slider-fill" value="60" min="0" max="100" step="10"
+                       data-highlight="true">
             </div>
             <br><br>
             <div class="ui-field-contain" id="rating">
@@ -920,6 +840,7 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="exhibitors">
     <div data-role="header" data-add-back-btn="true">
         <h1>exhibitor</h1>
@@ -974,6 +895,7 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="design">
     <div data-role="header" data-add-back-btn="true">
         <h1>Design</h1>
@@ -1012,6 +934,7 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="robot">
     <div data-role="header" data-add-back-btn="true">
         <h1>Robot project</h1>
@@ -1056,6 +979,7 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="announcement">
     <div data-role="header">
         <h1>Announcemnt</h1>
@@ -1070,7 +994,7 @@
                     <p>We will be having a refund desk this week on Wednesday 20/4 and Thursday 21/4.
                         <br> If you have any refunds to make,please visit the desk
                         <br>from 11:50 am till 1:40 pm in the Hall of Electrical Building.
-                    </p>                            </a>
+                    </p></a>
                 </li>
             </ul>
         </div>
@@ -1095,6 +1019,7 @@
 </div>
 
 <!-- /page -->
+<!-- Start of second page -->
 <div data-role="page" id="ieeeemail">
     <div data-role="header" data-add-back-btn="true">
         <h1>EMail</h1>
@@ -1103,7 +1028,7 @@
     <div role="main" class="ui-content">
         <div class="container"></div>
         <h1>get in touch</h1>
-        <div id="error2" style="font-size:80%; width:250px; height:100px; color:red;  "></div>
+        <div id="error2" class="error-class" style="width:250px; height:100px;"></div>
         <form method="post" id="form3">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" name="email3" class="form-control" id="email3" placeholder="Enter email">
@@ -1329,7 +1254,8 @@
         request.onreadystatechange = function () {
             if (request.readyState == 4 && request.status == 200) {
                 var res = request.responseText;
-                $("#load-all-sessions").html(res);
+                console.log(res);
+                //$('#load-all-sessions').html(res);
             }
         };
 
@@ -1452,5 +1378,128 @@
             });
         }
     });
+
+    //add sessions to schedule
+    $(document).ready(function () {
+
+        $(document).on("pageshow", "#schedule", function (event, data) {
+            $.ajax({
+                type: 'GET',
+                url: 'php/getSessions.php',
+                success: function (data) {
+                    sessions = JSON.parse($(data).html());
+//                    //save html in string to inject data in them later
+//                    var timeString = '<li data-role="list-divider" class="time"></li>'
+//
+//                    var sessionString = '<li>\
+//                                <a href="#">\
+//                                <h2 id="name"></h2>\
+//                                <p><strong id="place"></strong></p>\
+//                                <p class="ui-li-aside" ><strong id="session-duration">2:30 &#8658; 3:15</strong></p>\
+//                                </a>\
+//                                </li>'
+
+                    sessions.forEach(function (session) {
+                        // the commented approach is better but seems buggy, debug later
+//                        //turn saved string into JQuery elements
+//                        var empty_time = $(timeString);
+//                        var empty_session = $(sessionString);
+//
+//                        //inject session start time
+//                        empty_time.find(".time").append(session.SessionStartTime);
+//
+//                        //inject session data
+//                        empty_session.find('#name').text(session.SessionName);
+//                        empty_session.find('#place').text(session.SessionHall);
+//                        empty_session.find('#session-duration').text(session.SessionStartTime+' - '+session.SessionEndTime);
+
+                        //add session to list
+                        $('#sessions-list').append('<li data-role="list-divider" class="time ui-li-divider ui-bar-inherit ui-first-child">' + session.SessionStartTime + '</li>')
+                        .append('<li class="ui-last-child">\
+                                <a id=\"slink-' + session.id + '\" class="ui-btn ui-btn-icon-right ui-icon-carat-r">\
+                                <h2 id="name">' + session.SessionName + '</h2>\
+                                <p><strong id="place">' + session.SessionHall + '</strong></p>\
+                                <p class="ui-li-aside" ><strong id="session-duration">' + session.SessionStartTime + '&#8658;' + session.SessionEndTime + '</strong></p>\
+                                </a>\
+                                </li>');
+                    });
+
+                    $('a[id^=slink-]').on("click", function () {
+                        ID = $(this).attr('id').split('-')[1];
+                        window.location = window.location.pathname + '#sessionone?id=' + ID;
+                        location.reload();
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr.responseText);
+                }
+            });
+        });
+
+
+        $(document).on("pageshow", "#sessionone", function (event, data) {
+            id = window.location.hash.split('=')[1];
+
+            $.ajax({
+                type: 'GET',
+                url: 'php/getSessions.php',
+                success: function (data) {
+                    sessions = JSON.parse($(data).html());
+
+                    sessions.forEach(function (session) {
+                        if (session.id == id) {
+
+                            $('#s-name').text(session.SessionName);
+                            $('#s-name-title').text(session.SessionName);
+                            $('#s-description').text(session.SessionDescription);
+
+                            $("#speaker").on("click", function () {
+                                window.location = window.location.pathname + '#speakerinformation?id=' + id;
+                                location.reload();
+                            });
+
+                            $("#feedback").on("click", function () {
+                                window.location = window.location.pathname + '#sessionfeedback?id=' + id;
+                                location.reload();
+                            });
+                        }
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr.responseText);
+                }
+            });
+        });
+
+        $(document).on("pageshow", "#speakerinformation", function (event, data) {
+            id = window.location.hash.split('=')[1];
+
+            $.ajax({
+                type: 'GET',
+                url: 'php/getSessions.php',
+                success: function (data) {
+                    sessions = JSON.parse($(data).html());
+
+                    sessions.forEach(function (session) {
+                        if (session.id == id) {
+                            $('#sp-session-name').text(session.SessionName);
+                            $('#sp-name').text(session.SpeakerName);
+                            $('#sp-position').text(session.SpeakerPosition);
+                            $("#sp-bio").text(session.SpeakerBio);
+                            $("#sp-email").text(session.SpeakerEmail);
+                            $("#sp-mobile").text(session.SpeakerMobile);
+                            $("#sp-linkedin").text(session.SpeakerLinkedin);
+                            return;
+                        }
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr.responseText);
+                }
+            });
+        });
+    });
+
 </script>
+
 </html>
