@@ -87,8 +87,8 @@ label.ui-btn {
 -----------------------------------------------------------------------------------------------------------*/
 /* Class ui-btn-corner-all deprecated in 1.4 */
 .ui-corner-all {
-	-webkit-border-radius: 0.em /*{global-radii-blocks}*/;
-	border-radius: 0.em /*{global-radii-blocks}*/;
+	-webkit-border-radius: 0em /*{global-radii-blocks}*/;
+	border-radius: 0em /*{global-radii-blocks}*/;
 }
 /* Buttons */
 .ui-btn-corner-all,
@@ -116,10 +116,10 @@ label.ui-btn {
 }
 /* Popup arrow */
 .ui-popup.ui-corner-all > .ui-popup-arrow-guide {
-	left: 0.em /*{global-radii-blocks}*/;
-	right: 0.em /*{global-radii-blocks}*/;
-	top: 0.em /*{global-radii-blocks}*/;
-	bottom: 0.em /*{global-radii-blocks}*/;
+	left: 0em /*{global-radii-blocks}*/;
+	right: 0em /*{global-radii-blocks}*/;
+	top: 0em /*{global-radii-blocks}*/;
+	bottom: 0em /*{global-radii-blocks}*/;
 }
 /* Shadow
 -----------------------------------------------------------------------------------------------------------*/
@@ -212,7 +212,7 @@ html .ui-alt-icon .ui-radio-off:after {
 }
 /* Loader */
 .ui-icon-loading {
-	background: url("images/ajax-loader.gif");
+	background: url("../img/ajax-loader.gif");
 	background-size: 2.875em 2.875em;
 }
 /* Swatches */

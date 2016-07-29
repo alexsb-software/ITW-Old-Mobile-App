@@ -3,1009 +3,838 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jquery Mobile Course</title>
-    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
-    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css"/>
-    <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css"/>
+    <title>ITW | IEEE AlexSB</title>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
-    <script id="microloader" type="text/javascript" src=".sencha/app/microloader/development.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.mobile-1.4.5.min.js"></script>
-    <style>
-        #map, #map-canvas {
-            width: 100%;
-            height: 100%;
-            padding: 0;
-        }
-
-        .form-layout {
-            background: white;
-            width: 100%;
-            border-radius: 15px;
-            margin-left: 0px;
-            margin-right: 0px;
-            margin-top: 0px;
-            font-family: "Times New Roman", Times;
-        }
-
-        /* Class for positioning the text area */
-        .form-text-layout {
-            padding: 10px 10px;
-            width: 70%;
-        }
-
-        /* Class for the text and background color*/
-        .form-text {
-            border: 0px solid #FFF;
-            background: white;
-            vertical-align: middle;
-            color: black;
-            min-width: 50%;
-        }
-    </style>
 </head>
+
 <body>
-
-<!-- Start of first page -->
-<div data-role="page" id="index">
-    <div data-role="header" data-theme="a">
-        <h1>
-            ITW | IEEE AlexSB
-        </h1>
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
-        <p id="error" style="font-size:90%; color:red;"></p>
-        <form action="" id="form1" method="post">
-            <table class="form-layout">
-                <tr>
-                    <td class="form-text-layout">
-                        <input type="text" class="form-text" name="email1" id="email1" placeholder="Email address" required/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="form-text-layout">
-                        <input type="password" class="form-text" name="password1" id="password1" placeholder="Password" required/>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center">
-                        <div class="signin-button">
-                            <input type="submit" id="send" value="Sign In">
-                        </div>
-
-                    </td>
-                </tr>
-            </table>
-        </form>
-        <a href="#signup" rel="external" style="font-size:80%">Don't have an account yet? Click here to sign up</a>
-    </div>
-</div>
-
-
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="signup">
-    <div data-role="header" data-add-back-btn="true">
-        <h1>Sign up Form</h1>
-    </div>
-    <!-- /header -->
-    <div data-role="main" class="ui-content">
-        <div id="error1" class="error-class"></div>
-        <div class="container">
-            <div class="main">
-                <form class="form" method="post" id="form2">
-                    <label>Name :</label>
-                    <input type="text" name="dname" id="name">
-                    <label>Email :</label>
-                    <input type="text" name="demail" id="emaill">
-                    <label>Password :</label>
-                    <input type="password" name="password" id="passwordl">
-                    <label>Confirm Password :</label>
-                    <input type="password" name="cpassword" id="cpassword">
-                    <label for="ieeemember">Are you an IEEE member</label>
-                    <select name="ieeemember" id="ieeemember" data-role="slider" data-mini="true">
-                        <option value="No">No</option>
-                        <option value="Yes" selected="">Yes</option>
-                    </select>
-                    <label>Membership no :</label>
-                    <input type="number" name="membershipno" id="membershipno" placeholder="leave it blank if not a member ">
-                    <label>Mobile :</label>
-                    <input type="number" name="mobile" id="mobile">
-                    <label for="department" class="select" data-inline="true">Department</label>
-                    <select name="department" id="department" data-inline="true">
-                        <option value="electrical">Electrical</option>
-                        <option value="mechanical">Mechanical</option>
-                        <option value="civil">Civil</option>
-                        <option value="computer">Computer</option>
-                        <option value="architecture">Architecture</option>
-                        <option value="production">Production</option>
-                        <option value="nuclear">Nuclear</option>
-                        <option value="Chemical">Chemical</option>
-                        <option value="Marine">Marine</option>
-                        <option value="Petrochemical">Petrochemical</option>
-                        <option value="Electromechanical">Electromechanical</option>
-                        <option value="ComputerandCommunication">Computer and Communication</option>
-                        <option value="ArchitectureandConstruction">Architecture and Construction</option>
-                        <option value="Textile">Textile</option>
-                        <option value="Preparatory ">Preparatory</option>
-                        <option value="other">other</option>
-                    </select>
-                    <label for="year" class="year" data-inline="true">Class</label>
-                    <select name="year" id="year" data-inline="true">
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="other">other</option>
-                    </select>
-                    <input type="button" type="submit" name="enter" id="enter" value="sign up">
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- /content -->
-    <!-- <div data-role="footer">
-        <h4>Page Footer</h4>
-        </div> /footer -->
-</div>
-
-<div data-role="page" id="new-session">
-    <div data-role="header" data-position="fixed">
-        <h1>Add new session</h1>
-    </div>
-    <!-- /header -->
-    <div data-role="main" class="ui-content">
-        <div id="error-new-session" class="error-class"></div>
-        <div class="container">
-            <div class="main">
-                <form class="form" method="post" id="session-form">
-
-                    <label>Session Name :</label>
-                    <input type="text" id="session-name">
-                    <label>Session Hall :</label>
-                    <input type="text" id="session-hall">
-                    <label>Start Time :</label>
-                    <input type="text" id="session-start-time">
-                    <label>End Time :</label>
-                    <input type="text" id="session-end-time">
-                    <label>Date (dd-mm-yyyy):</label>
-                    <input type="text" id="session-date">
-                    <label>Description :</label>
-                    <input type="text" id="session-description">
-                    <label>Speaker Name :</label>
-                    <input type="text" id="session-speaker-name">
-                    <label>Speaker Position :</label>
-                    <input type="text" id="session-speaker-position">
-                    <label>Speaker Bio :</label>
-                    <input type="text" id="session-speaker-bio">
-                    <label>Speaker Email :</label>
-                    <input type="text" id="session-speaker-email">
-                    <label>Speaker Mobile :</label>
-                    <input type="text" id="session-speaker-mobile">
-                    <label>Speaker LinkedIn :</label>
-                    <input type="text" id="session-speaker-linkedin">
-
-                    <input type="submit" id="add-session" value="Add Session">
-
-                </form>
-            </div>
-        </div>
-        <div id="success-new-session" class="success-class"></div>
-    </div>
-</div>
-
-<div data-role="page" id="new-file">
-    <div data-role="header" data-position="fixed">
-        <h1>Add new file</h1>
-    </div>
-    <!-- /header -->
-    <div data-role="main" class="ui-content">
-        <div id="error-new-file" class="error-class"></div>
-        <div class="container">
-            <div class="main">
-                <form class="form" method="post" id="files-form">
-
-                    <label>File Name :</label>
-                    <input type="text" id="file-name">
-                    <label>File Link (URL) :</label>
-                    <input type="text" id="file-url">
-
-                    <input type="submit" id="add-file" value="Add File">
-
-                </form>
-            </div>
-        </div>
-        <div id="success-new-file" class="success-class"></div>
-    </div>
-</div>
-
-<div data-role="page" id="new-sponsor">
-    <div data-role="header" data-position="fixed">
-        <h1>Add new sponsor</h1>
-    </div>
-    <!-- /header -->
-    <div data-role="main" class="ui-content">
-        <div id="error-new-sponsor" class="error-class"></div>
-        <div class="container">
-            <div class="main">
-                <form class="form" method="post" id="sponsors-form">
-
-                    <label>Sponsor Name :</label>
-                    <input type="text" id="sponsor-name">
-                    <label>Sponsor Type :</label>
-                    <select id="sponsor-type" data-inline="true">
-                        <option value="platinum">Platinum</option>
-                        <option value="gold">Gold</option>
-                        <option value="silver">Silver</option>
-                        <option value="partner">Partner</option>
-                    </select>
-                    <label>Sponsor Image URL :</label>
-                    <input type="text" id="sponsor-image-url">
-                    <label>Sponsor Website :</label>
-                    <input type="text" id="sponsor-website">
-
-                    <input type="submit" id="add-sponsor" value="Add Sponsor">
-
-                </form>
-            </div>
-        </div>
-        <div id="success-new-sponsor" class="success-class"></div>
-    </div>
-</div>
-
-<div data-role="page" id="new-announcement">
-    <div data-role="header" data-position="fixed">
-        <h1>Add new announcement</h1>
-    </div>
-    <!-- /header -->
-    <div data-role="main" class="ui-content">
-        <div id="error-new-announcement" class="error-class"></div>
-        <div class="container">
-            <div class="main">
-                <form class="form" method="post" id="announcements-form">
-
-                    <label>Announcement Title :</label>
-                    <input type="text" id="announcement-title">
-                    <label>Announcement Body :</label>
-                    <input type="text" id="announcement-body">
-
-                    <input type="submit" id="add-announcement" value="Add Announcement">
-
-                </form>
-            </div>
-        </div>
-        <div id="success-new-announcement" class="success-class"></div>
-    </div>
-</div>
-
-<div data-role="page" id="get-sessions">
-    <div id="load-all-sessions"></div>
-</div>
-
-<div data-role="page" id="get-sponsors">
-    <div id="load-all-sponsors"></div>
-</div>
-
-<div data-role="page" id="get-files">
-    <div id="load-all-files"></div>
-</div>
-
-<div data-role="page" id="get-announcements">
-    <div id="load-all-announcements"></div>
-</div>
-
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="homepage">
-    <div data-role="header">
-        <h1>IEEE events</h1>
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
-        <a href="#about">
-            <!-- event -->
-            <a href="#menu" style="text-decoration: none;">
-                <div id="container" class="home-list-item">
-                    <img class="event-pic" src="img/just.jpg"/>
-                    <h4 class="event-name">ITW 2016</h4>
-                    <!-- event data-->
-                    <div id="event-data-div">
-                        <!-- date -->
-                        <div id="date-div">
-                            <img class="small-pic" src="img/date.png" style="float:left; width:25px;"/>
-                            <p id="date" class="event-data"> May 7-8, 2016</p>
-                        </div>
-                        <!-- location -->
-                        <div id="location-div">
-                            <img class="small-pic" src="img/location.png" style="float:left; width:25px;"/>
-                            <p id="location" class="event-data">bibliotheca alexandrina</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <!-- search button -->
-            <!--	<div>
-                <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l ui-btn-icon-search search">search all IEEE AlexSB events</a>
-                    </div>-->
-
-        </a>
-    </div>
-    <!-- /content -->
-    <!--  <div data-role="footer">
-        <h4>Page Footer</h4>
-        </div>  /footer -->
-</div>
-
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="menu">
-    <div data-role="header" data-position="fixed">
-        <h1>ITW</h1>
-    </div>
-    <!-- /header -->
-    <div data-role="main" class="ui-content">
-        <div class="ui-grid-a" ui-responsive>
-            <div class="ui-block-a menu-page-item">
-                <a href="#schedule" class="ui-btn ui-btn-inline ui-icon-calendar ui-btn-icon-top button ui-nodisc-icon">schedule</a>
-            </div>
-            <div class="ui-block-b menu-page-item">
-                <a href="http://www.alexsb.org" id="ieee" target="_blank" class="ui-btn ui-btn-inline ui-nodisc-icon ui-icon-cloud ui-btn-icon-top button">website</a>
-            </div>
-            <div class="ui-block-a menu-page-item">
-                <a href="#sponsors" class="ui-btn ui-btn-inline ui-icon-heart ui-btn-icon-top button ui-nodisc-icon">sponsors</a>
-            </div>
-            <div class="ui-block-b menu-page-item">
-                <a href="#ieeeemail" class="ui-btn ui-btn-inline ui-icon-mail ui-btn-icon-top button ui-nodisc-icon">email</a>
-            </div>
-            <div class="ui-block-a menu-page-item">
-                <a href="#feedbacks" class="ui-btn ui-btn-inline ui-icon-comment ui-btn-icon-top button ui-nodisc-icon">feedbacks</a>
-            </div>
-            <div class="ui-block-b menu-page-item">
-                <a href="#exhibitors" class="ui-btn ui-btn-inline ui-icon-eye ui-btn-icon-top button ui-nodisc-icon">exhibitors</a>
-            </div>
-            <div class="ui-block-a menu-page-item">
-                <a href="#files" class="ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-top button ui-nodisc-icon">files</a>
-            </div>
-            <div class="ui-block-b menu-page-item">
-                <a href="#map" class="ui-btn ui-btn-inline ui-icon-location ui-btn-icon-top button ui-nodisc-icon">maps</a>
-            </div>
-        </div>
-
-        <div class=" menu-page-item">
-            <a href="#announcement" class="ui-btn ui-btn-inline ui-icon-tag ui-btn-icon-top button ui-nodisc-icon">announcemnts</a>
-        </div>
-
-    </div>
-    <!-- /content -->
-    <!-- <div data-role="footer">
-        <h4>Page Footer</h4>
-        </div> /footer -->
-</div>
-
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="schedule">
-    <div data-role="header" data-add-back-btn="true" style="overflow:hidden;">
-        <h1>ITW schedule</h1>
-        <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
-        <div data-role="navbar">
-            <ul>
-                <li>
-                    <a href="#" class="ui-disabled" data-theme="b !important" style="background-color:#808080 !important;" data-ajax="false">Mon<br>02</a>
-                </li>
-                <li>
-                    <a href="#one" data-theme="a" data-ajax="false">Tue<br>03</a>
-                </li>
-                <li>
-                    <a href="#one" data-theme="a" data-ajax="false">Wed<br>04</a>
-                </li>
-                <li>
-                    <a href="#" data-theme="a" data-ajax="false">Thu<br>05</a>
-                </li>
-                <li>
-                    <a href="#" class="ui-disabled" data-theme="b" data-ajax="false">Fri<br>06</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /navbar -->
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
-        <div role="main" class="ui-content" id="one">
+    <!-- Start of first page -->
+    <div data-role="page" id="index">
+        <div data-role="header" data-theme="a">
             <h1>
-                <ul data-role="listview" data-inset="true" id="sessions-list">
-
-                </ul>
+                ITW | IEEE AlexSB
             </h1>
         </div>
-    </div>
-    <!-- /content -->
-    <!--  <div data-role="footer">
-        <h4>Page Footer</h4>
-        </div> /footer -->
-</div>
-
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="sessionone" data-dialog="true">
-    <div data-role="header" data-theme="a">
-        <h1 id="s-name-title">...</h1>
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
-        <h1 id="s-name">...</h1>
-        <p id="s-description">...
-        </p>
-        <a id="speaker" class="ui-btn ui-shadow ui-corner-all ui-btn-a">speaker information</a>
-        <a id="feedback" class="ui-btn ui-shadow ui-corner-all ui-btn-a">session feedback</a>
-    </div>
-    <!-- /content -->
-    <!--  <div data-role="footer">
-        <h4>Page Footer</h4>
-        </div> /footer -->
-</div>
-
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="speakerinformation">
-    <div data-role="header" data-add-back-btn="true">
-        <h1 id="sp-session-name">Keynote speech</h1>
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
-        <div class="ui-content">
-            <div style="height:200px;">
-                <img style="width:125px; height:125px; padding:25px; float:left;" src="img/user.jpg">
-                <div style="padding:50px;">
-                    <p>
-                        <strong>Name:
-                            <span id="sp-name">...</span></strong>
-                    </p>
-                    <p>
-                        <strong>position:
-                            <span id="sp-position">...</span></strong>
-                    </p>
-                </div>
-            </div>
-            <div>
-                <p>
-                    <strong>Bio</strong>
-                </p>
-                <p id="sp-bio">...</p>
-            </div>
-            <div>
-                <p>
-                    <strong>Contacts</strong>
-                </p>
-                <p>Email:
-                    <span id="sp-email">...</span>
-                    <br>mobile:
-                    <span id="sp-mobile">...</span>
-                    <br>linkedin:
-                    <span id="sp-linkedin">...</span>
-                </p>
-            </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <p id="error" style="font-size:90%; color:red;"></p>
+            <form id="form1" method="post">
+                <table class="form-layout">
+                    <tr>
+                        <td class="form-text-layout">
+                            <input type="text" class="form-text" name="email1" id="email1" placeholder="Email address" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="form-text-layout">
+                            <input type="password" class="form-text" name="password1" id="password1" placeholder="Password" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <div class="signin-button">
+                                <input type="submit" id="send" value="Sign In">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <a href="#signup" rel="external" style="font-size:80%">Don't have an account yet? Click here to sign up.</a>
         </div>
     </div>
-    <!-- /content -->
-    <!--  <div data-role="footer">
-        <h4>Page Footer</h4>
-        </div> /footer -->
-</div>
 
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="sessionfeedback">
-    <div data-role="header" data-add-back-btn="true">
-        <h1>session one feedback</h1>
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
-        <form class="ui-mini">
-            <div class="ui-field-contain" id="expectations">
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Timing was suitable.</legend>
-                    <label for="ab">Disagree</label>
-                    <input type="radio" name="timing" id="ab" checked>
-                    <label for="cd">Neutral</label>
-                    <input type="radio" name="timing" id="cd">
-                    <label for="ef">Agree</label>
-                    <input type="radio" name="timing" id="ef">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Topic was interesting.</legend>
-                    <label for="ty">Disagree</label>
-                    <input type="radio" name="Topic" id="ty" checked>
-                    <label for="ui">Neutral</label>
-                    <input type="radio" name="Topic" id="ui">
-                    <label for="as">Agree</label>
-                    <input type="radio" name="Topic" id="as">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• This seminar provided enough information about the topic.</legend>
-                    <label for="df">Disagree</label>
-                    <input type="radio" name="information" id="df" checked>
-                    <label for="hk">Neutral</label>
-                    <input type="radio" name="information" id="hk">
-                    <label for="gj">Agree</label>
-                    <input type="radio" name="information" id="gj">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Content was valuable.</legend>
-                    <label for="zx">Disagree</label>
-                    <input type="radio" name="Content" id="zx" checked>
-                    <label for="cv">Neutral</label>
-                    <input type="radio" name="Content" id="cv">
-                    <label for="bn">Agree</label>
-                    <input type="radio" name="Content" id="bn">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Speaker was knowledgeable about the topic.</legend>
-                    <label for="qa">Disagree</label>
-                    <input type="radio" name="Speaker" id="qa" checked>
-                    <label for="ws">Neutral</label>
-                    <input type="radio" name="Speaker" id="ws">
-                    <label for="ed">Agree</label>
-                    <input type="radio" name="Speaker" id="ed">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Speaker had good presentation skills.</legend>
-                    <label for="rf">Disagree</label>
-                    <input type="radio" name="presentation" id="rf" checked>
-                    <label for="tg">Neutral</label>
-                    <input type="radio" name="presentation" id="tg">
-                    <label for="yh">Agree</label>
-                    <input type="radio" name="presentation" id="yh">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Duration was enough.</legend>
-                    <label for="uj">Disagree</label>
-                    <input type="radio" name="Duration" id="uj" checked>
-                    <label for="ik">Neutral</label>
-                    <input type="radio" name="Duration" id="ik">
-                    <label for="az">Agree</label>
-                    <input type="radio" name="Duration" id="az">
-                </fieldset>
-            </div>
-            <br><br>
-            <div class="ui-field-contain" id="rating">
-                <label for="slider-fill">Please give an overall rating for this seminar:</label>
-                <input type="range" name="slider-fill" id="slider-fill" value="60" min="0" max="100" step="10" data-highlight="true">
-            </div>
-            <br><br>
-            <div class="ui-field-contain" id="rating">
-                <label for="flip-1">Did you expect any additional information? </label>
-                <select name="flip-1" id="flip-1" data-role="slider">
-                    <option value="No">No</option>
-                    <option value="Yes">Yes</option>
-                </select>
-            </div>
-            <br><br>
-            <div data-role="fieldcontain">
-                <label for="textarea">What are your suggestions for other seminars topics?</label>
-                <textarea name="textarea" id="textarea"></textarea>
-            </div>
-            <br><br>
-            <div data-role="fieldcontain">
-                <label for="textarea">Please write your suggestions and comments about this seminar or any activity of IEEE AlexSB.</label>
-                <textarea name="textarea" id="textarea"></textarea>
-            </div>
-            <br><br>
-            <input type="submit" data-inline="true" value="Submit" id="submit-session-feedback">
-            <input type="reset" data-inline="true" value="reset">
-        </form>
-    </div>
-    <!-- /content -->
-    <!-- 	<div data-role="footer">
-        <h4>Page Footer</h4>
-        </div> /footer -->
-</div>
-
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="sponsors">
-    <div data-role="header" data-add-back-btn="true">
-        <h1>Sponsors</h1>
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
-        <div data-role="collapsible" data-collapsed="false" id="platinum sponsors">
-            <h2>platinum sponsors</h2>
-            <a href="http://www.google.com" target="_blank">
-                <img src="img/Google.png">
-            </a>
+    <div data-role="page" id="signup">
+        <div data-role="header" data-add-back-btn="true">
+            <h1>Sign up Form</h1>
         </div>
-        <div data-role="collapsible" data-collapsed="false" id="golden sponsors">
-            <h2>golden sponsors</h2>
-            <a href="http://www.google.com" target="_blank">
-                <img src="img/Google.png">
-            </a>
-        </div>
-        <div data-role="collapsible" data-collapsed="false" id="silver sponsors">
-            <h2>silver sponsors</h2>
-            <a href="http://www.google.com" target="_blank">
-                <img src="img/Google.png">
-            </a>
-        </div>
-        <div data-role="collapsible" data-collapsed="false" id="partners">
-            <h2>partners</h2>
-            <a href="http://www.google.com" target="_blank">
-                <img src="img/Google.png">
-            </a>
-        </div>
-    </div>
-    <!-- /content -->
-    <!-- 	<div data-role="footer">
-        <h4>Page Footer</h4>
-        </div> /footer -->
-</div>
-
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="files">
-    <div data-role="header" data-add-back-btn="true">
-        <h1>Files</h1>
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
-        <ul data-role="listview" data-inset="true">
-            <li>
-                <a href="https://drive.google.com/uc?export=download&id=0B8-5tbz7gsrXSXhmVzBvOXRQLTg">Keynotes presentation</a>
-            </li>
-            <li>
-                <a href="#">file 2</a>
-            </li>
-            <li>
-                <a href="#">file 3</a>
-            </li>
-            <li>
-                <a href="#">file 4</a>
-            </li>
-            <li>
-                <a href="#">file 5</a>
-            </li>
-        </ul>
-    </div>
-    <!-- /content -->
-    <!-- <div data-role="footer">
-        <h4>Page Footer</h4>
-        </div> /footer -->
-</div>
-
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="feedbacks">
-    <div data-role="header" data-add-back-btn="true">
-        <h1>Feedbacks</h1>
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
-        <form class="ui-mini">
-            <div class="ui-field-contain" id="theme-selector">
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>How did you know about this event ?</legend>
-                    <label for="a">Poster</label>
-                    <input type="radio" name="theme" id="a" checked>
-                    <label for="b">Email</label>
-                    <input type="radio" name="theme" id="b">
-                    <label for="c">Facebook event</label>
-                    <input type="radio" name="theme" id="c">
-                    <label for="d">Friends</label>
-                    <input type="radio" name="theme" id="d">
-                    <label for="e">AlexSB volunteer</label>
-                    <input type="radio" name="theme" id="e">
-                    <label for="f">other</label>
-                    <input type="radio" name="theme" id="f">
-                </fieldset>
-                <input type="text" id="others" style="display:none;">
-            </div>
-            <div class="ui-field-contain" id="expectations">
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• The event met my expectations.</legend>
-                    <label for="g">Disagree</label>
-                    <input type="radio" name="meet" id="g" checked>
-                    <label for="h">Neutral</label>
-                    <input type="radio" name="meet" id="h">
-                    <label for="i">Agree</label>
-                    <input type="radio" name="meet" id="i">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Event location was suitable.</legend>
-                    <label for="j">Disagree</label>
-                    <input type="radio" name="location" id="j" checked>
-                    <label for="k">Neutral</label>
-                    <input type="radio" name="location" id="k">
-                    <label for="l">Agree</label>
-                    <input type="radio" name="location" id="l">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Timing was suitable.</legend>
-                    <label for="ab">Disagree</label>
-                    <input type="radio" name="timing" id="ab" checked>
-                    <label for="cd">Neutral</label>
-                    <input type="radio" name="timing" id="cd">
-                    <label for="ef">Agree</label>
-                    <input type="radio" name="timing" id="ef">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Event was well organized.</legend>
-                    <label for="gh">Disagree</label>
-                    <input type="radio" name="organized" id="gh" checked>
-                    <label for="jk">Neutral</label>
-                    <input type="radio" name="organized" id="jk">
-                    <label for="il">Agree</label>
-                    <input type="radio" name="organized" id="il">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Organizers were helpful.</legend>
-                    <label for="op">Disagree</label>
-                    <input type="radio" name="Organizers" id="op" checked>
-                    <label for="qw">Neutral</label>
-                    <input type="radio" name="Organizers" id="qw">
-                    <label for="er">Agree</label>
-                    <input type="radio" name="Organizers" id="er">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Topic was interesting.</legend>
-                    <label for="ty">Disagree</label>
-                    <input type="radio" name="Topic" id="ty" checked>
-                    <label for="ui">Neutral</label>
-                    <input type="radio" name="Topic" id="ui">
-                    <label for="as">Agree</label>
-                    <input type="radio" name="Topic" id="as">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• This seminar provided enough information about the topic.</legend>
-                    <label for="df">Disagree</label>
-                    <input type="radio" name="information" id="df" checked>
-                    <label for="hk">Neutral</label>
-                    <input type="radio" name="information" id="hk">
-                    <label for="gj">Agree</label>
-                    <input type="radio" name="information" id="gj">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Content was valuable.</legend>
-                    <label for="zx">Disagree</label>
-                    <input type="radio" name="Content" id="zx" checked>
-                    <label for="cv">Neutral</label>
-                    <input type="radio" name="Content" id="cv">
-                    <label for="bn">Agree</label>
-                    <input type="radio" name="Content" id="bn">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Speaker was knowledgeable about the topic.</legend>
-                    <label for="qa">Disagree</label>
-                    <input type="radio" name="Speaker" id="qa" checked>
-                    <label for="ws">Neutral</label>
-                    <input type="radio" name="Speaker" id="ws">
-                    <label for="ed">Agree</label>
-                    <input type="radio" name="Speaker" id="ed">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Speaker had good presentation skills.</legend>
-                    <label for="rf">Disagree</label>
-                    <input type="radio" name="presentation" id="rf" checked>
-                    <label for="tg">Neutral</label>
-                    <input type="radio" name="presentation" id="tg">
-                    <label for="yh">Agree</label>
-                    <input type="radio" name="presentation" id="yh">
-                </fieldset>
-                <fieldset data-role="controlgroup" data-type="horizontal">
-                    <legend>• Duration was enough.</legend>
-                    <label for="uj">Disagree</label>
-                    <input type="radio" name="Duration" id="uj" checked>
-                    <label for="ik">Neutral</label>
-                    <input type="radio" name="Duration" id="ik">
-                    <label for="az">Agree</label>
-                    <input type="radio" name="Duration" id="az">
-                </fieldset>
-            </div>
-            <br><br>
-            <div class="ui-field-contain" id="rating">
-                <label for="slider-fill">Please give an overall rating for this seminar:</label>
-                <input type="range" name="slider-fill" id="slider-fill" value="60" min="0" max="100" step="10"
-                       data-highlight="true">
-            </div>
-            <br><br>
-            <div class="ui-field-contain" id="rating">
-                <label for="flip-1">Did you expect any additional information? </label>
-                <select name="flip-1" id="flip-1" data-role="slider">
-                    <option value="No">No</option>
-                    <option value="Yes">Yes</option>
-                </select>
-            </div>
-            <br><br>
-            <div data-role="fieldcontain">
-                <label for="textarea">What are your suggestions for other seminars topics?</label>
-                <textarea name="textarea" id="textarea"></textarea>
-            </div>
-            <br><br>
-            <div data-role="fieldcontain">
-                <label for="textarea">Please write your suggestions and comments about this seminar or any activity of IEEE AlexSB.</label>
-                <textarea name="textarea" id="textarea"></textarea>
-            </div>
-            <br><br>
-            <input type="submit" data-inline="true" value="Submit">
-            <input type="reset" data-inline="true" value="reset">
-        </form>
-    </div>
-    <!-- /content -->
-    <!-- <div data-role="footer">
-        <h4>Page Footer</h4>
-        </div> /footer -->
-</div>
-
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="exhibitors">
-    <div data-role="header" data-add-back-btn="true">
-        <h1>exhibitor</h1>
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
-        <ul data-role="listview" data-inset="true" data-divider-theme="a">
-            <li data-role="list-divider">Mechanical</li>
-            <li>
-                <a href="#design">
-                    <img src="img/user.jpg">
-                    <h2>Design</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="img/user.jpg">
-                    <h2>Fluid</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="img/user.jpg">
-                    <h2>internal</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </a>
-            </li>
-            <li data-role="list-divider">Electrical</li>
-            <li>
-                <a href="#">
-                    <img src="img/user.jpg">
-                    <h2>Power</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="img/user.jpg">
-                    <h2>communication</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <!-- /content -->
-    <!-- <div data-role="footer">
-        <h4>Page Footer</h4>
-        </div> /footer -->
-</div>
-
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="design">
-    <div data-role="header" data-add-back-btn="true">
-        <h1>Design</h1>
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
-        <ul data-role="listview" data-inset="true">
-            <li>
-                <a href="#robot">
-                    <img src="img/user.jpg">
-                    <h2>Robot</h2>
-                    <p>description</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="img/user.jpg">
-                    <h2>CNC machine</h2>
-                    <p>description</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="img/user.jpg">
-                    <h2>3D printer</h2>
-                    <p>description</p>
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <!-- /content -->
-    <!-- <div data-role="footer">
-        <h4>Page Footer</h4>
-        </div> /footer -->
-</div>
-
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="robot">
-    <div data-role="header" data-add-back-btn="true">
-        <h1>Robot project</h1>
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
-        <div class="ui-content">
-            <div style="height:200px;">
-                <img style="width:125px; height:125px; padding:25px; float:left;" src="img/user.jpg">
-                <div style="padding:50px;">
-                    <p>
-                        <strong>Team Name: </strong>
-                    </p>
-                </div>
-            </div>
-            <br><br>
-            <div>
-                <p>
-                    <strong>Project description</strong>
-                </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed, placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna. Donec molestie vel eros quis vestibulum. Ut leo nulla, ultricies sed ligula tristique, pharetra mollis sapien. Vestibulum consequat porta nibh non maximus. Maecenas commodo, dui id pulvinar congue, risus metus ultrices mi, vitae aliquet metus nulla sed libero
-                </p>
-            </div>
-            <br><br><br>
-            <div>
-                <p>
-                    <strong>Contacts</strong>
-                </p>
-                <p>Email:
-                    <br>mobile:
-                    <br>linkedin:
-                    <br>Facebook:
-                    <br>Twitter:
-                </p>
-            </div>
-        </div>
-    </div>
-    <!-- /content -->
-    <!-- <div data-role="footer">
-        <h4>Page Footer</h4>
-        </div> /footer -->
-</div>
-
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="announcement">
-    <div data-role="header">
-        <h1>Announcemnt</h1>
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
+        <!-- /header -->
         <div data-role="main" class="ui-content">
-            <ul data-role="listview" data-inset="true" style="margin-top:20px;">
-                <li data-role="list-divider">Refund desk</li>
-                <li>
-                    <h2>Refund desk</h2>
-                    <p>We will be having a refund desk this week on Wednesday 20/4 and Thursday 21/4.
-                        <br> If you have any refunds to make,please visit the desk
-                        <br>from 11:50 am till 1:40 pm in the Hall of Electrical Building.
-                    </p></a>
-                </li>
+            <div id="error1" class="error-class"></div>
+            <div class="container">
+                <div class="main">
+                    <form class="form" method="post" id="form2">
+                        <label>Name :</label>
+                        <input type="text" name="dname" id="name">
+                        <label>Email :</label>
+                        <input type="text" name="demail" id="emaill">
+                        <label>Password :</label>
+                        <input type="password" name="password" id="passwordl">
+                        <label>Confirm Password :</label>
+                        <input type="password" name="cpassword" id="cpassword">
+                        <label for="ieeemember">Are you an IEEE member ?</label>
+                        <select name="ieeemember" id="ieeemember" data-role="slider" data-mini="true">
+                            <option value="No">No</option>
+                            <option value="Yes" selected="">Yes</option>
+                        </select>
+                        <label>Membership number :</label>
+                        <input type="number" name="membershipno" id="membershipno" placeholder="leave blank if not a member ">
+                        <label>Mobile :</label>
+                        <input type="number" name="mobile" id="mobile">
+                        <label for="department" class="select" data-inline="true">Department :</label>
+                        <select name="department" id="department" data-inline="true">
+                            <option value="electrical">Electrical</option>
+                            <option value="mechanical">Mechanical</option>
+                            <option value="civil">Civil</option>
+                            <option value="computer">Computer</option>
+                            <option value="architecture">Architecture</option>
+                            <option value="production">Production</option>
+                            <option value="nuclear">Nuclear</option>
+                            <option value="Chemical">Chemical</option>
+                            <option value="Marine">Marine</option>
+                            <option value="Petrochemical">Petrochemical</option>
+                            <option value="Electromechanical">Electromechanical</option>
+                            <option value="ComputerandCommunication">Computer and Communication</option>
+                            <option value="ArchitectureandConstruction">Architecture and Construction</option>
+                            <option value="Textile">Textile</option>
+                            <option value="Preparatory ">Preparatory</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="year" class="year" data-inline="true">Class :</label>
+                        <select name="year" id="year" data-inline="true">
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <input type="submit" name="enter" id="enter" value="sign up">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- <div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+    </div>
+
+    <div data-role="page" id="new-session">
+        <div data-role="header" data-position="fixed">
+            <h1>Add new session</h1>
+        </div>
+        <!-- /header -->
+        <div data-role="main" class="ui-content">
+            <div id="error-new-session" class="error-class"></div>
+            <div class="container">
+                <div class="main">
+                    <form class="form" method="post" id="session-form">
+
+                        <label>Session Name :</label>
+                        <input type="text" id="session-name">
+                        <label>Session Hall :</label>
+                        <input type="text" id="session-hall">
+                        <label>Start Time :</label>
+                        <input type="text" id="session-start-time">
+                        <label>End Time :</label>
+                        <input type="text" id="session-end-time">
+                        <label>Date (dd-mm-yyyy):</label>
+                        <input type="text" id="session-date">
+                        <label>Description :</label>
+                        <input type="text" id="session-description">
+                        <label>Speaker Name :</label>
+                        <input type="text" id="session-speaker-name">
+                        <label>Speaker Position :</label>
+                        <input type="text" id="session-speaker-position">
+                        <label>Speaker Bio :</label>
+                        <input type="text" id="session-speaker-bio">
+                        <label>Speaker Email :</label>
+                        <input type="text" id="session-speaker-email">
+                        <label>Speaker Mobile :</label>
+                        <input type="text" id="session-speaker-mobile">
+                        <label>Speaker LinkedIn :</label>
+                        <input type="text" id="session-speaker-linkedin">
+
+                        <input type="button" type="submit" id="add-session" value="Add Session">
+
+                    </form>
+                </div>
+            </div>
+            <div id="success-new-session" class="success-class"></div>
+        </div>
+    </div>
+
+    <div data-role="page" id="new-file">
+        <div data-role="header" data-position="fixed">
+            <h1>Add new file</h1>
+        </div>
+        <!-- /header -->
+        <div data-role="main" class="ui-content">
+            <div id="error-new-file" class="error-class"></div>
+            <div class="container">
+                <div class="main">
+                    <form class="form" method="post" id="files-form">
+
+                        <label>File Name :</label>
+                        <input type="text" id="file-name">
+                        <label>File Link (URL) :</label>
+                        <input type="text" id="file-url">
+
+                        <input type="button" type="submit" id="add-file" value="Add File">
+
+                    </form>
+                </div>
+            </div>
+            <div id="success-new-file" class="success-class"></div>
+        </div>
+    </div>
+
+    <div data-role="page" id="new-sponsor">
+        <div data-role="header" data-position="fixed">
+            <h1>Add new sponsor</h1>
+        </div>
+        <!-- /header -->
+        <div data-role="main" class="ui-content">
+            <div id="error-new-sponsor" class="error-class"></div>
+            <div class="container">
+                <div class="main">
+                    <form class="form" method="post" id="sponsors-form">
+
+                        <label>Sponsor Name :</label>
+                        <input type="text" id="sponsor-name">
+                        <label>Sponsor Type :</label>
+                        <select id="sponsor-type" data-inline="true">
+                            <option value="platinum">Platinum</option>
+                            <option value="gold">Gold</option>
+                            <option value="silver">Silver</option>
+                            <option value="partner">Partner</option>
+                        </select>
+                        <label>Sponsor Image URL :</label>
+                        <input type="text" id="sponsor-image-url">
+                        <label>Sponsor Website :</label>
+                        <input type="text" id="sponsor-website">
+
+                        <input type="button" type="submit" id="add-sponsor" value="Add Sponsor">
+
+                    </form>
+                </div>
+            </div>
+            <div id="success-new-sponsor" class="success-class"></div>
+        </div>
+    </div>
+
+    <div data-role="page" id="new-announcement">
+        <div data-role="header" data-position="fixed">
+            <h1>Add new announcement</h1>
+        </div>
+        <!-- /header -->
+        <div data-role="main" class="ui-content">
+            <div id="error-new-announcement" class="error-class"></div>
+            <div class="container">
+                <div class="main">
+                    <form class="form" method="post" id="announcements-form">
+
+                        <label>Announcement Title :</label>
+                        <input type="text" id="announcement-title">
+                        <label>Announcement Body :</label>
+                        <input type="text" id="announcement-body">
+
+                        <input type="button" type="submit" id="add-announcement" value="Add Announcement">
+
+                    </form>
+                </div>
+            </div>
+            <div id="success-new-announcement" class="success-class"></div>
+        </div>
+    </div>
+
+    <div data-role="page" id="get-sessions">
+        <div id="load-all-sessions"></div>
+    </div>
+
+    <div data-role="page" id="get-sponsors">
+        <div id="load-all-sponsors"></div>
+    </div>
+
+    <div data-role="page" id="get-files">
+        <div id="load-all-files"></div>
+    </div>
+
+    <div data-role="page" id="get-announcements">
+        <div id="load-all-announcements"></div>
+    </div>
+
+    <div data-role="page" id="delete-entry">
+        <div data-role="header" data-position="fixed">
+            <h1>Delete Entry</h1>
+        </div>
+        <!-- /header -->
+        <div data-role="main" class="ui-content">
+            <div id="error-delete-entry" class="error-class"></div>
+            <div class="container">
+                <div class="main">
+                    <form class="form" method="post" id="delete-entry-form">
+
+                        <label>Choose Type :</label>
+                        <select id="delete-entry-type" data-inline="true">
+                            <option value="schedule">Session</option>
+                            <option value="sponsors">Sponsor</option>
+                            <option value="files">File</option>
+                            <option value="announcements">Announcement</option>
+                        </select>
+                        <label>Entry ID :</label>
+                        <input type="text" id="delete-entry-id">
+
+                        <input type="button" type="submit" id="delete-entry-submit" value="Delete Entry">
+
+                    </form>
+                </div>
+            </div>
+            <div id="success-delete-entry" class="success-class"></div>
+        </div>
+    </div>
+
+    <!-- /page -->
+    <div data-role="page" id="homepage">
+        <div data-role="header">
+            <h1>IEEE Events</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <a href="#about">
+                <!-- event -->
+                <a href="#menu" style="text-decoration: none;">
+                    <div id="container" class="home-list-item">
+                        <img class="event-pic" src="img/just.jpg"/>
+                        <h4 class="event-name">ITW 2016</h4>
+                        <!-- event data-->
+                        <div id="event-data-div">
+                            <!-- date -->
+                            <div id="date-div">
+                                <img class="small-pic" src="img/date.png" style="float:left; width:25px;"/>
+                                <p id="date" class="event-data"> Aug 5-6, 2016</p>
+                            </div>
+                            <!-- location -->
+                            <div id="location-div">
+                                <img class="small-pic" src="img/location.png" style="float:left; width:25px;"/>
+                                <p id="location" class="event-data">Bibliotheca Alexandrina</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- search button -->
+                <!--	<div>
+                    <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l ui-btn-icon-search search">search all IEEE AlexSB events</a>
+                        </div>-->
+
+            </a>
+        </div>
+        <!-- /content -->
+        <!--  <div data-role="footer">
+            <h4>Page Footer</h4>
+            </div>  /footer -->
+    </div>
+
+    <!-- /page -->
+    <div data-role="page" id="menu">
+        <div data-role="header" data-position="fixed">
+            <h1>ITW 2016</h1>
+        </div>
+        <!-- /header -->
+        <div data-role="main" class="ui-content">
+            <div class="ui-grid-a" ui-responsive>
+                <div class="ui-block-a menu-page-item">
+                    <a href="#schedule" class="ui-btn ui-btn-inline ui-icon-calendar ui-btn-icon-top button ui-nodisc-icon">Schedule</a>
+                </div>
+                <div class="ui-block-b menu-page-item">
+                    <a href="http://www.alexsb.org" id="ieee" target="_blank" class="ui-btn ui-btn-inline ui-nodisc-icon ui-icon-cloud ui-btn-icon-top button">Website</a>
+                </div>
+                <div class="ui-block-a menu-page-item">
+                    <a href="#sponsors" class="ui-btn ui-btn-inline ui-icon-heart ui-btn-icon-top button ui-nodisc-icon">Sponsors</a>
+                </div>
+                <div class="ui-block-b menu-page-item">
+                    <a href="#ieeeemail" class="ui-btn ui-btn-inline ui-icon-mail ui-btn-icon-top button ui-nodisc-icon">Email</a>
+                </div>
+                <div class="ui-block-a menu-page-item">
+                    <a href="#feedbacks" class="ui-btn ui-btn-inline ui-icon-comment ui-btn-icon-top button ui-nodisc-icon">Feedbacks</a>
+                </div>
+                <div class="ui-block-b menu-page-item">
+                    <a href="#exhibitors" class="ui-btn ui-btn-inline ui-icon-eye ui-btn-icon-top button ui-nodisc-icon">Exhibitors</a>
+                </div>
+                <div class="ui-block-a menu-page-item">
+                    <a href="#files" class="ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-top button ui-nodisc-icon">Files</a>
+                </div>
+                <div class="ui-block-b menu-page-item">
+                    <a href="#map" class="ui-btn ui-btn-inline ui-icon-location ui-btn-icon-top button ui-nodisc-icon">Maps</a>
+                </div>
+            </div>
+
+            <div class=" menu-page-item">
+                <a href="#announcement" class="ui-btn ui-btn-inline ui-icon-tag ui-btn-icon-top button ui-nodisc-icon">Announcemnts</a>
+            </div>
+
+        </div>
+        <!-- /content -->
+        <!-- <div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+    </div>
+
+    <!-- /page -->
+    <div data-role="page" id="schedule">
+        <div data-role="header" data-add-back-btn="true" style="overflow:hidden;">
+            <h1>ITW 2016 | Schedule</h1>
+            <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+            <input type="hidden" id="dayCount" value="2">
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a data-theme="a" data-ajax="true" id="day-one"> Friday<br><span>05</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-theme="a" data-ajax="true" id="day-two"> Saturday<br><span>06</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /navbar -->
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <div role="main" class="ui-content" id="one">
+                <h1>
+                    <ul data-role="listview" data-inset="true" id="sessions-list">
+
+                    </ul>
+                </h1>
+            </div>
+        </div>
+        <!-- /content -->
+        <!--  <div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+    </div>
+
+    <!-- /page -->
+    <div data-role="page" id="session-info" data-dialog="true">
+        <div data-role="header" data-theme="a">
+            <h1 id="s-name-title">...</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <h1 id="s-name">...</h1>
+            <p id="s-description">...
+            </p>
+            <a id="speaker" class="ui-btn ui-shadow ui-corner-all ui-btn-a">speaker information</a>
+            <a id="feedback" class="ui-btn ui-shadow ui-corner-all ui-btn-a">session feedback</a>
+        </div>
+        <!-- /content -->
+        <!--  <div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+    </div>
+
+    <!-- /page -->
+    <div data-role="page" id="speakerinformation">
+        <div data-role="header" data-add-back-btn="true">
+            <h1 id="sp-session-name">Keynote speech</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <div class="ui-content">
+                <div style="height:200px;">
+                    <img style="width:125px; height:125px; padding:25px; float:left;" src="img/user.jpg">
+                    <div style="padding:50px;">
+                        <p>
+                            <strong>Name :
+                                <span id="sp-name">...</span></strong>
+                        </p>
+                        <p>
+                            <strong>Position :
+                                <span id="sp-position">...</span></strong>
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <p>
+                        <strong>Bio :</strong>
+                    </p>
+                    <p id="sp-bio">...</p>
+                </div>
+                <div>
+                    <p>
+                        <strong>Contacts :</strong>
+                    </p>
+                    <p>
+                        Email :
+                        <span id="sp-email">...</span>
+                        <br>Mobile :
+                        <span id="sp-mobile">...</span>
+                        <br>LinkedIn :
+                        <span id="sp-linkedin">...</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- /content -->
+        <!--  <div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+    </div>
+
+    <!-- /page -->
+    <div data-role="page" id="sessionfeedback">
+        <div data-role="header" data-add-back-btn="true">
+            <h1>session one feedback</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <form class="ui-mini">
+                <div class="ui-field-contain" id="expectations">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Timing was suitable.</legend>
+                        <label for="ab">Disagree</label>
+                        <input type="radio" name="timing" id="ab" checked>
+                        <label for="cd">Neutral</label>
+                        <input type="radio" name="timing" id="cd">
+                        <label for="ef">Agree</label>
+                        <input type="radio" name="timing" id="ef">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Topic was interesting.</legend>
+                        <label for="ty">Disagree</label>
+                        <input type="radio" name="Topic" id="ty" checked>
+                        <label for="ui">Neutral</label>
+                        <input type="radio" name="Topic" id="ui">
+                        <label for="as">Agree</label>
+                        <input type="radio" name="Topic" id="as">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• This seminar provided enough information about the topic.</legend>
+                        <label for="df">Disagree</label>
+                        <input type="radio" name="information" id="df" checked>
+                        <label for="hk">Neutral</label>
+                        <input type="radio" name="information" id="hk">
+                        <label for="gj">Agree</label>
+                        <input type="radio" name="information" id="gj">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Content was valuable.</legend>
+                        <label for="zx">Disagree</label>
+                        <input type="radio" name="Content" id="zx" checked>
+                        <label for="cv">Neutral</label>
+                        <input type="radio" name="Content" id="cv">
+                        <label for="bn">Agree</label>
+                        <input type="radio" name="Content" id="bn">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Speaker was knowledgeable about the topic.</legend>
+                        <label for="qa">Disagree</label>
+                        <input type="radio" name="Speaker" id="qa" checked>
+                        <label for="ws">Neutral</label>
+                        <input type="radio" name="Speaker" id="ws">
+                        <label for="ed">Agree</label>
+                        <input type="radio" name="Speaker" id="ed">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Speaker had good presentation skills.</legend>
+                        <label for="rf">Disagree</label>
+                        <input type="radio" name="presentation" id="rf" checked>
+                        <label for="tg">Neutral</label>
+                        <input type="radio" name="presentation" id="tg">
+                        <label for="yh">Agree</label>
+                        <input type="radio" name="presentation" id="yh">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Duration was enough.</legend>
+                        <label for="uj">Disagree</label>
+                        <input type="radio" name="Duration" id="uj" checked>
+                        <label for="ik">Neutral</label>
+                        <input type="radio" name="Duration" id="ik">
+                        <label for="az">Agree</label>
+                        <input type="radio" name="Duration" id="az">
+                    </fieldset>
+                </div>
+                <br><br>
+                <div class="ui-field-contain" id="rating">
+                    <label for="slider-fill">Please give an overall rating for this seminar:</label>
+                    <input type="range" name="slider-fill" id="slider-fill" value="60" min="0" max="100" step="10" data-highlight="true">
+                </div>
+                <br><br>
+                <div class="ui-field-contain" id="rating">
+                    <label for="flip-1">Did you expect any additional information? </label>
+                    <select name="flip-1" id="flip-1" data-role="slider">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+                <br><br>
+                <div data-role="fieldcontain">
+                    <label for="textarea">What are your suggestions for other seminars' topics?</label>
+                    <textarea name="textarea" id="textarea"></textarea>
+                </div>
+                <br><br>
+                <div data-role="fieldcontain">
+                    <label for="textarea">Please write your suggestions and comments about this seminar or any activity of IEEE AlexSB.</label>
+                    <textarea name="textarea" id="textarea"></textarea>
+                </div>
+                <br><br>
+                <input type="submit" data-inline="true" value="Submit" id="submit-session-feedback">
+                <input type="reset" data-inline="true" value="reset">
+            </form>
+        </div>
+        <!-- /content -->
+        <!-- 	<div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+    </div>
+
+    <!-- /page -->
+    <div data-role="page" id="sponsors">
+        <div data-role="header" data-add-back-btn="true">
+            <h1>Sponsors</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <div data-role="collapsible" data-collapsed="true">
+                <h2 id="platinum-sponsors">Platinum Sponsors</h2>
+                <span id="platinum-sponsors-list"></span>
+            </div>
+            <div data-role="collapsible" data-collapsed="true">
+                <h2 id="golden-sponsors">Golden Sponsors</h2>
+                <span id="golden-sponsors-list"></span>
+            </div>
+            <div data-role="collapsible" data-collapsed="true">
+                <h2 id="silver-sponsors">Silver Sponsors</h2>
+                <span id="silver-sponsors-list"></span>
+            </div>
+            <div data-role="collapsible" data-collapsed="true">
+                <h2 id="partners">Partners</h2>
+                <span id="partners-list"></span>
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- 	<div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+    </div>
+
+    <!-- /page -->
+    <div data-role="page" id="files">
+        <div data-role="header" data-add-back-btn="true">
+            <h1>Files</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <ul data-role="listview" data-inset="true" id="files-list">
             </ul>
         </div>
-        <div data-role="main" class="ui-content">
-            <ul data-role="listview" data-inset="true" style="margin-top:20px;">
-                <li data-role="list-divider">Courses registeration</li>
+        <!-- /content -->
+        <!-- <div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+    </div>
+
+    <!-- /page -->
+    <div data-role="page" id="feedbacks">
+        <div data-role="header" data-add-back-btn="true">
+            <h1>Feedbacks</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <form class="ui-mini">
+                <div class="ui-field-contain" id="theme-selector">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>How did you know about this event ?</legend>
+                        <label for="a">Poster</label>
+                        <input type="radio" name="theme" id="a" checked>
+                        <label for="b">Email</label>
+                        <input type="radio" name="theme" id="b">
+                        <label for="c">Facebook event</label>
+                        <input type="radio" name="theme" id="c">
+                        <label for="d">Friends</label>
+                        <input type="radio" name="theme" id="d">
+                        <label for="e">AlexSB volunteer</label>
+                        <input type="radio" name="theme" id="e">
+                        <label for="f">other</label>
+                        <input type="radio" name="theme" id="f">
+                    </fieldset>
+                    <input type="text" id="others" style="display:none;">
+                </div>
+                <div class="ui-field-contain" id="expectations">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• The event met my expectations.</legend>
+                        <label for="g">Disagree</label>
+                        <input type="radio" name="meet" id="g" checked>
+                        <label for="h">Neutral</label>
+                        <input type="radio" name="meet" id="h">
+                        <label for="i">Agree</label>
+                        <input type="radio" name="meet" id="i">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Event location was suitable.</legend>
+                        <label for="j">Disagree</label>
+                        <input type="radio" name="location" id="j" checked>
+                        <label for="k">Neutral</label>
+                        <input type="radio" name="location" id="k">
+                        <label for="l">Agree</label>
+                        <input type="radio" name="location" id="l">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Timing was suitable.</legend>
+                        <label for="ab">Disagree</label>
+                        <input type="radio" name="timing" id="ab" checked>
+                        <label for="cd">Neutral</label>
+                        <input type="radio" name="timing" id="cd">
+                        <label for="ef">Agree</label>
+                        <input type="radio" name="timing" id="ef">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Event was well organized.</legend>
+                        <label for="gh">Disagree</label>
+                        <input type="radio" name="organized" id="gh" checked>
+                        <label for="jk">Neutral</label>
+                        <input type="radio" name="organized" id="jk">
+                        <label for="il">Agree</label>
+                        <input type="radio" name="organized" id="il">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Organizers were helpful.</legend>
+                        <label for="op">Disagree</label>
+                        <input type="radio" name="Organizers" id="op" checked>
+                        <label for="qw">Neutral</label>
+                        <input type="radio" name="Organizers" id="qw">
+                        <label for="er">Agree</label>
+                        <input type="radio" name="Organizers" id="er">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Topic was interesting.</legend>
+                        <label for="ty">Disagree</label>
+                        <input type="radio" name="Topic" id="ty" checked>
+                        <label for="ui">Neutral</label>
+                        <input type="radio" name="Topic" id="ui">
+                        <label for="as">Agree</label>
+                        <input type="radio" name="Topic" id="as">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• This seminar provided enough information about the topic.</legend>
+                        <label for="df">Disagree</label>
+                        <input type="radio" name="information" id="df" checked>
+                        <label for="hk">Neutral</label>
+                        <input type="radio" name="information" id="hk">
+                        <label for="gj">Agree</label>
+                        <input type="radio" name="information" id="gj">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Content was valuable.</legend>
+                        <label for="zx">Disagree</label>
+                        <input type="radio" name="Content" id="zx" checked>
+                        <label for="cv">Neutral</label>
+                        <input type="radio" name="Content" id="cv">
+                        <label for="bn">Agree</label>
+                        <input type="radio" name="Content" id="bn">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Speaker was knowledgeable about the topic.</legend>
+                        <label for="qa">Disagree</label>
+                        <input type="radio" name="Speaker" id="qa" checked>
+                        <label for="ws">Neutral</label>
+                        <input type="radio" name="Speaker" id="ws">
+                        <label for="ed">Agree</label>
+                        <input type="radio" name="Speaker" id="ed">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Speaker had good presentation skills.</legend>
+                        <label for="rf">Disagree</label>
+                        <input type="radio" name="presentation" id="rf" checked>
+                        <label for="tg">Neutral</label>
+                        <input type="radio" name="presentation" id="tg">
+                        <label for="yh">Agree</label>
+                        <input type="radio" name="presentation" id="yh">
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>• Duration was enough.</legend>
+                        <label for="uj">Disagree</label>
+                        <input type="radio" name="Duration" id="uj" checked>
+                        <label for="ik">Neutral</label>
+                        <input type="radio" name="Duration" id="ik">
+                        <label for="az">Agree</label>
+                        <input type="radio" name="Duration" id="az">
+                    </fieldset>
+                </div>
+                <br><br>
+                <div class="ui-field-contain" id="rating">
+                    <label for="slider-fill">Please give an overall rating for this seminar:</label>
+                    <input type="range" name="slider-fill" id="slider-fill" value="60" min="0" max="100" step="10"
+                            data-highlight="true">
+                </div>
+                <br><br>
+                <div class="ui-field-contain" id="rating">
+                    <label for="flip-1">Did you expect any additional information? </label>
+                    <select name="flip-1" id="flip-1" data-role="slider">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+                <br><br>
+                <div data-role="fieldcontain">
+                    <label for="textarea">What are your suggestions for other seminars topics?</label>
+                    <textarea name="textarea" id="textarea"></textarea>
+                </div>
+                <br><br>
+                <div data-role="fieldcontain">
+                    <label for="textarea">Please write your suggestions and comments about this seminar or any activity of IEEE AlexSB.</label>
+                    <textarea name="textarea" id="textarea"></textarea>
+                </div>
+                <br><br>
+                <input type="submit" data-inline="true" value="Submit">
+                <input type="reset" data-inline="true" value="reset">
+            </form>
+        </div>
+        <!-- /content -->
+        <!-- <div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+    </div>
+
+    <!-- /page -->
+    <div data-role="page" id="exhibitors">
+        <div data-role="header" data-add-back-btn="true">
+            <h1>ITW 2016 | Exhibitor</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <ul data-role="listview" data-inset="true" data-divider-theme="a">
+                <li data-role="list-divider">Mechanical</li>
                 <li>
-                    <a href="https://www.facebook.com/events/1577622149204003/" target="_blank">
-                        <h2>courses registeration</h2>
-                        <p>Don't miss IEEE AlexSB Summer Courses Registration. -Dates: From Saturday, May 7th till Monday, May 9th Time: From 11:50 AM till 1:40 PM Place: Electrical Engineering Building Hall
-                        </p>
+                    <a href="#design">
+                        <img src="img/user.jpg">
+                        <h2>Design</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/user.jpg">
+                        <h2>Fluid</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/user.jpg">
+                        <h2>internal</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </a>
+                </li>
+                <li data-role="list-divider">Electrical</li>
+                <li>
+                    <a href="#">
+                        <img src="img/user.jpg">
+                        <h2>Power</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/user.jpg">
+                        <h2>communication</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </a>
                 </li>
             </ul>
@@ -1016,489 +845,153 @@
             <h4>Page Footer</h4>
             </div> /footer -->
     </div>
-</div>
 
-<!-- /page -->
-<!-- Start of second page -->
-<div data-role="page" id="ieeeemail">
-    <div data-role="header" data-add-back-btn="true">
-        <h1>EMail</h1>
-    </div>
-    <!-- /header -->
-    <div role="main" class="ui-content">
-        <div class="container"></div>
-        <h1>get in touch</h1>
-        <div id="error2" class="error-class" style="width:250px; height:100px;"></div>
-        <form method="post" id="form3">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" name="email3" class="form-control" id="email3" placeholder="Enter email">
-            <label for="subject">subject</label>
-            <input type="text" name="subject" class="form-control" id="subject">
-            <label for="content">content</label>
-            <textarea class="form-control" name="content" id="content" rows="3"></textarea>
-            <button type="submit" class="btn btn-primary" id="emailsend">send</button>
-        </form>
-    </div>
-    <!-- /content -->
-    <!-- 	<div data-role="footer">
-        <h4>Page Footer</h4>
-        </div> /footer -->
-</div>
+    <!-- /page -->
+    <div data-role="page" id="design">
+        <div data-role="header" data-add-back-btn="true">
+            <h1>Design</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <ul data-role="listview" data-inset="true">
+                <li>
+                    <a href="#robot">
+                        <img src="img/user.jpg">
+                        <h2>Robot</h2>
+                        <p>description</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/user.jpg">
+                        <h2>CNC machine</h2>
+                        <p>description</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/user.jpg">
+                        <h2>3D printer</h2>
+                        <p>description</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-<!-- /page -->
-<div data-role="page" id="map" data-url="map-page">
-    <div data-role="header" data-theme="a">
-        <h1>Maps</h1>
+        <!-- /content -->
+        <!-- <div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
     </div>
-    <div role="main" class="ui-content" id="map-canvas">
-        <!-- map loads here... -->
+
+    <!-- /page -->
+    <div data-role="page" id="robot">
+        <div data-role="header" data-add-back-btn="true">
+            <h1>Robot project</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <div class="ui-content">
+                <div style="height:200px;">
+                    <img style="width:125px; height:125px; padding:25px; float:left;" src="img/user.jpg">
+                    <div style="padding:50px;">
+                        <p>
+                            <strong>Team Name: </strong>
+                        </p>
+                    </div>
+                </div>
+                <br><br>
+                <div>
+                    <p>
+                        <strong>Project description</strong>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed tortor porta, hendrerit urna sed, placerat urna. Pellentesque purus dui, gravida eget purus vitae, consectetur pulvinar magna. Donec molestie vel eros quis vestibulum. Ut leo nulla, ultricies sed ligula tristique, pharetra mollis sapien. Vestibulum consequat porta nibh non maximus. Maecenas commodo, dui id pulvinar congue, risus metus ultrices mi, vitae aliquet metus nulla sed libero
+                    </p>
+                </div>
+                <br><br><br>
+                <div>
+                    <p>
+                        <strong>Contacts</strong>
+                    </p>
+                    <p>Email:
+                        <br>Mobile:
+                        <br>LinkedIn:
+                        <br>Facebook:
+                        <br>Twitter:
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- /content -->
+        <!-- <div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
     </div>
-</div>
+
+    <!-- /page -->
+    <div data-role="page" id="announcement">
+        <div data-role="header">
+            <h1>Announcemnts</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <div data-role="main" class="ui-content">
+                <ul data-role="listview" data-inset="true" style="margin-top:20px;" id="announcements-list">
+                </ul>
+            </div>
+
+            <!-- /content -->
+            <!-- <div data-role="footer">
+                <h4>Page Footer</h4>
+                </div> /footer -->
+        </div>
+    </div>
+
+    <!-- /page -->
+    <div data-role="page" id="ieeeemail">
+        <div data-role="header" data-add-back-btn="true">
+            <h1>Email</h1>
+        </div>
+        <!-- /header -->
+        <div role="main" class="ui-content">
+            <div class="container"></div>
+            <h1>Get in touch</h1>
+            <div id="error2" class="error-class" style="width:250px; height:100px;"></div>
+            <form method="post" id="form3">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="email3" class="form-control" id="email3" placeholder="Enter email">
+                <label for="subject">Subject</label>
+                <input type="text" name="subject" class="form-control" id="subject">
+                <label for="content">Content</label>
+                <textarea class="form-control" name="content" id="content" rows="3"></textarea>
+
+                <button type="submit" class="btn btn-primary" id="emailsend">Send</button>
+            </form>
+        </div>
+        <!-- /content -->
+        <!-- 	<div data-role="footer">
+            <h4>Page Footer</h4>
+            </div> /footer -->
+    </div>
+
+    <!-- /page -->
+    <div data-role="page" id="map" data-url="map-page">
+        <div data-role="header" data-theme="a">
+            <h1>Maps</h1>
+        </div>
+        <div role="main" class="ui-content" id="map-canvas">
+            <!-- map loads here... -->
+        </div>
+    </div>
 
 </body>
 
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 <script>
-    $("#form1").on('submit', function () {
-        return false;
-    });
 
-    $("#send").click(function () {
-        var email = $("#email1").val();
-        var password = $("#password1").val();
-        var dataString = "&email=" + email + "&password=" + password;
-        var request = new XMLHttpRequest();
-
-        request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == 200) {
-                console.log(request);
-                var b = request.responseText;
-
-                console.log(b);
-                if (b == "1") {
-                    window.location.assign("#homepage");
-                } else {
-                    $("#error").html(b);
-                }
-            }
-        };
-
-        request.open("POST", "http://176.32.230.48/ahmedhafez92.com/signin.php", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send(dataString);
-    });
-
-    $("#enter").click(function () {
-        var email = $("#emaill").val();
-        var password = $("#passwordl").val();
-        var name = $("#name").val();
-        var ieeemember = $("#ieeemember").val();
-        var mobile = $("#mobile").val();
-        var membershipno = $("#membershipno").val();
-        var department = $("#department").val();
-        var year = $("#year").val();
-        var cpassword = $("#cpassword").val();
-
-        var dataString = "&email=" + email + "&password=" + password + "&name=" + name + "&ieeemember=" + ieeemember + "&mobile=" + mobile + "&membershipno=" + membershipno + "&department=" + department + "&year=" + year;
-
-        if (password !== cpassword) {
-            $('#form2')[0].reset();
-
-            //$("#form2").on('submit',function(){return false;});
-            $("#error1").html("your passwords don't match")
-        } else {
-            var request = new XMLHttpRequest();
-
-            request.onreadystatechange = function () {
-                if (request.readyState == 4 && request.status == 200) {
-                    console.log(request);
-                    var b = request.responseText;
-
-                    if (b !== "your passwords don't match" && b !== "That email address is taken.") {
-                        $("#error").html("you signed up successfully ");
-                        window.location.assign("#index");
-                        $('#form2')[0].reset();
-                    } else {
-                        $('#form2')[0].reset();
-                        //$("#form2").on('submit',function(){return false;});
-                        $("#error1").html(b)
-                    }
-                }
-            };
-
-            request.open("POST", "http://176.32.230.48/ahmedhafez92.com/signup.php", true);
-            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            request.send(dataString);
-        }
-    });
-
-    $("#add-session").click(function () {
-        var sessionName = $("#session-name").val();
-        var sessionHall = $("#session-hall").val();
-        var sessionStartTime = $("#session-start-time").val();
-        var sessionEndTime = $("#session-end-time").val();
-        var sessionDate = $("#session-date").val();
-        var sessionDescription = $("#session-description").val();
-        var sessionSpeakerName = $("#session-speaker-name").val();
-        var sessionSpeakerPosition = $("#session-speaker-position").val();
-        var sessionSpeakerBio = $("#session-speaker-bio").val();
-        var sessionSpeakerEmail = $("#session-speaker-email").val();
-        var sessionSpeakerMobile = $("#session-speaker-mobile").val();
-        var sessionSpeakerLinkedin = $("#session-speaker-linkedin").val();
-
-        var dataString = "&sessionName=" + sessionName + "&sessionHall=" + sessionHall + "&sessionStartTime=" + sessionStartTime + "&sessionEndTime=" + sessionEndTime +
-                "&sessionDate=" + sessionDate + "&sessionDescription=" + sessionDescription + "&sessionSpeakerName=" + sessionSpeakerName + "&sessionSpeakerPosition=" +
-                sessionSpeakerPosition + "&sessionSpeakerBio=" + sessionSpeakerBio + "&sessionSpeakerEmail=" + sessionSpeakerEmail + "&sessionSpeakerMobile=" +
-                sessionSpeakerMobile + "&sessionSpeakerLinkedin=" + sessionSpeakerLinkedin;
-
-        var request = new XMLHttpRequest();
-
-        request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == 200) {
-                var res = request.responseText;
-
-                if (res.indexOf("successfully") != -1) {
-                    $("#success-new-session").html(res);
-                } else {
-                    $("#error-new-session").html(res);
-                }
-            }
-        };
-
-        request.open("POST", "php/addSession.php", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send(dataString);
-    });
-
-    $("#add-file").click(function () {
-        var fileName = $("#file-name").val();
-        var fileUrl = $("#file-url").val();
-
-        var dataString = "&fileName=" + fileName + "&fileUrl=" + fileUrl;
-
-        var request = new XMLHttpRequest();
-
-        request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == 200) {
-                var res = request.responseText;
-
-                if (res.indexOf("successfully") != -1) {
-                    $("#success-new-file").html(res);
-                } else {
-                    $("#error-new-file").html(res);
-                }
-            }
-        };
-
-        request.open("POST", "php/addFile.php", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send(dataString);
-    });
-
-    $("#add-sponsor").click(function () {
-        var sponsorName = $("#sponsor-name").val();
-        var sponsorType = $("#sponsor-type").val();
-        var sponsorImageUrl = $("#sponsor-image-url").val();
-        var sponsorWebsite = $("#sponsor-website").val();
-
-        var dataString = "&sponsorName=" + sponsorName + "&sponsorType=" + sponsorType + "&sponsorImageUrl=" + sponsorImageUrl +
-                "&sponsorWebsite=" + sponsorWebsite;
-
-        var request = new XMLHttpRequest();
-
-        request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == 200) {
-                var res = request.responseText;
-
-                if (res.indexOf("successfully") != -1) {
-                    $("#success-new-sponsor").html(res);
-                } else {
-                    $("#error-new-sponsor").html(res);
-                }
-            }
-        };
-
-        request.open("POST", "php/addSponsor.php", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send(dataString);
-    });
-
-    $("#add-announcement").click(function () {
-        var announcementTitle = $("#announcement-title").val();
-        var announcementBody = $("#announcement-body").val();
-
-        var dataString = "&announcementTitle=" + announcementTitle + "&announcementBody=" + announcementBody;
-
-        var request = new XMLHttpRequest();
-
-        request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == 200) {
-                var res = request.responseText;
-
-                if (res.indexOf("successfully") != -1) {
-                    $("#success-new-announcement").html(res);
-                } else {
-                    $("#error-new-announcement").html(res);
-                }
-            }
-        };
-
-        request.open("POST", "php/addAnnouncement.php", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send(dataString);
-
-    });
-
-    $(document).on("pageshow", "#get-sessions", function () {
-        var request = new XMLHttpRequest();
-
-        request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == 200) {
-                var res = request.responseText;
-                console.log(res);
-                //$('#load-all-sessions').html(res);
-            }
-        };
-
-        request.open("GET", "php/getSessions.php", true);
-        request.setRequestHeader("Content-type", "application/json");
-        request.send();
-    });
-
-    $(document).on("pageshow", "#get-sponsors", function () {
-        var request = new XMLHttpRequest();
-
-        request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == 200) {
-                var res = request.responseText;
-                $("#load-all-sponsors").html(res);
-            }
-        };
-
-        request.open("GET", "php/getSponsors.php", true);
-        request.setRequestHeader("Content-type", "application/json");
-        request.send();
-    });
-
-    $(document).on("pageshow", "#get-files", function () {
-        var request = new XMLHttpRequest();
-
-        request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == 200) {
-                var res = request.responseText;
-                $("#load-all-files").html(res);
-            }
-        };
-
-        request.open("GET", "php/getFiles.php", true);
-        request.setRequestHeader("Content-type", "application/json");
-        request.send();
-    });
-
-    $(document).on("pageshow", "#get-announcements", function () {
-        var request = new XMLHttpRequest();
-
-        request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == 200) {
-                var res = request.responseText;
-                $("#load-all-announcements").html(res);
-            }
-        };
-
-        request.open("GET", "php/getAnnouncements.php", true);
-        request.setRequestHeader("Content-type", "application/json");
-        request.send();
-    });
-
-    $("#f").click(function () {
-        $("#others").toggle();
-    });
-
-    $("#form3").on('submit', function () {
-        return false;
-    });
-
-    $("#emailsend").click(function () {
-        var subject = $("#subject").val();
-        var email = $("#email3").val();
-        var content = $("#content").val();
-        var dataString = "subject=" + subject + "&email=" + email + "&content=" + content;
-        var request = new XMLHttpRequest();
-
-        request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == 200) {
-                console.log(request);
-                var d = request.responseText;
-                $("#error2").html(d)
-            }
-        };
-
-        request.open("POST", "http://176.32.230.48/ahmedhafez92.com/message.php", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send(dataString);
-    });
-
-    /*
-     * Google Maps documentation: http://code.google.com/apis/maps/documentation/javascript/basics.html
-     * Geolocation documentation: http://dev.w3.org/geo/api/spec-source.html
-     */
-    $(document).on("pageinit", "#map", function () {
-        var defaultLatLng = new google.maps.LatLng(31.20909, 29.90836); // Default to bibliotheca, AL when no geolocation support
-        if (navigator.geolocation) {
-            function success(pos) {
-                // Location found, show map with these coordinates
-                drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-            }
-
-            function fail() {
-                drawMap(defaultLatLng); // Failed to find location, show default map
-            }
-
-            // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
-            navigator.geolocation.getCurrentPosition(success, fail, {
-                maximumAge: 500000,
-                enableHighAccuracy: true,
-                timeout: 6000
-            });
-        } else {
-            drawMap(defaultLatLng); // No geolocation support, show default map
-        }
-
-        function drawMap(latlng) {
-            var myOptions = {
-                zoom: 10,
-                center: latlng,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-            // Add an overlay to the map of current lat/lng
-            var marker = new google.maps.Marker({
-                position: latlng,
-                map: map,
-                title: "bibliotheca alexandrina!"
-            });
-        }
-    });
-
-    //add sessions to schedule
-    $(document).ready(function () {
-
-        $(document).on("pageshow", "#schedule", function (event, data) {
-            $.ajax({
-                type: 'GET',
-                url: 'php/getSessions.php',
-                success: function (data) {
-                    sessions = JSON.parse($(data).html());
-//                    //save html in string to inject data in them later
-//                    var timeString = '<li data-role="list-divider" class="time"></li>'
-//
-//                    var sessionString = '<li>\
-//                                <a href="#">\
-//                                <h2 id="name"></h2>\
-//                                <p><strong id="place"></strong></p>\
-//                                <p class="ui-li-aside" ><strong id="session-duration">2:30 &#8658; 3:15</strong></p>\
-//                                </a>\
-//                                </li>'
-
-                    sessions.forEach(function (session) {
-                        // the commented approach is better but seems buggy, debug later
-//                        //turn saved string into JQuery elements
-//                        var empty_time = $(timeString);
-//                        var empty_session = $(sessionString);
-//
-//                        //inject session start time
-//                        empty_time.find(".time").append(session.SessionStartTime);
-//
-//                        //inject session data
-//                        empty_session.find('#name').text(session.SessionName);
-//                        empty_session.find('#place').text(session.SessionHall);
-//                        empty_session.find('#session-duration').text(session.SessionStartTime+' - '+session.SessionEndTime);
-
-                        //add session to list
-                        $('#sessions-list').append('<li data-role="list-divider" class="time ui-li-divider ui-bar-inherit ui-first-child">' + session.SessionStartTime + '</li>')
-                        .append('<li class="ui-last-child">\
-                                <a id=\"slink-' + session.id + '\" class="ui-btn ui-btn-icon-right ui-icon-carat-r">\
-                                <h2 id="name">' + session.SessionName + '</h2>\
-                                <p><strong id="place">' + session.SessionHall + '</strong></p>\
-                                <p class="ui-li-aside" ><strong id="session-duration">' + session.SessionStartTime + '&#8658;' + session.SessionEndTime + '</strong></p>\
-                                </a>\
-                                </li>');
-                    });
-
-                    $('a[id^=slink-]').on("click", function () {
-                        ID = $(this).attr('id').split('-')[1];
-                        window.location = window.location.pathname + '#sessionone?id=' + ID;
-                        location.reload();
-                    });
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    console.log(xhr.responseText);
-                }
-            });
-        });
-
-
-        $(document).on("pageshow", "#sessionone", function (event, data) {
-            id = window.location.hash.split('=')[1];
-
-            $.ajax({
-                type: 'GET',
-                url: 'php/getSessions.php',
-                success: function (data) {
-                    sessions = JSON.parse($(data).html());
-
-                    sessions.forEach(function (session) {
-                        if (session.id == id) {
-
-                            $('#s-name').text(session.SessionName);
-                            $('#s-name-title').text(session.SessionName);
-                            $('#s-description').text(session.SessionDescription);
-
-                            $("#speaker").on("click", function () {
-                                window.location = window.location.pathname + '#speakerinformation?id=' + id;
-                                location.reload();
-                            });
-
-                            $("#feedback").on("click", function () {
-                                window.location = window.location.pathname + '#sessionfeedback?id=' + id;
-                                location.reload();
-                            });
-                        }
-                    });
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    console.log(xhr.responseText);
-                }
-            });
-        });
-
-        $(document).on("pageshow", "#speakerinformation", function (event, data) {
-            id = window.location.hash.split('=')[1];
-
-            $.ajax({
-                type: 'GET',
-                url: 'php/getSessions.php',
-                success: function (data) {
-                    sessions = JSON.parse($(data).html());
-
-                    sessions.forEach(function (session) {
-                        if (session.id == id) {
-                            $('#sp-session-name').text(session.SessionName);
-                            $('#sp-name').text(session.SpeakerName);
-                            $('#sp-position').text(session.SpeakerPosition);
-                            $("#sp-bio").text(session.SpeakerBio);
-                            $("#sp-email").text(session.SpeakerEmail);
-                            $("#sp-mobile").text(session.SpeakerMobile);
-                            $("#sp-linkedin").text(session.SpeakerLinkedin);
-                            return;
-                        }
-                    });
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    console.log(xhr.responseText);
-                }
-            });
-        });
-    });
 
 </script>
 

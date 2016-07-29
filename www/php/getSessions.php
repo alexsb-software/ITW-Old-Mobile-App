@@ -7,7 +7,14 @@ if (!$link || $link->connect_errno) {
 	die ("Database Connection Error");
 }
 
-$query = "SELECT * FROM schedule;";
+$query = "SELECT * FROM schedule";
+
+if ($_GET) {
+    if ($_GET["date"]) {
+        $query .= (" WHERE EXTRACT(day FROM sessionDate) = " . $_GET["date"]);
+    }
+}
+
 $result = $link->query($query);
 
 $encode = array();

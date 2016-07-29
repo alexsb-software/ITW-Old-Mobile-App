@@ -49,9 +49,9 @@ if ($_POST) {
 		
 		$query = "INSERT INTO schedule (SessionName, SessionHall, SessionStartTime, SessionEndTime, SessionDate,
 			SessionDescription, SpeakerName, SpeakerPosition, SpeakerBio, SpeakerEmail $speakerMobile $speakerLinkedin) VALUES (
-			'$_POST[sessionName]', '$_POST[sessionHall]', '$_POST[sessionStartTime]', '$_POST[sessionEndTime]', '$_POST[sessionDate]', '$_POST[sessionDescription]', 
-			'$_POST[sessionSpeakerName]', '$_POST[sessionSpeakerPosition]', '$_POST[sessionSpeakerBio]', '$_POST[sessionSpeakerEmail]'
-			$speakerMobileValue $speakerLinkedinValue);";
+			'$_POST[sessionName]', '$_POST[sessionHall]', '$_POST[sessionStartTime]', '$_POST[sessionEndTime]', STR_TO_DATE('$_POST[sessionDate]', '%d-%m-%Y'),
+			'$_POST[sessionDescription]', '$_POST[sessionSpeakerName]', '$_POST[sessionSpeakerPosition]', '$_POST[sessionSpeakerBio]', 
+			'$_POST[sessionSpeakerEmail]' $speakerMobileValue $speakerLinkedinValue);";
 			
 		$result = $link->query($query);
 		

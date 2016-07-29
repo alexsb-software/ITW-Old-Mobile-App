@@ -10,8 +10,6 @@ if (!$link || $link->connect_errno) {
 $query = "SELECT Title, Body, CONVERT_TZ(PublishTime, '+00:00', '+01:00') AS Time FROM announcements;";
 $result = $link->query($query);
 
-print_r($result);
-
 $encode = array();
 
 while ($row = $result->fetch_object()) {

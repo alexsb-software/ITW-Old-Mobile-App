@@ -7,7 +7,14 @@ if (!$link || $link->connect_errno) {
 	die ("Database Connection Error");
 }
 
-$query = "SELECT * FROM sponsors;";
+$query = "SELECT * FROM sponsors";
+
+if ($_GET) {
+    if ($_GET["type"]) {
+        $query .= (" WHERE SponsorType = '" . $_GET["type"] . "'");
+    }
+}
+
 $result = $link->query($query);
 
 $encode = array();
