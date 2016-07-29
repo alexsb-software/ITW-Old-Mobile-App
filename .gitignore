@@ -1,4 +1,5 @@
 # OS X
 .DS_Store
 
+.idea/
 www/.idea/
