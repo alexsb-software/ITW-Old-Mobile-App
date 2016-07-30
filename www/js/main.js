@@ -1,34 +1,54 @@
-$("#form1").on('submit', function () {
-    return false;
-});
-
-$("#send").click(function () {
-    var email = $("#email1").val();
-    var password = $("#password1").val();
-    var dataString = "&email=" + email + "&password=" + password;
+if (localStorage.getItem("em") && localStorage.getItem("ps")) {
     var request = new XMLHttpRequest();
-
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
-            console.log(request);
-            var b = request.responseText;
+            var res = request.responseText;
+            var check = (window.location.toString().indexOf("index.html") !== -1) && (window.location.toString().indexOf("#") === -1);
 
-            console.log(b);
-            if (b == "1") {
-                window.location.assign("#homepage");
+            if (res == "1" && check) {
+                location.replace("#menu");
+            }
+        }
+    };
+    request.open("POST", "php/signin.php", true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send("&email=" + localStorage.getItem("em") + "&password=" + localStorage.getItem("ps"));
+}
+
+$("#sign-in").click(function () {
+    var email = $("#email-signin").val();
+    var password = $("#password-signin").val();
+    var dataString = "&email=" + email + "&password=" + password;
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            // console.log(request);
+            var res = request.responseText;
+
+            // console.log(res);
+            if (res == "1") {
+                window.location.assign("#menu");
+
+                localStorage.setItem("em", email);
+                localStorage.setItem("ps", password);
             } else {
-                $("#error").html(b);
+                $("#error").html(res);
             }
         }
     };
 
-    request.open("POST", "http://176.32.230.48/ahmedhafez92.com/signin.php", true);
+    request.open("POST", "php/signin.php", true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(dataString);
 });
 
+$("#form1").on('submit', function () {
+    return false;
+});
+
 $("#enter").click(function () {
-    var email = $("#emaill").val();
+    var email = $("#email-signin").val();
     var password = $("#passwordl").val();
     var name = $("#name").val();
     var ieeemember = $("#ieeemember").val();
@@ -50,7 +70,7 @@ $("#enter").click(function () {
 
         request.onreadystatechange = function () {
             if (request.readyState == 4 && request.status == 200) {
-                console.log(request);
+                // console.log(request);
                 var b = request.responseText;
 
                 if (b !== "your passwords don't match" && b !== "That email address is taken.") {
@@ -265,7 +285,7 @@ $("#emailsend").click(function () {
 
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
-            console.log(request);
+            // console.log(request);
             var d = request.responseText;
             $("#error2").html(d)
         }
@@ -329,7 +349,10 @@ $("#day-one").click(function () {
     $.ajax({
         type: 'GET',
         url: 'php/getSessions.php',
-        data: {date: "05"},
+        data: {
+            date: "05",
+            id: null
+        },
         success: function (data) {
             var sessions = JSON.parse($(data).html());
 
@@ -338,7 +361,7 @@ $("#day-one").click(function () {
                     '<li class="ui-last-child"> <a id=\"slink-' + session.id + '\" class="ui-btn ui-btn-icon-right ui-icon-carat-r">\
                                 <h2 id="name">' + session.SessionName + '</h2>\
                                 <p><strong id="place">' + session.SessionHall + '</strong></p>\
-                                <p class="ui-li-aside" ><strong id="session-duration">' + session.SessionStartTime + '&#8658;' + session.SessionEndTime + '</strong></p>\
+                                <p class="ui-li-aside" ><strong id="session-duration">' + session.SessionStartTime + '  &#8594;  ' + session.SessionEndTime + '</strong></p>\
                             </a> </li>';
 
                 //add session to list
@@ -364,7 +387,10 @@ $("#day-two").click(function () {
     $.ajax({
         type: 'GET',
         url: 'php/getSessions.php',
-        data: {date: "06"},
+        data: {
+            date: "06",
+            id: null
+        },
         success: function (data) {
             var sessions = JSON.parse($(data).html());
 
@@ -373,7 +399,7 @@ $("#day-two").click(function () {
                     '<li class="ui-last-child"> <a id=\"slink-' + session.id + '\" class="ui-btn ui-btn-icon-right ui-icon-carat-r">\
                                 <h2 id="name">' + session.SessionName + '</h2>\
                                 <p><strong id="place">' + session.SessionHall + '</strong></p>\
-                                <p class="ui-li-aside" ><strong id="session-duration">' + session.SessionStartTime + '&#8658;' + session.SessionEndTime + '</strong></p>\
+                                <p class="ui-li-aside" ><strong id="session-duration">' + session.SessionStartTime + '  &#8594;  ' + session.SessionEndTime + '</strong></p>\
                             </a> </li>';
 
                 //add session to list
@@ -398,10 +424,12 @@ $(document).on("pageshow", "#session-info", function (event, data) {
     $.ajax({
         type: 'GET',
         url: 'php/getSessions.php',
+        data: {
+            id: id,
+            date: null
+        },
         success: function (data) {
-            var session = JSON.parse($(data).html()).filter(function (session) {
-                return session.id == id;
-            });
+            var session = JSON.parse($(data).html());
 
             $('#s-name').text(session[0].SessionName);
             $('#s-name-title').text(session[0].SessionName);
@@ -409,12 +437,12 @@ $(document).on("pageshow", "#session-info", function (event, data) {
 
             $("#speaker").on("click", function () {
                 window.location = window.location.pathname + '#speakerinformation?id=' + id;
-                location.reload();
+                // location.reload();
             });
 
             $("#feedback").on("click", function () {
                 window.location = window.location.pathname + '#sessionfeedback?id=' + id;
-                location.reload();
+                // location.reload();
             });
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -429,10 +457,12 @@ $(document).on("pageshow", "#speakerinformation", function (event, data) {
     $.ajax({
         type: 'GET',
         url: 'php/getSessions.php',
+        data: {
+            id: id,
+            date: null
+        },
         success: function (data) {
-            var session = JSON.parse($(data).html()).filter(function (session) {
-                return session.id == id;
-            });
+            var session = JSON.parse($(data).html());
 
             $('#sp-session-name').text(session[0].SessionName);
             $('#sp-name').text(session[0].SpeakerName);
@@ -441,7 +471,6 @@ $(document).on("pageshow", "#speakerinformation", function (event, data) {
             $("#sp-email").text(session[0].SpeakerEmail);
             $("#sp-mobile").text(session[0].SpeakerMobile);
             $("#sp-linkedin").text(session[0].SpeakerLinkedin);
-
         },
         error: function (xhr, ajaxOptions, thrownError) {
             console.log(xhr.responseText);
@@ -503,7 +532,7 @@ $("#platinum-sponsors").click(function () {
 
             sponsors.forEach(function (sponsor) {
                 var sponsors_html = '<a href="' + sponsor.SponsorWebsite + '" target="_blank">' +
-                    '<img src="' + sponsor.SponsorImageURL + '"></a>';
+                    '<img class="sponsor-image" src="' + sponsor.SponsorImageURL + '"></a>';
 
                 $("#platinum-sponsors-list").append(sponsors_html);
             });
@@ -526,7 +555,7 @@ $("#golden-sponsors").click(function () {
 
             sponsors.forEach(function (sponsor) {
                 var sponsors_html = '<a href="' + sponsor.SponsorWebsite + '" target="_blank">' +
-                    '<img src="' + sponsor.SponsorImageURL + '"></a>';
+                    '<img class="sponsor-image" src="' + sponsor.SponsorImageURL + '"></a>';
 
                 $("#golden-sponsors-list").append(sponsors_html);
             });
@@ -549,7 +578,7 @@ $("#silver-sponsors").click(function () {
 
             sponsors.forEach(function (sponsor) {
                 var sponsors_html = '<a href="' + sponsor.SponsorWebsite + '" target="_blank">' +
-                    '<img src="' + sponsor.SponsorImageURL + '"></a>';
+                    '<img class="sponsor-image" src="' + sponsor.SponsorImageURL + '"></a>';
 
                 $("#silver-sponsors-list").append(sponsors_html);
             });
@@ -572,7 +601,7 @@ $("#partners").click(function () {
 
             sponsors.forEach(function (sponsor) {
                 var sponsors_html = '<a href="' + sponsor.SponsorWebsite + '" target="_blank">' +
-                    '<img src="' + sponsor.SponsorImageURL + '"></a>';
+                    '<img class="sponsor-image" src="' + sponsor.SponsorImageURL + '"></a>';
 
                 $("#partners-list").append(sponsors_html);
             });
@@ -607,3 +636,86 @@ $("#delete-entry-submit").click(function () {
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(dataString);
 });
+
+
+var submitFeedback = function () {
+    var TimingSuitable = $("input[name=timing]:checked").val();
+    var TopicInteresting = $("input[name=Topic]:checked").val();
+    var SessionEnoughInformation = $("input[name=information]:checked").val();
+    var ContentValuable = $("input[name=Content]:checked").val();
+    var SpeakerKnowledgeable = $("input[name=Speaker]:checked").val();
+    var SpeakerPresentationSkills = $("input[name=presentation]:checked").val();
+    var DurationEnough = $("input[name=Duration]:checked").val();
+    var SessionRating = $("#slider").val();
+    var ExpectAdditionalInformation = $("#flip").val();
+    var SuggestionsOtherSessions = $("#textarea").val();
+    var SuggestionsAndComments = $("#text").val();
+    var useremail = $("#email-signin").val();
+    var sessionid = window.location.hash.split('=')[1];
+
+    var dataString = "&useremail=" + useremail + "&sessionid=" + sessionid + "&TimingSuitable=" + TimingSuitable +
+        "&TopicInteresting=" + TopicInteresting + "&SessionEnoughInformation=" + SessionEnoughInformation + "&ContentValuable=" +
+        ContentValuable + "&SpeakerKnowledgeable=" + SpeakerKnowledgeable + "&SpeakerPresentationSkills=" + SpeakerPresentationSkills +
+        "&DurationEnough=" + DurationEnough + "&SessionRating=" + SessionRating + "&ExpectAdditionalInformation=" + ExpectAdditionalInformation +
+        "&SuggestionsOtherSessions=" + SuggestionsOtherSessions + "&SuggestionsAndComments=" + SuggestionsAndComments;
+
+    return dataString;
+};
+
+$("#session-feedback-submit-1").click(function () {
+    var dataString = submitFeedback();
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var res = request.responseText;
+
+            if (res.indexOf("successfully") != -1) {
+                $("#feedback-success-1").html(res);
+            } else {
+                $("#feedback-error-1").html(res);
+            }
+        }
+    };
+
+    request.open("POST", "php/sessionfeedback.php", true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send(dataString);
+});
+
+$("#session-feedback-submit-2").click(function () {
+    var dataString = submitFeedback();
+    var request = new XMLHttpRequest();
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+            var res = request.responseText;
+
+            if (res.indexOf("successfully") != -1) {
+                $("#feedback-success-2").html(res);
+            } else {
+                $("#feedback-error-2").html(res);
+            }
+        }
+    };
+
+    request.open("POST", "php/sessionfeedback.php", true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send(dataString);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

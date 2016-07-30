@@ -13,7 +13,13 @@ if ($_GET) {
     if ($_GET["date"]) {
         $query .= (" WHERE EXTRACT(day FROM sessionDate) = " . $_GET["date"]);
     }
+
+    if ($_GET["id"]) {
+        $query .= (" WHERE id = " . $_GET["id"]);
+    }
 }
+
+$query .= " ORDER BY SessionStartTime ASC";
 
 $result = $link->query($query);
 

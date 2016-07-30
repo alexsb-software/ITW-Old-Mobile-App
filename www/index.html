@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ITW | IEEE AlexSB</title>
+
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
     <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.css"/>
     <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.css"/>
     <link rel="stylesheet" href="css/main.css"/>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
 </head>
 
 <body>
@@ -20,23 +25,23 @@
         </div>
         <!-- /header -->
         <div role="main" class="ui-content">
-            <p id="error" style="font-size:90%; color:red;"></p>
+            <p id="error" class="error-class"></p>
             <form id="form1" method="post">
                 <table class="form-layout">
                     <tr>
                         <td class="form-text-layout">
-                            <input type="text" class="form-text" name="email1" id="email1" placeholder="Email address" required/>
+                            <input type="text" class="form-text" id="email-signin" placeholder="Email address" required/>
                         </td>
                     </tr>
                     <tr>
                         <td class="form-text-layout">
-                            <input type="password" class="form-text" name="password1" id="password1" placeholder="Password" required/>
+                            <input type="password" class="form-text" id="password-signin" placeholder="Password" required/>
                         </td>
                     </tr>
                     <tr>
                         <td align="center">
                             <div class="signin-button">
-                                <input type="submit" id="send" value="Sign In">
+                                <input type="submit" id="sign-in" value="Sign In">
                             </div>
                         </td>
                     </tr>
@@ -128,9 +133,9 @@
                         <input type="text" id="session-name">
                         <label>Session Hall :</label>
                         <input type="text" id="session-hall">
-                        <label>Start Time :</label>
+                        <label>Start Time (hh:mm): [24-hour based]</label>
                         <input type="text" id="session-start-time">
-                        <label>End Time :</label>
+                        <label>End Time (hh:mm): [24-hour based]</label>
                         <input type="text" id="session-end-time">
                         <label>Date (dd-mm-yyyy):</label>
                         <input type="text" id="session-date">
@@ -259,7 +264,7 @@
     </div>
 
     <div data-role="page" id="delete-entry">
-        <div data-role="header" data-position="fixed">
+        <div data-role="header" data-position="fixed" data-add-back-btn="true" style="overflow: hidden">
             <h1>Delete Entry</h1>
         </div>
         <!-- /header -->
@@ -289,49 +294,9 @@
     </div>
 
     <!-- /page -->
-    <div data-role="page" id="homepage">
-        <div data-role="header">
-            <h1>IEEE Events</h1>
-        </div>
-        <!-- /header -->
-        <div role="main" class="ui-content">
-            <a href="#about">
-                <!-- event -->
-                <a href="#menu" style="text-decoration: none;">
-                    <div id="container" class="home-list-item">
-                        <img class="event-pic" src="img/just.jpg"/>
-                        <h4 class="event-name">ITW 2016</h4>
-                        <!-- event data-->
-                        <div id="event-data-div">
-                            <!-- date -->
-                            <div id="date-div">
-                                <img class="small-pic" src="img/date.png" style="float:left; width:25px;"/>
-                                <p id="date" class="event-data"> Aug 5-6, 2016</p>
-                            </div>
-                            <!-- location -->
-                            <div id="location-div">
-                                <img class="small-pic" src="img/location.png" style="float:left; width:25px;"/>
-                                <p id="location" class="event-data">Bibliotheca Alexandrina</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <!-- search button -->
-                <!--	<div>
-                    <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-arrow-l ui-btn-icon-search search">search all IEEE AlexSB events</a>
-                        </div>-->
-
-            </a>
-        </div>
-        <!-- /content -->
-        <!--  <div data-role="footer">
-            <h4>Page Footer</h4>
-            </div>  /footer -->
-    </div>
-
-    <!-- /page -->
     <div data-role="page" id="menu">
         <div data-role="header" data-position="fixed">
+            <a href="index.html" data-icon="power">Logout</a>
             <h1>ITW 2016</h1>
         </div>
         <!-- /header -->
@@ -347,13 +312,13 @@
                     <a href="#sponsors" class="ui-btn ui-btn-inline ui-icon-heart ui-btn-icon-top button ui-nodisc-icon">Sponsors</a>
                 </div>
                 <div class="ui-block-b menu-page-item">
-                    <a href="#ieeeemail" class="ui-btn ui-btn-inline ui-icon-mail ui-btn-icon-top button ui-nodisc-icon">Email</a>
+                    <a href="#ieeeemail" class="ui-btn ui-btn-inline ui-icon-mail ui-btn-icon-top button ui-nodisc-icon">Contact Us</a>
                 </div>
                 <div class="ui-block-a menu-page-item">
                     <a href="#feedbacks" class="ui-btn ui-btn-inline ui-icon-comment ui-btn-icon-top button ui-nodisc-icon">Feedbacks</a>
                 </div>
                 <div class="ui-block-b menu-page-item">
-                    <a href="#exhibitors" class="ui-btn ui-btn-inline ui-icon-eye ui-btn-icon-top button ui-nodisc-icon">Exhibitors</a>
+                    <a href="#announcement" class="ui-btn ui-btn-inline ui-icon-tag ui-btn-icon-top button ui-nodisc-icon">Announcemnts</a>
                 </div>
                 <div class="ui-block-a menu-page-item">
                     <a href="#files" class="ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-top button ui-nodisc-icon">Files</a>
@@ -362,11 +327,6 @@
                     <a href="#map" class="ui-btn ui-btn-inline ui-icon-location ui-btn-icon-top button ui-nodisc-icon">Maps</a>
                 </div>
             </div>
-
-            <div class=" menu-page-item">
-                <a href="#announcement" class="ui-btn ui-btn-inline ui-icon-tag ui-btn-icon-top button ui-nodisc-icon">Announcemnts</a>
-            </div>
-
         </div>
         <!-- /content -->
         <!-- <div data-role="footer">
@@ -376,9 +336,10 @@
 
     <!-- /page -->
     <div data-role="page" id="schedule">
-        <div data-role="header" data-add-back-btn="true" style="overflow:hidden;">
+        <div data-role="header">
+            <a href="#menu" data-icon="carat-l">Back</a>
             <h1>ITW 2016 | Schedule</h1>
-            <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+
             <input type="hidden" id="dayCount" value="2">
             <div data-role="navbar">
                 <ul>
@@ -413,26 +374,25 @@
     <!-- /page -->
     <div data-role="page" id="session-info" data-dialog="true">
         <div data-role="header" data-theme="a">
-            <h1 id="s-name-title">...</h1>
+            <a href="#schedule" data-icon="carat-l">Back</a>
+            <h1 id="s-name-title"></h1>
         </div>
         <!-- /header -->
         <div role="main" class="ui-content">
-            <h1 id="s-name">...</h1>
-            <p id="s-description">...
-            </p>
-            <a id="speaker" class="ui-btn ui-shadow ui-corner-all ui-btn-a">speaker information</a>
-            <a id="feedback" class="ui-btn ui-shadow ui-corner-all ui-btn-a">session feedback</a>
+            <h1 id="s-name"></h1>
+            <p id="s-description"></p>
+            <a id="speaker" class="ui-btn ui-shadow ui-corner-all ui-btn-a">Speaker Information</a>
+            <a id="feedback" class="ui-btn ui-shadow ui-corner-all ui-btn-a">Session Feedback</a>
         </div>
-        <!-- /content -->
-        <!--  <div data-role="footer">
-            <h4>Page Footer</h4>
-            </div> /footer -->
     </div>
 
     <!-- /page -->
     <div data-role="page" id="speakerinformation">
-        <div data-role="header" data-add-back-btn="true">
-            <h1 id="sp-session-name">Keynote speech</h1>
+        <div data-role="header">
+            <a href="#schedule" data-icon="carat-l">Back</a>
+            <h1>
+                <span id="sp-session-name"></span> | Speaker Info
+            </h1>
         </div>
         <!-- /header -->
         <div role="main" class="ui-content">
@@ -441,32 +401,28 @@
                     <img style="width:125px; height:125px; padding:25px; float:left;" src="img/user.jpg">
                     <div style="padding:50px;">
                         <p>
-                            <strong>Name :
-                                <span id="sp-name">...</span></strong>
+                            <strong>Name : </strong>
+                            <span id="sp-name"></span>
                         </p>
                         <p>
-                            <strong>Position :
-                                <span id="sp-position">...</span></strong>
+                            <strong>Position : </strong>
+                            <span id="sp-position"></span>
                         </p>
                     </div>
                 </div>
                 <div>
-                    <p>
-                        <strong>Bio :</strong>
-                    </p>
-                    <p id="sp-bio">...</p>
+                    <strong>Bio :</strong>
+                    <p id="sp-bio"></p>
                 </div>
                 <div>
-                    <p>
-                        <strong>Contacts :</strong>
-                    </p>
+                    <strong>Contacts :</strong>
                     <p>
                         Email :
-                        <span id="sp-email">...</span>
+                        <span id="sp-email"></span>
                         <br>Mobile :
-                        <span id="sp-mobile">...</span>
+                        <span id="sp-mobile"></span>
                         <br>LinkedIn :
-                        <span id="sp-linkedin">...</span>
+                        <span id="sp-linkedin"></span>
                     </p>
                 </div>
             </div>
@@ -479,105 +435,116 @@
 
     <!-- /page -->
     <div data-role="page" id="sessionfeedback">
-        <div data-role="header" data-add-back-btn="true">
-            <h1>session one feedback</h1>
+        <div data-role="header">
+            <a href="#menu" data-icon="carat-l">Back</a>
+            <h1>session feedback</h1>
         </div>
         <!-- /header -->
+
         <div role="main" class="ui-content">
+            <div id="feedback-error-1" class="error-class"></div>
             <form class="ui-mini">
                 <div class="ui-field-contain" id="expectations">
                     <fieldset data-role="controlgroup" data-type="horizontal">
                         <legend>• Timing was suitable.</legend>
                         <label for="ab">Disagree</label>
-                        <input type="radio" name="timing" id="ab" checked>
+                        <input type="radio" name="timing" id="ab" value="disagree" checked>
                         <label for="cd">Neutral</label>
-                        <input type="radio" name="timing" id="cd">
+                        <input type="radio" name="timing" value="neutral" id="cd">
                         <label for="ef">Agree</label>
-                        <input type="radio" name="timing" id="ef">
+                        <input type="radio" name="timing" value="agree" id="ef">
                     </fieldset>
+                    <br>
                     <fieldset data-role="controlgroup" data-type="horizontal">
                         <legend>• Topic was interesting.</legend>
                         <label for="ty">Disagree</label>
-                        <input type="radio" name="Topic" id="ty" checked>
+                        <input type="radio" name="Topic" value="disagree" id="ty" checked>
                         <label for="ui">Neutral</label>
-                        <input type="radio" name="Topic" id="ui">
+                        <input type="radio" name="Topic" value="neutral" id="ui">
                         <label for="as">Agree</label>
-                        <input type="radio" name="Topic" id="as">
+                        <input type="radio" name="Topic" value="agree" id="as">
                     </fieldset>
+                    <br>
                     <fieldset data-role="controlgroup" data-type="horizontal">
                         <legend>• This seminar provided enough information about the topic.</legend>
                         <label for="df">Disagree</label>
-                        <input type="radio" name="information" id="df" checked>
+                        <input type="radio" name="information" value="disagree" id="df" checked>
                         <label for="hk">Neutral</label>
-                        <input type="radio" name="information" id="hk">
+                        <input type="radio" name="information" value="neutral" id="hk">
                         <label for="gj">Agree</label>
-                        <input type="radio" name="information" id="gj">
+                        <input type="radio" name="information" value="agree" id="gj">
                     </fieldset>
+                    <br>
                     <fieldset data-role="controlgroup" data-type="horizontal">
                         <legend>• Content was valuable.</legend>
                         <label for="zx">Disagree</label>
-                        <input type="radio" name="Content" id="zx" checked>
+                        <input type="radio" name="Content" value="disagree" id="zx" checked>
                         <label for="cv">Neutral</label>
-                        <input type="radio" name="Content" id="cv">
+                        <input type="radio" name="Content" value="neutral" id="cv">
                         <label for="bn">Agree</label>
-                        <input type="radio" name="Content" id="bn">
+                        <input type="radio" name="Content" value="agree" id="bn">
                     </fieldset>
+                    <br>
                     <fieldset data-role="controlgroup" data-type="horizontal">
                         <legend>• Speaker was knowledgeable about the topic.</legend>
                         <label for="qa">Disagree</label>
-                        <input type="radio" name="Speaker" id="qa" checked>
+                        <input type="radio" name="Speaker" value="disagree" id="qa" checked>
                         <label for="ws">Neutral</label>
-                        <input type="radio" name="Speaker" id="ws">
+                        <input type="radio" name="Speaker" value="neutral" id="ws">
                         <label for="ed">Agree</label>
-                        <input type="radio" name="Speaker" id="ed">
+                        <input type="radio" name="Speaker" value="agree" id="ed">
                     </fieldset>
+                    <br>
                     <fieldset data-role="controlgroup" data-type="horizontal">
                         <legend>• Speaker had good presentation skills.</legend>
                         <label for="rf">Disagree</label>
-                        <input type="radio" name="presentation" id="rf" checked>
+                        <input type="radio" name="presentation" value="disagree" id="rf" checked>
                         <label for="tg">Neutral</label>
-                        <input type="radio" name="presentation" id="tg">
+                        <input type="radio" name="presentation" value="neutral" id="tg">
                         <label for="yh">Agree</label>
-                        <input type="radio" name="presentation" id="yh">
+                        <input type="radio" name="presentation" value="agree" id="yh">
                     </fieldset>
+                    <br>
                     <fieldset data-role="controlgroup" data-type="horizontal">
                         <legend>• Duration was enough.</legend>
                         <label for="uj">Disagree</label>
-                        <input type="radio" name="Duration" id="uj" checked>
+                        <input type="radio" name="Duration" value="disagree" id="uj" checked>
                         <label for="ik">Neutral</label>
-                        <input type="radio" name="Duration" id="ik">
+                        <input type="radio" name="Duration" value="neutral" id="ik">
                         <label for="az">Agree</label>
-                        <input type="radio" name="Duration" id="az">
+                        <input type="radio" name="Duration" value="agree" id="az">
                     </fieldset>
                 </div>
                 <br><br>
                 <div class="ui-field-contain" id="rating">
                     <label for="slider-fill">Please give an overall rating for this seminar:</label>
-                    <input type="range" name="slider-fill" id="slider-fill" value="60" min="0" max="100" step="10" data-highlight="true">
+                    <input type="range" name="slider" id="slider" value="60" min="0" max="100" step="10" data-highlight="true">
                 </div>
                 <br><br>
                 <div class="ui-field-contain" id="rating">
                     <label for="flip-1">Did you expect any additional information? </label>
-                    <select name="flip-1" id="flip-1" data-role="slider">
+                    <select name="flip" id="flip" data-role="slider">
                         <option value="No">No</option>
                         <option value="Yes">Yes</option>
                     </select>
                 </div>
                 <br><br>
                 <div data-role="fieldcontain">
-                    <label for="textarea">What are your suggestions for other seminars' topics?</label>
+                    <label for="textarea">What are your suggestions for other seminars topics?</label>
                     <textarea name="textarea" id="textarea"></textarea>
                 </div>
                 <br><br>
                 <div data-role="fieldcontain">
                     <label for="textarea">Please write your suggestions and comments about this seminar or any activity of IEEE AlexSB.</label>
-                    <textarea name="textarea" id="textarea"></textarea>
+                    <textarea name="textarea" id="text"></textarea>
                 </div>
                 <br><br>
-                <input type="submit" data-inline="true" value="Submit" id="submit-session-feedback">
+                <input type="button" data-inline="true" value="send" id="session-feedback-submit-1">
                 <input type="reset" data-inline="true" value="reset">
             </form>
+            <div id="feedback-success-1" class="success-class"></div>
         </div>
+
         <!-- /content -->
         <!-- 	<div data-role="footer">
             <h4>Page Footer</h4>
@@ -586,8 +553,9 @@
 
     <!-- /page -->
     <div data-role="page" id="sponsors">
-        <div data-role="header" data-add-back-btn="true">
-            <h1>Sponsors</h1>
+        <div data-role="header">
+            <a href="#menu" data-icon="carat-l">Back</a>
+            <h1>ITW 2016 | Sponsors</h1>
         </div>
         <!-- /header -->
         <div role="main" class="ui-content">
@@ -616,27 +584,26 @@
 
     <!-- /page -->
     <div data-role="page" id="files">
-        <div data-role="header" data-add-back-btn="true">
-            <h1>Files</h1>
+        <div data-role="header">
+            <a href="#menu" data-icon="carat-l">Back</a>
+            <h1>ITW 2016 | Files</h1>
         </div>
         <!-- /header -->
         <div role="main" class="ui-content">
             <ul data-role="listview" data-inset="true" id="files-list">
             </ul>
         </div>
-        <!-- /content -->
-        <!-- <div data-role="footer">
-            <h4>Page Footer</h4>
-            </div> /footer -->
     </div>
 
     <!-- /page -->
     <div data-role="page" id="feedbacks">
-        <div data-role="header" data-add-back-btn="true">
+        <div data-role="header">
+            <a href="#menu" data-icon="carat-l">Back</a>
             <h1>Feedbacks</h1>
         </div>
         <!-- /header -->
         <div role="main" class="ui-content">
+            <div id="feedback-error-2" class="error-class"></div>
             <form class="ui-mini">
                 <div class="ui-field-contain" id="theme-selector">
                     <fieldset data-role="controlgroup" data-type="horizontal">
@@ -645,13 +612,13 @@
                         <input type="radio" name="theme" id="a" checked>
                         <label for="b">Email</label>
                         <input type="radio" name="theme" id="b">
-                        <label for="c">Facebook event</label>
+                        <label for="c">Facebook Event</label>
                         <input type="radio" name="theme" id="c">
                         <label for="d">Friends</label>
                         <input type="radio" name="theme" id="d">
-                        <label for="e">AlexSB volunteer</label>
+                        <label for="e">AlexSB Volunteer</label>
                         <input type="radio" name="theme" id="e">
-                        <label for="f">other</label>
+                        <label for="f">Other</label>
                         <input type="radio" name="theme" id="f">
                     </fieldset>
                     <input type="text" id="others" style="display:none;">
@@ -782,19 +749,17 @@
                     <textarea name="textarea" id="textarea"></textarea>
                 </div>
                 <br><br>
-                <input type="submit" data-inline="true" value="Submit">
-                <input type="reset" data-inline="true" value="reset">
+                <input type="submit" data-inline="true" value="Submit" id="session-feedback-submit-2">
+                <input type="reset" data-inline="true" value="Reset">
             </form>
+            <div id="feedback-success-2" class="success-class"></div>
         </div>
-        <!-- /content -->
-        <!-- <div data-role="footer">
-            <h4>Page Footer</h4>
-            </div> /footer -->
     </div>
 
     <!-- /page -->
     <div data-role="page" id="exhibitors">
-        <div data-role="header" data-add-back-btn="true">
+        <div data-role="header">
+            <a href="#menu" data-icon="carat-l">Back</a>
             <h1>ITW 2016 | Exhibitor</h1>
         </div>
         <!-- /header -->
@@ -848,7 +813,8 @@
 
     <!-- /page -->
     <div data-role="page" id="design">
-        <div data-role="header" data-add-back-btn="true">
+        <div data-role="header">
+            <a href="#menu" data-icon="carat-l">Back</a>
             <h1>Design</h1>
         </div>
         <!-- /header -->
@@ -886,7 +852,8 @@
 
     <!-- /page -->
     <div data-role="page" id="robot">
-        <div data-role="header" data-add-back-btn="true">
+        <div data-role="header">
+            <a href="#menu" data-icon="carat-l">Back</a>
             <h1>Robot project</h1>
         </div>
         <!-- /header -->
@@ -931,7 +898,8 @@
     <!-- /page -->
     <div data-role="page" id="announcement">
         <div data-role="header">
-            <h1>Announcemnts</h1>
+            <a href="#menu" data-icon="carat-l">Back</a>
+            <h1>Announcements</h1>
         </div>
         <!-- /header -->
         <div role="main" class="ui-content">
@@ -939,27 +907,23 @@
                 <ul data-role="listview" data-inset="true" style="margin-top:20px;" id="announcements-list">
                 </ul>
             </div>
-
-            <!-- /content -->
-            <!-- <div data-role="footer">
-                <h4>Page Footer</h4>
-                </div> /footer -->
         </div>
     </div>
 
     <!-- /page -->
     <div data-role="page" id="ieeeemail">
-        <div data-role="header" data-add-back-btn="true">
-            <h1>Email</h1>
+        <div data-role="header">
+            <a href="#menu" data-icon="carat-l">Back</a>
+            <h1>Contact Us</h1>
         </div>
         <!-- /header -->
         <div role="main" class="ui-content">
             <div class="container"></div>
             <h1>Get in touch</h1>
-            <div id="error2" class="error-class" style="width:250px; height:100px;"></div>
+            <div id="error2" class="error-class"></div>
             <form method="post" id="form3">
                 <label for="exampleInputEmail1">Email address</label>
-                <input type="email" name="email3" class="form-control" id="email3" placeholder="Enter email">
+                <input type="email" name="email3" class="form-control" id="email3">
                 <label for="subject">Subject</label>
                 <input type="text" name="subject" class="form-control" id="subject">
                 <label for="content">Content</label>
@@ -976,7 +940,9 @@
 
     <!-- /page -->
     <div data-role="page" id="map" data-url="map-page">
-        <div data-role="header" data-theme="a">
+
+        <div data-role="header">
+            <a href="#menu" data-icon="carat-l">Back</a>
             <h1>Maps</h1>
         </div>
         <div role="main" class="ui-content" id="map-canvas">
@@ -986,13 +952,6 @@
 
 </body>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3"></script>
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
-<script>
-
-
-</script>
 
 </html>
