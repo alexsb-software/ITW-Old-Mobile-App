@@ -637,7 +637,6 @@ $("#delete-entry-submit").click(function () {
     request.send(dataString);
 });
 
-
 var submitFeedback = function () {
     var TimingSuitable = $("input[name=timing]:checked").val();
     var TopicInteresting = $("input[name=Topic]:checked").val();
@@ -703,19 +702,3 @@ $("#session-feedback-submit-2").click(function () {
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(dataString);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

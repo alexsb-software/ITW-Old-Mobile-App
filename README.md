@@ -2,13 +2,12 @@
 
 ## POST requests
 
-To make any post request (submit to the database), type the path to 'index.html' in your browser followed by
-'#new-' then one of the following:
+To make any post request (submit to the database), type the path to 'index.html' in your browser followed by one of the following:
 
-* 'session'
-* 'file'
-* 'sponsor'
-* 'announcement'
+* '#new-session'
+* '#new-file'
+* '#new-sponsor'
+* '#new-announcement'
 
 Ex: "...index.html#new-session"
 
@@ -16,12 +15,20 @@ Ex: "...index.html#new-session"
 
 ## GET requests
 
-To make any get request (get from the database), type the path to 'index.html' in your browser followed by
-'#get-' then one of the following:
+To make any get request (get from the database), type the path to 'index.html' in your browser followed by one of the following:
 
-* 'sessions'
-* 'files'
-* 'sponsors'
-* 'announcements'
+* '#get-sessions'
+* '#get-files'
+* '#get-sponsors'
+* '#get-announcements'
 
 Ex: "...index.html#get-sessions"
+
+---
+
+## DELETE requests
+
+To make any delete request (delete from the database), type the path to 'index.html' in your browser followed by '#delete-entry'.
+You will be prompted to choose the type you want to delete and its ID. To know the ID make a get request first.
+
+Ex: "...index.html#delete-entry"
