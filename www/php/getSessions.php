@@ -7,7 +7,7 @@ if (!$link || $link->connect_errno) {
 	die ("Database Connection Error");
 }
 
-$query = "SELECT * FROM schedule";
+$query = "SELECT *, DATE_FORMAT(SessionStartTime, '%H:%i') AS StartTime, DATE_FORMAT(SessionEndTime, '%H:%i') AS EndTime FROM schedule";
 
 if ($_GET) {
     if ($_GET["date"]) {

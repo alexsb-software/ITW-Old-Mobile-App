@@ -1,3 +1,22 @@
+var addServerName = true;
+var serverName = addServerName ? 'http://176.32.230.48/ahmedhafez92.com/ITW-Mobile-App/www/' : '';
+
+var addAnnouncementPhpScriptPath = serverName + 'php/addAnnouncement.php';
+var addFilePhpScriptPath = serverName + 'php/addFile.php';
+var addSessionPhpScriptPath = serverName + 'php/addSession.php';
+var addSponsorPhpScriptPath = serverName + 'php/addSponsor.php';
+var getAnnouncementsPhpScriptPath = serverName + 'php/getAnnouncements.php';
+var getFilesPhpScriptPath = serverName + 'php/getFiles.php';
+var getSessionsPhpScriptPath = serverName + 'php/getSessions.php';
+var getSponsorsPhpScriptPath = serverName + 'php/getSponsors.php';
+var signInPhpScriptPath = serverName + 'php/signin.php';
+var sessionFeedbackPhpScriptPath = serverName + 'php/sessionfeedback.php';
+var deleteEntryPhpScriptPath = serverName + 'php/deleteEntry.php';
+
+var messagePhpScriptPath = 'http://176.32.230.48/ahmedhafez92.com/message.php';
+var signUpPhpScriptPath = 'http://176.32.230.48/ahmedhafez92.com/signup.php';
+
+
 if (localStorage.getItem("em") && localStorage.getItem("ps")) {
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
@@ -10,8 +29,9 @@ if (localStorage.getItem("em") && localStorage.getItem("ps")) {
             }
         }
     };
-    request.open("POST", "php/signin.php", true);
+    request.open("POST", signInPhpScriptPath, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.setRequestHeader('Access-Control-Allow-Origin', '*');
     request.send("&email=" + localStorage.getItem("em") + "&password=" + localStorage.getItem("ps"));
 }
 
@@ -38,8 +58,9 @@ $("#sign-in").click(function () {
         }
     };
 
-    request.open("POST", "php/signin.php", true);
+    request.open("POST", signInPhpScriptPath, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.setRequestHeader('Access-Control-Allow-Origin', '*');
     request.send(dataString);
 });
 
@@ -85,7 +106,7 @@ $("#enter").click(function () {
             }
         };
 
-        request.open("POST", "http://176.32.230.48/ahmedhafez92.com/signup.php", true);
+        request.open("POST", signUpPhpScriptPath, true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.send(dataString);
     }
@@ -124,7 +145,7 @@ $("#add-session").click(function () {
         }
     };
 
-    request.open("POST", "php/addSession.php", true);
+    request.open("POST", addSessionPhpScriptPath, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(dataString);
 });
@@ -149,7 +170,7 @@ $("#add-file").click(function () {
         }
     };
 
-    request.open("POST", "php/addFile.php", true);
+    request.open("POST", addFilePhpScriptPath, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(dataString);
 });
@@ -177,7 +198,7 @@ $("#add-sponsor").click(function () {
         }
     };
 
-    request.open("POST", "php/addSponsor.php", true);
+    request.open("POST", addSponsorPhpScriptPath, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(dataString);
 });
@@ -202,7 +223,7 @@ $("#add-announcement").click(function () {
         }
     };
 
-    request.open("POST", "php/addAnnouncement.php", true);
+    request.open("POST", addAnnouncementPhpScriptPath, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(dataString);
 
@@ -218,8 +239,9 @@ $(document).on("pageshow", "#get-sessions", function () {
         }
     };
 
-    request.open("GET", "php/getSessions.php", true);
+    request.open("GET", getSessionsPhpScriptPath, true);
     request.setRequestHeader("Content-type", "application/json");
+    request.setRequestHeader('Access-Control-Allow-Origin', '*');
     request.send();
 });
 
@@ -233,7 +255,7 @@ $(document).on("pageshow", "#get-sponsors", function () {
         }
     };
 
-    request.open("GET", "php/getSponsors.php", true);
+    request.open("GET", getSponsorsPhpScriptPath, true);
     request.setRequestHeader("Content-type", "application/json");
     request.send();
 });
@@ -248,7 +270,7 @@ $(document).on("pageshow", "#get-files", function () {
         }
     };
 
-    request.open("GET", "php/getFiles.php", true);
+    request.open("GET", getFilesPhpScriptPath, true);
     request.setRequestHeader("Content-type", "application/json");
     request.send();
 });
@@ -263,7 +285,7 @@ $(document).on("pageshow", "#get-announcements", function () {
         }
     };
 
-    request.open("GET", "php/getAnnouncements.php", true);
+    request.open("GET", getAnnouncementsPhpScriptPath, true);
     request.setRequestHeader("Content-type", "application/json");
     request.send();
 });
@@ -291,7 +313,7 @@ $("#emailsend").click(function () {
         }
     };
 
-    request.open("POST", "http://176.32.230.48/ahmedhafez92.com/message.php", true);
+    request.open("POST", messagePhpScriptPath, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(dataString);
 });
@@ -348,7 +370,8 @@ $("#day-one").click(function () {
 
     $.ajax({
         type: 'GET',
-        url: 'php/getSessions.php',
+        url: getSessionsPhpScriptPath,
+        headers: {'Access-Control-Allow-Origin': '*'},
         data: {
             date: "05",
             id: null
@@ -357,12 +380,12 @@ $("#day-one").click(function () {
             var sessions = JSON.parse($(data).html());
 
             sessions.forEach(function (session) {
-                var session_html_str = '<li data-role="list-divider" class="time ui-li-divider ui-bar-inherit ui-first-child">' + session.SessionStartTime + '</li>' +
-                    '<li class="ui-last-child"> <a id=\"slink-' + session.id + '\" class="ui-btn ui-btn-icon-right ui-icon-carat-r">\
-                                <h2 id="name">' + session.SessionName + '</h2>\
-                                <p><strong id="place">' + session.SessionHall + '</strong></p>\
-                                <p class="ui-li-aside" ><strong id="session-duration">' + session.SessionStartTime + '  &#8594;  ' + session.SessionEndTime + '</strong></p>\
-                            </a> </li>';
+                var session_html_str = '<li data-role="list-divider" class="time ui-li-divider ui-bar-inherit ui-first-child">' + session.StartTime +
+                    ' &#8594; ' + session.EndTime + '</li>' +
+                    '<li class="ui-last-child"> <a id=\"slink-' + session.id + '\" class="ui-btn ui-btn-icon-right ui-icon-carat-r">' +
+                    '<h2 id="name">' + session.SessionName + '</h2>' +
+                    '<p><strong id="place">' + session.SessionHall + '</strong></p>' +
+                    '</a> </li>';
 
                 //add session to list
                 $('#sessions-list').append(session_html_str);
@@ -386,7 +409,7 @@ $("#day-two").click(function () {
 
     $.ajax({
         type: 'GET',
-        url: 'php/getSessions.php',
+        url: getSessionsPhpScriptPath,
         data: {
             date: "06",
             id: null
@@ -395,12 +418,12 @@ $("#day-two").click(function () {
             var sessions = JSON.parse($(data).html());
 
             sessions.forEach(function (session) {
-                var session_html_str = '<li data-role="list-divider" class="time ui-li-divider ui-bar-inherit ui-first-child">' + session.SessionStartTime + '</li>' +
-                    '<li class="ui-last-child"> <a id=\"slink-' + session.id + '\" class="ui-btn ui-btn-icon-right ui-icon-carat-r">\
-                                <h2 id="name">' + session.SessionName + '</h2>\
-                                <p><strong id="place">' + session.SessionHall + '</strong></p>\
-                                <p class="ui-li-aside" ><strong id="session-duration">' + session.SessionStartTime + '  &#8594;  ' + session.SessionEndTime + '</strong></p>\
-                            </a> </li>';
+                var session_html_str = '<li data-role="list-divider" class="time ui-li-divider ui-bar-inherit ui-first-child">' + session.StartTime +
+                    ' &#8594; ' + session.EndTime + '</li>' +
+                    '<li class="ui-last-child"> <a id=\"slink-' + session.id + '\" class="ui-btn ui-btn-icon-right ui-icon-carat-r">' +
+                    '<h2 id="name">' + session.SessionName + '</h2>' +
+                    '<p><strong id="place">' + session.SessionHall + '</strong></p>' +
+                    '</a> </li>';
 
                 //add session to list
                 $('#sessions-list').append(session_html_str);
@@ -423,7 +446,7 @@ $(document).on("pageshow", "#session-info", function (event, data) {
 
     $.ajax({
         type: 'GET',
-        url: 'php/getSessions.php',
+        url: getSessionsPhpScriptPath,
         data: {
             id: id,
             date: null
@@ -437,12 +460,12 @@ $(document).on("pageshow", "#session-info", function (event, data) {
 
             $("#speaker").on("click", function () {
                 window.location = window.location.pathname + '#speakerinformation?id=' + id;
-                // location.reload();
+                location.reload();
             });
 
             $("#feedback").on("click", function () {
                 window.location = window.location.pathname + '#sessionfeedback?id=' + id;
-                // location.reload();
+                location.reload();
             });
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -456,7 +479,7 @@ $(document).on("pageshow", "#speakerinformation", function (event, data) {
 
     $.ajax({
         type: 'GET',
-        url: 'php/getSessions.php',
+        url: getSessionsPhpScriptPath,
         data: {
             id: id,
             date: null
@@ -479,9 +502,11 @@ $(document).on("pageshow", "#speakerinformation", function (event, data) {
 });
 
 $(document).on("pageshow", "#files", function (event, data) {
+    $("#files-list").html('');
+
     $.ajax({
         type: 'GET',
-        url: 'php/getFiles.php',
+        url: getFilesPhpScriptPath,
         success: function (data) {
             var files = JSON.parse($(data).html());
 
@@ -496,16 +521,18 @@ $(document).on("pageshow", "#files", function (event, data) {
 });
 
 $(document).on("pageshow", "#announcement", function (event, data) {
+    $("#announcements-list").html('');
+
     $.ajax({
         type: 'GET',
-        url: 'php/getAnnouncements.php',
+        url: getAnnouncementsPhpScriptPath,
         success: function (data) {
             var announcements = JSON.parse($(data).html());
 
             announcements.forEach(function (announcement) {
-                var announcement_html_str = '<li data-role="list-divider" class="ui-li-divider ui-bar-inherit ui-first-child" style="margin-top:20px;">'
+                var announcement_html_str = '<li data-role="list-divider" class="ui-li-divider ui-bar-inherit ui-first-child" style="margin-top:20px; white-space: pre-line;">'
                     + announcement.Title + ' <span class="announcement-time">' + announcement.Time + '</span>'
-                    + '</li>  <li class="ui-li-static ui-body-inherit ui-last-child"><p>' + announcement.Body + '</p></li>';
+                    + '</li>  <li class="ui-li-static ui-body-inherit ui-last-child"><p style="white-space: pre-line;">' + announcement.Body + '</p></li>';
 
                 $("#announcements-list").append(announcement_html_str);
             });
@@ -525,7 +552,7 @@ $("#platinum-sponsors").click(function () {
 
     $.ajax({
         type: 'GET',
-        url: 'php/getSponsors.php',
+        url: getSponsorsPhpScriptPath,
         data: {type: 'platinum'},
         success: function (data) {
             var sponsors = JSON.parse($(data).html());
@@ -548,7 +575,7 @@ $("#golden-sponsors").click(function () {
 
     $.ajax({
         type: 'GET',
-        url: 'php/getSponsors.php',
+        url: getSponsorsPhpScriptPath,
         data: {type: 'gold'},
         success: function (data) {
             var sponsors = JSON.parse($(data).html());
@@ -571,7 +598,7 @@ $("#silver-sponsors").click(function () {
 
     $.ajax({
         type: 'GET',
-        url: 'php/getSponsors.php',
+        url: getSponsorsPhpScriptPath,
         data: {type: 'silver'},
         success: function (data) {
             var sponsors = JSON.parse($(data).html());
@@ -594,7 +621,7 @@ $("#partners").click(function () {
 
     $.ajax({
         type: 'GET',
-        url: 'php/getSponsors.php',
+        url: getSponsorsPhpScriptPath,
         data: {type: 'partner'},
         success: function (data) {
             var sponsors = JSON.parse($(data).html());
@@ -619,7 +646,6 @@ $("#delete-entry-submit").click(function () {
     var dataString = "&tableName=" + tableName + "&rowId=" + rowId;
 
     var request = new XMLHttpRequest();
-
     request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
             var res = request.responseText;
@@ -632,12 +658,12 @@ $("#delete-entry-submit").click(function () {
         }
     };
 
-    request.open("POST", "php/deleteEntry.php", true);
+    request.open("POST", deleteEntryPhpScriptPath, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(dataString);
 });
 
-var submitFeedback = function () {
+$("#session-feedback-submit-1").click(function () {
     var TimingSuitable = $("input[name=timing]:checked").val();
     var TopicInteresting = $("input[name=Topic]:checked").val();
     var SessionEnoughInformation = $("input[name=information]:checked").val();
@@ -658,11 +684,6 @@ var submitFeedback = function () {
         "&DurationEnough=" + DurationEnough + "&SessionRating=" + SessionRating + "&ExpectAdditionalInformation=" + ExpectAdditionalInformation +
         "&SuggestionsOtherSessions=" + SuggestionsOtherSessions + "&SuggestionsAndComments=" + SuggestionsAndComments;
 
-    return dataString;
-};
-
-$("#session-feedback-submit-1").click(function () {
-    var dataString = submitFeedback();
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function () {
@@ -677,28 +698,20 @@ $("#session-feedback-submit-1").click(function () {
         }
     };
 
-    request.open("POST", "php/sessionfeedback.php", true);
+    request.open("POST", sessionFeedbackPhpScriptPath, true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.send(dataString);
 });
 
-$("#session-feedback-submit-2").click(function () {
-    var dataString = submitFeedback();
-    var request = new XMLHttpRequest();
-
-    request.onreadystatechange = function () {
-        if (request.readyState == 4 && request.status == 200) {
-            var res = request.responseText;
-
-            if (res.indexOf("successfully") != -1) {
-                $("#feedback-success-2").html(res);
-            } else {
-                $("#feedback-error-2").html(res);
-            }
-        }
-    };
-
-    request.open("POST", "php/sessionfeedback.php", true);
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.send(dataString);
+$("#logout").click(function () {
+    localStorage.removeItem('em');
+    localStorage.removeItem('ps');
+    $.mobile.navigate.history.stack.clear();
 });
+
+$(document).on("mobileinit", function () {
+    $.mobile.hashListeningEnabled = false;
+    $.mobile.pushStateEnabled = false;
+    $.mobile.changePage.defaults.changeHash = false;
+});
+

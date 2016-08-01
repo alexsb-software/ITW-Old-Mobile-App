@@ -34,6 +34,14 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
+        document.addEventListener("backbutton", function (e) {
+			if($.mobile.activePage.is('#index')){
+			   // e.preventDefault();
+			   navigator.app.exitApp();
+		   }
+            navigator.app.exitApp(); // To exit the app!
+            // e.preventDefault(); // to disable the back
+        }, false);
     },
     // Update DOM on a Received Event
     receivedEvent: function (id) {

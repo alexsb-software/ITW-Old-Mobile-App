@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0"/>
     <title>ITW | IEEE AlexSB</title>
 
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
@@ -236,7 +236,7 @@
                         <label>Announcement Title :</label>
                         <input type="text" id="announcement-title">
                         <label>Announcement Body :</label>
-                        <input type="text" id="announcement-body">
+                        <textarea id="announcement-body"></textarea>
 
                         <input type="button" type="submit" id="add-announcement" value="Add Announcement">
 
@@ -296,7 +296,7 @@
     <!-- /page -->
     <div data-role="page" id="menu">
         <div data-role="header" data-position="fixed">
-            <a href="index.html" data-icon="power">Logout</a>
+            <a href="index.html" id="logout" data-icon="power">Logout</a>
             <h1>ITW 2016</h1>
         </div>
         <!-- /header -->
@@ -315,23 +315,17 @@
                     <a href="#ieeeemail" class="ui-btn ui-btn-inline ui-icon-mail ui-btn-icon-top button ui-nodisc-icon">Contact Us</a>
                 </div>
                 <div class="ui-block-a menu-page-item">
-                    <a href="#feedbacks" class="ui-btn ui-btn-inline ui-icon-comment ui-btn-icon-top button ui-nodisc-icon">Feedbacks</a>
-                </div>
-                <div class="ui-block-b menu-page-item">
-                    <a href="#announcement" class="ui-btn ui-btn-inline ui-icon-tag ui-btn-icon-top button ui-nodisc-icon">Announcemnts</a>
-                </div>
-                <div class="ui-block-a menu-page-item">
-                    <a href="#files" class="ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-top button ui-nodisc-icon">Files</a>
-                </div>
-                <div class="ui-block-b menu-page-item">
                     <a href="#map" class="ui-btn ui-btn-inline ui-icon-location ui-btn-icon-top button ui-nodisc-icon">Maps</a>
                 </div>
+                <div class="ui-block-b menu-page-item">
+                    <a href="#files" class="ui-btn ui-btn-inline ui-icon-edit ui-btn-icon-top button ui-nodisc-icon">Files</a>
+                </div>
+                <div class="ui-block menu-page-item" style="margin-left: 0.3rem; margin-right: -0.3rem">
+                    <a href="#announcement" class="ui-btn ui-btn-inline ui-icon-tag ui-btn-icon-top button ui-nodisc-icon">Announcemnts</a>
+                </div>
             </div>
+
         </div>
-        <!-- /content -->
-        <!-- <div data-role="footer">
-            <h4>Page Footer</h4>
-            </div> /footer -->
     </div>
 
     <!-- /page -->
@@ -372,10 +366,12 @@
     </div>
 
     <!-- /page -->
-    <div data-role="page" id="session-info" data-dialog="true">
+    <div data-role="page" id="session-info">
         <div data-role="header" data-theme="a">
             <a href="#schedule" data-icon="carat-l">Back</a>
-            <h1 id="s-name-title"></h1>
+            <h1>
+                <span id="s-name-title"></span> | Session Info
+            </h1>
         </div>
         <!-- /header -->
         <div role="main" class="ui-content">
@@ -437,10 +433,9 @@
     <div data-role="page" id="sessionfeedback">
         <div data-role="header">
             <a href="#menu" data-icon="carat-l">Back</a>
-            <h1>session feedback</h1>
+            <h1>Session Feedback</h1>
         </div>
         <!-- /header -->
-
         <div role="main" class="ui-content">
             <div id="feedback-error-1" class="error-class"></div>
             <form class="ui-mini">
@@ -539,16 +534,11 @@
                     <textarea name="textarea" id="text"></textarea>
                 </div>
                 <br><br>
-                <input type="button" data-inline="true" value="send" id="session-feedback-submit-1">
-                <input type="reset" data-inline="true" value="reset">
+                <input type="button" data-inline="true" value="Send" id="session-feedback-submit-1">
+                <input type="reset" data-inline="true" value="Reset">
             </form>
             <div id="feedback-success-1" class="success-class"></div>
         </div>
-
-        <!-- /content -->
-        <!-- 	<div data-role="footer">
-            <h4>Page Footer</h4>
-            </div> /footer -->
     </div>
 
     <!-- /page -->
