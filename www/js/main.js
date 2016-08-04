@@ -494,9 +494,10 @@ $(document).on("pageshow", "#speakerinformation", function (event, data) {
             $("#sp-email").text(session[0].SpeakerEmail);
             $("#sp-mobile").text(session[0].SpeakerMobile);
             $("#sp-linkedin").text(session[0].SpeakerLinkedin);
-			
-			if (session[0].SpeakerImage !== null)
-				$("#sp-image").attr('src', session[0].SpeakerImage);
+
+            if (session[0].SpeakerImage !== null)
+                $("#sp-image").attr('src', session[0].SpeakerImage);
+
         },
         error: function (xhr, ajaxOptions, thrownError) {
             console.log(xhr.responseText);
@@ -547,7 +548,7 @@ $(document).on("pageshow", "#announcement", function (event, data) {
 });
 
 $(document).on("pageshow", "#sponsors", function (event, data) {
-    $("#platinum-sponsors").click();
+    $("#golden-sponsors").click();
 });
 
 $("#platinum-sponsors").click(function () {
@@ -717,4 +718,13 @@ $(document).on("mobileinit", function () {
     $.mobile.pushStateEnabled = false;
     $.mobile.changePage.defaults.changeHash = false;
 });
+
+
+
+
+
+
+
+
+
 
