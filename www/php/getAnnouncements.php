@@ -7,7 +7,7 @@ if (!$link || $link->connect_errno) {
 	die ("Database Connection Error");
 }
 
-$query = "SELECT Title, Body, DATE_FORMAT(CONVERT_TZ(PublishTime, '+00:00', '+01:00'), '%H:%i  %d-%m-%Y') AS Time FROM announcements;";
+$query = "SELECT id, Title, Body, DATE_FORMAT(CONVERT_TZ(PublishTime, '+00:00', '+01:00'), '%H:%i  %d-%m-%Y') AS Time FROM announcements;";
 $result = $link->query($query);
 
 $encode = array();

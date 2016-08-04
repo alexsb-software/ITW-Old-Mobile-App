@@ -68,16 +68,16 @@ $("#form1").on('submit', function () {
     return false;
 });
 
-$("#enter").click(function () {
-    var email = $("#email-signin").val();
-    var password = $("#passwordl").val();
-    var name = $("#name").val();
-    var ieeemember = $("#ieeemember").val();
-    var mobile = $("#mobile").val();
-    var membershipno = $("#membershipno").val();
-    var department = $("#department").val();
-    var year = $("#year").val();
-    var cpassword = $("#cpassword").val();
+$("#enterSignUp").click(function () {
+    var email = $("#emailSignUp").val();
+    var password = $("#passwordSignUp").val();
+    var name = $("#nameSignUp").val();
+    var ieeemember = $("#ieeememberSignUp").val();
+    var mobile = $("#mobileSignUp").val();
+    var membershipno = $("#membershipnoSignUp").val();
+    var department = $("#departmentSignUp").val();
+    var year = $("#yearSignUp").val();
+    var cpassword = $("#cpasswordSignUp").val();
 
     var dataString = "&email=" + email + "&password=" + password + "&name=" + name + "&ieeemember=" + ieeemember + "&mobile=" + mobile + "&membershipno=" + membershipno + "&department=" + department + "&year=" + year;
 
@@ -494,6 +494,9 @@ $(document).on("pageshow", "#speakerinformation", function (event, data) {
             $("#sp-email").text(session[0].SpeakerEmail);
             $("#sp-mobile").text(session[0].SpeakerMobile);
             $("#sp-linkedin").text(session[0].SpeakerLinkedin);
+			
+			if (session[0].SpeakerImage !== null)
+				$("#sp-image").attr('src', session[0].SpeakerImage);
         },
         error: function (xhr, ajaxOptions, thrownError) {
             console.log(xhr.responseText);

@@ -62,24 +62,24 @@
                 <div class="main">
                     <form class="form" method="post" id="form2">
                         <label>Name :</label>
-                        <input type="text" name="dname" id="name">
+                        <input type="text" name="dname" id="nameSignUp">
                         <label>Email :</label>
-                        <input type="text" name="demail" id="emaill">
+                        <input type="text" name="demail" id="emailSignUp">
                         <label>Password :</label>
-                        <input type="password" name="password" id="passwordl">
+                        <input type="password" name="password" id="passwordSignUp">
                         <label>Confirm Password :</label>
-                        <input type="password" name="cpassword" id="cpassword">
+                        <input type="password" name="cpassword" id="cpasswordSignUp">
                         <label for="ieeemember">Are you an IEEE member ?</label>
-                        <select name="ieeemember" id="ieeemember" data-role="slider" data-mini="true">
+                        <select name="ieeemember" id="ieeememberSignUp" data-role="slider" data-mini="true">
                             <option value="No">No</option>
                             <option value="Yes" selected="">Yes</option>
                         </select>
                         <label>Membership number :</label>
-                        <input type="number" name="membershipno" id="membershipno" placeholder="leave blank if not a member ">
+                        <input type="number" name="membershipno" id="membershipnoSignUp" placeholder="leave blank if not a member ">
                         <label>Mobile :</label>
-                        <input type="number" name="mobile" id="mobile">
+                        <input type="number" name="mobile" id="mobileSignUp">
                         <label for="department" class="select" data-inline="true">Department :</label>
-                        <select name="department" id="department" data-inline="true">
+                        <select name="department" id="departmentSignUp" data-inline="true">
                             <option value="electrical">Electrical</option>
                             <option value="mechanical">Mechanical</option>
                             <option value="civil">Civil</option>
@@ -98,7 +98,7 @@
                             <option value="other">Other</option>
                         </select>
                         <label for="year" class="year" data-inline="true">Class :</label>
-                        <select name="year" id="year" data-inline="true">
+                        <select name="year" id="yearSignUp" data-inline="true">
                             <option value="2016">2016</option>
                             <option value="2017">2017</option>
                             <option value="2018">2018</option>
@@ -107,7 +107,7 @@
                             <option value="2021">2021</option>
                             <option value="other">Other</option>
                         </select>
-                        <input type="submit" name="enter" id="enter" value="sign up">
+                        <input type="submit" name="enter" id="enterSignUp" value="sign up">
                     </form>
                 </div>
             </div>
@@ -394,7 +394,7 @@
         <div role="main" class="ui-content">
             <div class="ui-content">
                 <div style="height:200px;">
-                    <img style="width:125px; height:125px; padding:25px; float:left;" src="img/user.jpg">
+                    <img style="width:125px; height:125px; padding:25px; float:left;" src="img/user.jpg" id="sp-image">
                     <div style="padding:50px;">
                         <p>
                             <strong>Name : </strong>
